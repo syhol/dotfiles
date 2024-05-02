@@ -4,15 +4,9 @@
 ## Setup Instructions
 
 ```sh
-# Install brew
-NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# Load config
+# Install config and programs
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --one-shot syhol
 
-# Install packages
-brew bundle --file ~/.config/brewfile/Brewfile
-
-# Checkout config
+# Checkout the dotfiles repo to keep it in sync
 chezmoi init --apply --verbose https://github.com/syhol/dotfiles.git
 ```
