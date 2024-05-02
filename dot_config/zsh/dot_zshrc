@@ -1,0 +1,59 @@
+eval "$(starship init zsh)"
+
+# ZSH History
+export SHELL_SESSIONS_DISABLE=1 # Disable apple shell sessions
+setopt inc_append_history
+setopt share_history
+
+# ZSH Completions
+export ZCOMPDUMP="$HOME/.cache/zsh/zcompdump-${ZSH_VERSION}"
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  mkdir -p $(dirname "$ZCOMPDUMP")
+  autoload -Uz compinit
+  compinit -i -d "$ZCOMPDUMP"
+fi
+
+
+if [ ! -f ."$HOME/.config/zsh/secrets.zsh" ]; then
+  source "$HOME/.config/zsh/secrets.zsh"
+fi
+
+# Misc
+export DISABLE_OPENCOLLECTIVE=true
+export NPM_CONFIG_CACHE="$HOME/.cache/npm"
+export GOPATH="$HOME/.local/share/go"
+export PATH="$PATH:$GOPATH/bin"
+export NIXPKGS_ALLOW_UNFREE=1
+export CLICOLOR=1
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+export EDITOR="nvim"
+
+# Apps
+source "$HOME/.config/zsh/kubectl_aliases"
+source "$HOME/.config/fzf/.fzf.zsh"
+source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+eval "$(fnm env --use-on-cd)"
+eval "$(zoxide init zsh)"
+
+# Aliases
+alias v="fd --type f --hidden --exclude .git | fzf --height 40% --reverse --preview 'bat --style=numbers --color=always --line-range :500 {}' | xargs nvim"
+alias vim="nvim"
+alias ls="eza -al --icons --group-directories-first"
+alias tree="eza -T"
+alias cd="z"
+alias diff="difft"
+
+# History Files
+export HISTFILE=$HOME/.local/state/zsh/history
+export PYTHON_HISTORY=$HOME/.local/state/python/history
+export NODE_REPL_HISTORY=$HOME/.local/state/nodejs/history
+export LESSHISTFILE=$HOME/.local/state/less/history
+histories=($HISTFILE $PYTHON_HISTORY $NODE_REPL_HISTORY $LESSHISTFILE)
+for history_file in $histories; do
+  if [ ! -f "$history_file" ]; then
+    mkdir -p $(dirname "$history_file")
+    touch "$history_file"
+  fi
+done

@@ -1,0 +1,5 @@
+[user]
+	email = simon@syhol.io
+	name = simon@syhol.io
+[push]
+	autoSetupRemote = true

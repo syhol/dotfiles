@@ -1,0 +1,68 @@
+# Taps
+tap "homebrew/bundle"
+tap "homebrew/cask-fonts"
+tap "homebrew/services"
+
+# Javascript
+brew "fnm"
+brew "pnpm"
+brew "deno"
+
+# Go
+brew "go"
+
+# Kubernetes
+brew "kubernetes-cli"
+brew "kubectx"
+brew "helm"
+
+# Shell goodness
+brew "nushell"
+brew "starship"
+brew "zoxide"
+brew "eza"
+brew "bat"
+brew "fzf"
+brew "jq"
+brew "yq"
+brew "difftastic"
+brew "watchexec"
+brew "hyperfine"
+brew "procs"
+brew "fd"
+brew "rg"
+brew "zsh-syntax-highlighting"
+brew "chezmoi"
+
+# Neovim
+brew "neovim"
+brew "stylua"
+
+# Http
+brew "curl"
+brew "xh"
+
+# Fonts
+cask "font-meslo-lg-nerd-font"
+
+# Apps
+cask "docker"
+cask "kitty"
+cask "wezterm"
+cask "visual-studio-code"
+cask "monitorcontrol"
+
+# VS Code Extensions
+vscode "bradlc.vscode-tailwindcss"
+vscode "dbaeumer.vscode-eslint"
+vscode "denoland.vscode-deno"
+vscode "foam.foam-vscode"
+vscode "golang.go"
+vscode "mechatroner.rainbow-csv"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-vscode.makefile-tools"
+vscode "mushan.vscode-paste-image"
+vscode "orta.vscode-jest"
+vscode "pomdtr.excalidraw-editor"
+vscode "thenuprojectcontributors.vscode-nushell-lang"
+vscode "yzhang.markdown-all-in-one"
