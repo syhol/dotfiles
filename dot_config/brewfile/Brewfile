@@ -16,9 +16,14 @@ brew "kubernetes-cli"
 brew "kubectx"
 brew "helm"
 
-# Shell goodness
+# Shell
 brew "nushell"
 brew "starship"
+brew "zsh-syntax-highlighting"
+brew "zsh-autosuggestions"
+brew "chezmoi"
+
+# Shell utilities
 brew "zoxide"
 brew "eza"
 brew "bat"
@@ -31,8 +36,6 @@ brew "hyperfine"
 brew "procs"
 brew "fd"
 brew "rg"
-brew "zsh-syntax-highlighting"
-brew "chezmoi"
 
 # Neovim
 brew "neovim"
@@ -51,6 +54,7 @@ cask "kitty"
 cask "wezterm"
 cask "visual-studio-code"
 cask "monitorcontrol"
+cask "rectangle"
 
 # VS Code Extensions
 vscode "bradlc.vscode-tailwindcss"
