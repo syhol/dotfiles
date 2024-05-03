@@ -26,5 +26,15 @@ return {
       mods = 'OPT',
       action = wezterm.action { SendString = '\x1bf' },
     },
+    {
+      key = 'Enter',
+      mods = 'CMD',
+      action = wezterm.action.SplitVertical,
+    },
+    {
+      key = 'Enter',
+      mods = 'CMD|CTRL',
+      action = wezterm.action.SplitHorizontal,
+    },
   },
 }
