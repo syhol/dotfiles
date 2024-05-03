@@ -18,9 +18,6 @@ brew "helm"
 
 # Shell
 brew "nushell"
-brew "starship"
-brew "zsh-syntax-highlighting"
-brew "zsh-autosuggestions"
 brew "chezmoi"
 
 # Shell utilities

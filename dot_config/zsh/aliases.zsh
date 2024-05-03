@@ -13,3 +13,9 @@ alias tree="eza -T"
 alias cd="z"
 alias diff="difft"
 alias cz="chezmoi"
+alias k="kubectl"
+alias kg="kubectl get"
+alias kd='kubectl describe'
+alias krm='kubectl delete'
+function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
+compdef _directories md
