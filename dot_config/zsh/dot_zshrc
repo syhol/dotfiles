@@ -1,26 +1,7 @@
-eval "$(starship init zsh)"
+# Prompt
+eval "$(starship init zsh)" # 80ms
 
-# ZSH History
-export SHELL_SESSIONS_DISABLE=1 # Disable apple shell sessions
-setopt inc_append_history
-setopt share_history
-
-# ZSH Completions
-export ZCOMPDUMP="$HOME/.cache/zsh/zcompdump-${ZSH_VERSION}"
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-  mkdir -p $(dirname "$ZCOMPDUMP")
-  autoload -Uz compinit
-  compinit -i -d "$ZCOMPDUMP"
-fi
-
-
-if [ ! -f ."$HOME/.config/zsh/secrets.zsh" ]; then
-  source "$HOME/.config/zsh/secrets.zsh"
-fi
-
-# Misc
+# Env vars
 export DISABLE_OPENCOLLECTIVE=true
 export NPM_CONFIG_CACHE="$HOME/.cache/npm"
 export GOPATH="$HOME/.local/share/go"
@@ -30,38 +11,15 @@ export CLICOLOR=1
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 export EDITOR="nvim"
 
-# Apps
-source "$HOME/.config/zsh/kubectl_aliases"
-source "$HOME/.config/fzf/.fzf.zsh"
-source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-eval "$(fnm env --use-on-cd)"
-eval "$(zoxide init zsh)"
+# Extending the shell
+source "$HOME/.config/zsh/completions.zsh" # 40ms 
+[[ ! -f ."$HOME/.config/zsh/secrets.zsh" ]] && source "$HOME/.config/zsh/secrets.zsh"
+source "$HOME/.config/zsh/kubectl_aliases.zsh" # 2ms 
+source "$HOME/.config/zsh/aliases.zsh" # 2ms
+source "$HOME/.config/zsh/history.zsh" # 5ms
+source "$HOME/.config/fzf/.fzf.zsh" # 7ms
+source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" # 19ms
+source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" # 28ms
+eval "$(fnm env --use-on-cd)" # 5ms
+eval "$(zoxide init zsh)" # 2ms
 
-# Aliases
-alias fzf-vim-selector="fzf \
-  --height 50% --min-height 20 --reverse --info=inline \
-  --margin=1,2,0,2 --padding=1,2 --border \
-  --no-scrollbar --preview-window bottom,border-top \
-  --preview 'bat --style=numbers --color=always --line-range :500 {}' \
-"
-alias vd="fd --type f --hidden --exclude .git | fzf-vim-selector | xargs nvim"
-alias vr="nvim --headless -c 'echo v:oldfiles | q' 2>&1 | sed 's/'\''/\"/g' | jq '.[]' -r | fzf-vim-selector | xargs nvim"
-alias vim="nvim"
-alias ls="eza -al --icons --group-directories-first"
-alias tree="eza -T"
-alias cd="z"
-alias diff="difft"
-
-# History Files
-export HISTFILE=$HOME/.local/state/zsh/history
-export PYTHON_HISTORY=$HOME/.local/state/python/history
-export NODE_REPL_HISTORY=$HOME/.local/state/nodejs/history
-export LESSHISTFILE=$HOME/.local/state/less/history
-histories=($HISTFILE $PYTHON_HISTORY $NODE_REPL_HISTORY $LESSHISTFILE)
-for history_file in $histories; do
-  if [ ! -f "$history_file" ]; then
-    mkdir -p $(dirname "$history_file")
-    touch "$history_file"
-  fi
-done

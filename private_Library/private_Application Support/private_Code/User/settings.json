@@ -1,0 +1,9 @@
+{
+    "editor.formatOnSave": true,
+    "files.autoSave": "onFocusChange",
+    "editor.fontFamily": "MesloLGSDZ Nerd Font Mono, Menlo, Monaco, 'Courier New', monospace",
+    "terminal.integrated.fontFamily": "\"MesloLGM Nerd Font Mono\"",
+    "excalidraw.theme": "auto",
+    "deno.cacheOnSave": true,
+    "eslint.format.enable": true,
+}
