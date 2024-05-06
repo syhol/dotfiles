@@ -31,21 +31,25 @@ brew "fzf"
 brew "jq"
 brew "yq"
 brew "difftastic"
-brew "watchexec"
 brew "hyperfine"
 brew "procs"
 brew "fd"
 brew "rg"
 brew "dust"
 brew "btop"
+brew "viddy"
+brew "sevenzip"
 
 # Neovim
 brew "neovim"
 brew "stylua"
 
-# Http
+# Http & Net
 brew "curl"
 brew "xh"
+brew "wget"
+brew "netcat"
+brew "dog"
 
 # Fonts
 cask "font-meslo-lg-nerd-font"
