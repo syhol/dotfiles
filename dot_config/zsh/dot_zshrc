@@ -1,23 +1,22 @@
-# Setup the z4h framework: prompt and plugins
-source ~/.config/zsh/z4h.zsh 
-
-# Extend PATH.
-path=(~/bin $path)
+# Load the prompt 
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # Source additional local files if they exist.
-z4h source ~/.config/zsh/env.zsh
-z4h source ~/.config/zsh/secrets.zsh
-z4h source ~/.config/zsh/history.zsh # 5ms
-z4h source ~/.config/zsh/fzf.zsh # 7ms
-z4h source ~/.config/zsh/aliases.zsh # 2ms
+source ~/.config/zsh/env.zsh
+source ~/.config/zsh/secrets.zsh
+source ~/.config/zsh/history.zsh # 5ms
+source ~/.config/zsh/fzf.zsh # 7ms
+source ~/.config/zsh/aliases.zsh # 2ms
+eval "$(fzf --zsh)"
 eval "$(fnm env --use-on-cd)" # 5ms
-eval "$(zoxide init zsh)" # 2ms
-
-# Define key bindings.
-z4h bindkey z4h-cd-back    Shift+Left   # cd into the previous directory
-z4h bindkey z4h-cd-forward Shift+Right  # cd into the next directory
-z4h bindkey z4h-cd-up      Shift+Up     # cd into the parent directory
-z4h bindkey z4h-cd-down    Shift+Down   # cd into a child directory
+eval "$(zoxide init zsh --cmd cd)" # 2ms
+source "$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh"
+vivid_theme="tokyonight-storm"
+antidote load
+source ~/.config/zsh/completions.zsh
 
 # Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt glob_dots     # no special treatment for file names with a leading dot
@@ -25,5 +24,5 @@ setopt no_auto_menu  # require an extra TAB press to open the completion menu
 setopt inc_append_history # Add commands to .zsh_history as soon as run
 setopt share_history      # Share history between all zsh sessions
 
-[[ ! -v functions[command_not_found_handler] ]] || unfunction command_not_found_handler
-
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

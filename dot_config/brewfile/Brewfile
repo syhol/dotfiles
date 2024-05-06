@@ -19,6 +19,9 @@ brew "helm"
 # Shell
 brew "nushell"
 brew "chezmoi"
+brew "powerlevel10k"
+brew "antidote"
+brew "vivid"
 
 # Shell utilities
 brew "zoxide"
@@ -33,6 +36,8 @@ brew "hyperfine"
 brew "procs"
 brew "fd"
 brew "rg"
+brew "dust"
+brew "btop"
 
 # Neovim
 brew "neovim"

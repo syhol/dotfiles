@@ -6,4 +6,5 @@ export NIXPKGS_ALLOW_UNFREE=1
 export CLICOLOR=1
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 export EDITOR="nvim"
+export FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 

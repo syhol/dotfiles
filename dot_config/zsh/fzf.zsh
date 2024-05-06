@@ -7,8 +7,14 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 
 export _ZO_FZF_OPTS="${FZF_DEFAULT_OPTS} \
   --height 50% --min-height 20 --reverse --info=inline \
-  --margin=1,2,0,2 --padding=1,2 --border \
+  --reverse --margin=1,2,0,2 --padding=1,2 --border \
   --no-scrollbar --preview-window bottom,border-top \
   --preview 'eza --color=always --group-directories-first {2..}' \
+"
+
+export FZF_CTRL_R_OPTS=" \
+  --height 50% --min-height 20 --reverse --info=inline \
+  --reverse --margin=1,2,0,2 --padding=1,2 --border \
+  --no-scrollbar \
 "
 
