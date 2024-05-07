@@ -4,7 +4,7 @@
 # Chezmoi Brewfile.lock.json hash: {{ include "dot_config/brewfile/Brewfile.lock.json" | sha256sum }}
 
 if ! command -v brew &> /dev/null; then
-  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   eval $(/opt/homebrew/bin/brew shellenv)
 fi
 
