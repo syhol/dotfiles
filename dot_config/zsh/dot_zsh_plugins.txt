@@ -1,0 +1,6 @@
+zsh-users/zsh-completions
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-syntax-highlighting
+ryanccn/vivid-zsh
+Aloxaf/fzf-tab
+
