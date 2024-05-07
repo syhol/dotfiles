@@ -2,6 +2,7 @@
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/services"
+tap "dashlane/tap"
 
 # Javascript
 brew "fnm"
@@ -40,6 +41,10 @@ brew "btop"
 brew "viddy"
 brew "sevenzip"
 
+# GitHub
+brew "gh"
+brew "dashlane-cli"
+
 # Neovim
 brew "neovim"
 brew "stylua"
@@ -55,6 +60,7 @@ brew "dog"
 cask "font-meslo-lg-nerd-font"
 
 # Apps
+cask "google-chrome"
 cask "docker"
 cask "kitty"
 cask "wezterm"
