@@ -3,3 +3,15 @@
 	name = simon@syhol.io
 [push]
 	autoSetupRemote = true
+[diff]
+        external = difft
+        tool = difftastic
+[difftool]
+        prompt = false
+
+[difftool "difftastic"]
+        cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+        difftool = true
+

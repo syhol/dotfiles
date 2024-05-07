@@ -2045,6 +2045,12 @@
         "options": {
           "full_name": "rectangle"
         }
+      },
+      "utm": {
+        "version": "4.5.2",
+        "options": {
+          "full_name": "utm"
+        }
       }
     },
     "vscode": {
@@ -2067,10 +2073,10 @@
         "revision": "c6b0a50cef9b08b7ba548f5511980f74dc115868"
       },
       "homebrew/bundle": {
-        "revision": "6c811dab37c8384aafa3cec7e9517797aeea0823"
+        "revision": "9a05d51cbc53eb84a5fde97b7c8f6f6170e79244"
       },
       "homebrew/services": {
-        "revision": "93f3ab16ea53f828605a3a98d69cc8aa583aac67"
+        "revision": "ec6d0a1ab966a74b278a7fa9678c391acd979f7c"
       }
     }
   },
