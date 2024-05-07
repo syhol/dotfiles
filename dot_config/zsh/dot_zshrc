@@ -6,10 +6,10 @@ source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # Source additional local files if they exist.
 source ~/.config/zsh/env.zsh
-source ~/.config/zsh/secrets.zsh
 source ~/.config/zsh/history.zsh # 5ms
 source ~/.config/zsh/fzf.zsh # 7ms
 source ~/.config/zsh/aliases.zsh # 2ms
+test -f ~/.config/zsh/secrets.zsh && source  ~/.config/zsh/secrets.zsh 
 eval "$(fzf --zsh)"
 eval "$(fnm env --use-on-cd)" # 5ms
 eval "$(zoxide init zsh --cmd cd)" # 2ms
