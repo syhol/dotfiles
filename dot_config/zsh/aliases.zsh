@@ -20,4 +20,7 @@ alias k="kubectl"
 alias kg="kubectl get"
 alias kd='kubectl describe'
 alias krm='kubectl delete'
+include () {
+    [[ -f "$1" ]] && source "$1"
+}
 

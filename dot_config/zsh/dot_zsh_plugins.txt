@@ -1,6 +1,11 @@
 zsh-users/zsh-completions
-zsh-users/zsh-autosuggestions
-zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-syntax-highlighting kind:defer
+
 ryanccn/vivid-zsh
 Aloxaf/fzf-tab
+romkatv/zsh-bench kind:path
+
+belak/zsh-utils path:completion # Load autocompletions
+romkatv/powerlevel10k
+zsh-users/zsh-autosuggestions
 

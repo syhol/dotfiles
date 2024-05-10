@@ -6,5 +6,7 @@ export NIXPKGS_ALLOW_UNFREE=1
 export CLICOLOR=1
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 export EDITOR="nvim"
-export FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+export FPATH="${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}"
+export ZOXIDE_CMD_OVERRIDE="cd"
+export vivid_theme="tokyonight-storm"
 

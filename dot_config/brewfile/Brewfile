@@ -20,7 +20,6 @@ brew "helm"
 # Shell
 brew "nushell"
 brew "chezmoi"
-brew "powerlevel10k"
 brew "antidote"
 brew "vivid"
 
@@ -43,7 +42,7 @@ brew "sevenzip"
 
 # GitHub
 brew "gh"
-brew "dashlane-cli"
+brew "dashlane/tap/dashlane-cli"
 
 # Neovim
 brew "neovim"
