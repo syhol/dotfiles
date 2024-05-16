@@ -13,6 +13,10 @@ return {
     bottom = '40px',
   },
   enable_tab_bar = false,
+  window_decorations = 'RESIZE',
+  -- window_background_opacity = 0.85,
+  macos_window_background_blur = 20,
+  line_height = 1.2,
   keys = {
     -- Make Option-Left equivalent to Alt-b; backward-word
     {
@@ -33,8 +37,15 @@ return {
     },
     {
       key = 'Enter',
-      mods = 'CMD|CTRL',
+      mods = 'CMD|OPT',
       action = wezterm.action.SplitHorizontal,
+    },
+  },
+  mouse_bindings = {
+    {
+      event = { Drag = { streak = 1, button = 'Left' } },
+      mods = 'SUPER',
+      action = wezterm.action.StartWindowDrag,
     },
   },
 }

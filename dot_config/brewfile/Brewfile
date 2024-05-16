@@ -1,6 +1,5 @@
 # Taps
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
 tap "homebrew/services"
 tap "dashlane/tap"
 
@@ -66,6 +65,7 @@ cask "wezterm"
 cask "visual-studio-code"
 cask "monitorcontrol"
 cask "rectangle"
+cask "mullvadvpn"
 
 # VS Code Extensions
 vscode "bradlc.vscode-tailwindcss"

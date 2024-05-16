@@ -1,13 +1,11 @@
 
-# Load the prompt
+# Load the prompt, needs to happen early to get the most out of instant prompt
 source ~/.config/zsh/prompt-p10k.zsh
 
 source ~/.config/zsh/aliases.zsh
 source ~/.config/zsh/env.zsh
 source ~/.config/zsh/fzf.zsh
-source ~/.config/zsh/fzf-tab.zsh
 source ~/.config/zsh/history.zsh
-source ~/.config/zsh/options.zsh
 include ~/.config/zsh/secrets.zsh
 
 # Load custom integrations
@@ -17,4 +15,6 @@ eval "$(zoxide init zsh --cmd cd)" # 2ms
 
 # Load the zsh antidote plugins, see ~/.config/zsh/.zsh_plugins.txt
 source "$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh" && antidote load
+
+source ~/.config/zsh/fzf-tab.zsh
 

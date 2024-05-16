@@ -848,3 +848,7 @@ source ~/.config/nushell/fnm.nu
 
 ## Starship
 use ~/.cache/starship/init.nu
+
+## Zoxide
+source ~/.cache/zoxide/init.nu
+
