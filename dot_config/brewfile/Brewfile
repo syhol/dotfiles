@@ -3,13 +3,8 @@ tap "homebrew/bundle"
 tap "homebrew/services"
 tap "dashlane/tap"
 
-# Javascript
-brew "fnm"
-brew "pnpm"
-brew "deno"
-
-# Go
-brew "go"
+# Dev tooling
+brew "mise"
 
 # Kubernetes
 brew "kubernetes-cli"
@@ -23,21 +18,23 @@ brew "antidote"
 brew "vivid"
 
 # Shell utilities
-brew "zoxide"
-brew "eza"
-brew "bat"
+brew "zoxide" # cd alternative - change directories
+brew "eza" # ls alternative - list directory contents
+brew "bat" # cat alternative - print file contents
+brew "difftastic" # diff alternative - print the diff between files
+brew "hyperfine" # time alternative - benchmark cli commands
+brew "oha" # ab alternative - benchmark http endpoints
+brew "procs" # ps alternative - list os processes
+brew "fd" # find alternative - search files by file name
+brew "rg" # grep alternative - search files by contents
+brew "dust" # du alternative - show directory disk usage
+brew "btop" # top alternative - show processes using the most resources
+brew "viddy" # watch alternative - rerun a command every n seconds
+brew "sevenzip" # tar/zip alternative - compress and decompress archives
+brew "tealdeer" # man alternative - help pages
 brew "fzf"
 brew "jq"
 brew "yq"
-brew "difftastic"
-brew "hyperfine"
-brew "procs"
-brew "fd"
-brew "rg"
-brew "dust"
-brew "btop"
-brew "viddy"
-brew "sevenzip"
 
 # GitHub
 brew "gh"
@@ -49,10 +46,10 @@ brew "stylua"
 
 # Http & Net
 brew "curl"
-brew "xh"
 brew "wget"
 brew "netcat"
-brew "dog"
+brew "xh" # curl alternative - make http requests
+brew "dog" # dig alternative - lookup dns records
 
 # Fonts
 cask "font-meslo-lg-nerd-font"

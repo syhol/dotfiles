@@ -14,7 +14,7 @@ return {
   },
   enable_tab_bar = false,
   window_decorations = 'RESIZE',
-  -- window_background_opacity = 0.85,
+  window_background_opacity = 0.85,
   macos_window_background_blur = 20,
   line_height = 1.2,
   keys = {
@@ -32,13 +32,33 @@ return {
     },
     {
       key = 'Enter',
-      mods = 'CMD',
+      mods = 'CMD|OPT',
       action = wezterm.action.SplitVertical,
     },
     {
       key = 'Enter',
-      mods = 'CMD|OPT',
+      mods = 'CMD',
       action = wezterm.action.SplitHorizontal,
+    },
+    {
+      key = 'UpArrow',
+      mods = 'CMD|OPT',
+      action = wezterm.action.AdjustPaneSize { 'Up', 2 },
+    },
+    {
+      key = 'DownArrow',
+      mods = 'CMD|OPT',
+      action = wezterm.action.AdjustPaneSize { 'Down', 2 },
+    },
+    {
+      key = 'LeftArrow',
+      mods = 'CMD|OPT',
+      action = wezterm.action.AdjustPaneSize { 'Left', 2 },
+    },
+    {
+      key = 'RightArrow',
+      mods = 'CMD|OPT',
+      action = wezterm.action.AdjustPaneSize { 'Right', 2 },
     },
   },
   mouse_bindings = {

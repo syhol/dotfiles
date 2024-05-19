@@ -1,0 +1,6 @@
+[tools]
+node = 'lts'
+deno = 'latest'
+pnpm = 'latest'
+go = 'latest'
+usage = 'latest'

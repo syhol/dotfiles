@@ -5,6 +5,5 @@ export PATH="$PATH:$GOPATH/bin"
 export CLICOLOR=1
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 export EDITOR="nvim"
-export FPATH="${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}"
 export vivid_theme="tokyonight-storm"
 
