@@ -11,8 +11,10 @@ include ~/.config/zsh/secrets.zsh
 # Load custom integrations
 eval "$(fzf --zsh)" # 2ms
 eval "$(zoxide init zsh --cmd cd)" # 2ms
+eval "$(mise activate zsh)"
 
 # Load the zsh antidote plugins, see ~/.config/zsh/.zsh_plugins.txt
+zstyle ':antidote:bundle' use-friendly-names 'yes'
 source "$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh" && antidote load
 
 source ~/.config/zsh/completions.zsh

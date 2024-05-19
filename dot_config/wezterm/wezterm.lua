@@ -16,7 +16,7 @@ return {
   window_decorations = 'RESIZE',
   window_background_opacity = 0.85,
   macos_window_background_blur = 20,
-  line_height = 1.2,
+  line_height = 1.25,
   keys = {
     -- Make Option-Left equivalent to Alt-b; backward-word
     {
