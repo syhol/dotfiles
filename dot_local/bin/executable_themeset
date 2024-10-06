@@ -26,13 +26,29 @@ export BAT_THEME="${BAT_THEME}"
 export LS_COLORS="$(vivid generate ${VIVID_THEME})"
 EOL
 
+  mkdir -p ~/.local/state/themeset
+  echo "$(basename "${1}" .yaml)" >~/.local/state/themeset/current-theme.txt
+
   echo "To finish applying the theme to the current shell, run the following:"
   echo "source ~/.config/shell/theme.sh"
 }
 
 function select_theme() {
-  ls ~/.config/themes/*.yaml | fzf --preview-window '80%,border-left' --preview '
-    themeset apply {} >/dev/null
+  CURRENT_THEME="$(cat ~/.local/state/themeset/current-theme.txt 2>/dev/null)"
+
+  FILES=(~/.config/themes/*.yaml)
+  TOTAL=${#FILES[@]}
+  I=0
+  POS=0
+  for FILE in "${FILES[@]}"; do
+    I=$((I + 1))
+    if [ "$(basename ${FILE} .yaml)" == "${CURRENT_THEME}" ]; then
+      POS=$((I - TOTAL - 1))
+    fi
+  done
+
+  ls ~/.config/themes/*.yaml | xargs -I{} basename {} .yaml | fzf --cycle --bind "load:pos:${POS}" --preview-window '80%,border-left' --preview '
+    themeset apply ~/.config/themes/{}.yaml >/dev/null
     source ~/.config/shell/theme.sh
   
     starship prompt
