@@ -1,9 +1,16 @@
 {
-    "editor.formatOnSave": true,
-    "files.autoSave": "onFocusChange",
-    "editor.fontFamily": "MesloLGSDZ Nerd Font Mono, Menlo, Monaco, 'Courier New', monospace",
-    "terminal.integrated.fontFamily": "\"MesloLGM Nerd Font Mono\"",
-    "excalidraw.theme": "auto",
-    "deno.cacheOnSave": true,
-    "eslint.format.enable": true,
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange",
+  "editor.fontFamily": "JetBrainsMono NFM, MesloLGSDZ Nerd Font Mono, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 14,
+  "terminal.integrated.fontFamily": "JetBrainsMono NFM",
+  "terminal.integrated.fontSize": 14,
+  "excalidraw.theme": "auto",
+  "deno.cacheOnSave": true,
+  "redhat.telemetry.enabled": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "[json][typescript][jsonc][javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.sideBar.location": "right"
 }

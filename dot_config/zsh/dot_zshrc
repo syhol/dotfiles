@@ -1,12 +1,20 @@
 
 # Load the prompt, needs to happen early to get the most out of instant prompt
-source ~/.config/zsh/prompt-p10k.zsh
+# source ~/.config/zsh/prompt-p10k.zsh
 
-source ~/.config/zsh/aliases.zsh
-source ~/.config/zsh/env.zsh
-source ~/.config/zsh/fzf.zsh
-source ~/.config/zsh/history.zsh
-include ~/.config/zsh/secrets.zsh
+bindkey -e
+bindkey '\e\e[C' forward-word
+bindkey '\e\e[D' backward-word
+
+# Load cross shell config
+source ~/.config/shell/aliases.sh
+source ~/.config/shell/env.sh
+source ~/.config/shell/theme.sh
+[[ -f ~/.config/shell/secrets.sh ]] && source ~/.config/shell/secrets.sh
+
+# Load zsh specific early stage config
+source ~/.config/zsh/conf.d/fzf.zsh
+source ~/.config/zsh/conf.d/history.zsh
 
 # Load custom integrations
 eval "$(fzf --zsh)" # 2ms
@@ -17,6 +25,12 @@ eval "$(mise activate zsh)"
 zstyle ':antidote:bundle' use-friendly-names 'yes'
 source "$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh" && antidote load
 
-source ~/.config/zsh/completions.zsh
-source ~/.config/zsh/fzf-tab.zsh
+# Load zsh specific late stage config
+source ~/.config/zsh/conf.d/completions.zsh
+source ~/.config/zsh/conf.d/fzf-tab.zsh
+
+# Load the prompt
+eval "$(starship init zsh)"
+
+export KUBECONFIG=~/.kube/config:~/.kube/ar-dev-kubeconfig.yaml
 

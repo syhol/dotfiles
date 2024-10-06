@@ -1,10 +1,10 @@
 zsh-users/zsh-completions
+ahmetb/kubectx path:completion kind:fpath
 zsh-users/zsh-syntax-highlighting kind:defer
 
 ryanccn/vivid-zsh
 Aloxaf/fzf-tab
 romkatv/zsh-bench kind:path
 
-romkatv/powerlevel10k
 zsh-users/zsh-autosuggestions
 

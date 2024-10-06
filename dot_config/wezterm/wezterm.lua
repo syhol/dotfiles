@@ -2,21 +2,28 @@
 local wezterm = require 'wezterm'
 
 return {
-  color_scheme = 'Tokyo Night Storm',
-  font = wezterm.font('MesloLGSDZ Nerd Font Mono', { weight = 'Medium' }),
-  font_size = 14,
-  freetype_load_flags = 'NO_HINTING',
+  color_scheme = 'Catppuccin Frappe',
+  font = wezterm.font('JetBrainsMono NF', { weight = 'Medium' }),
+  font_size = 11,
+  -- freetype_load_flags = 'NO_HINTING',
   window_padding = {
     left = '40px',
     right = '40px',
     top = '40px',
     bottom = '40px',
   },
-  enable_tab_bar = false,
+  -- enable_tab_bar = false,
+  hide_tab_bar_if_only_one_tab = true,
+  use_fancy_tab_bar = true,
+  dpi_by_screen = {
+    ['Built-in Retina Display'] = 188,
+    ['C34J79x'] = 94,
+    -- ['C34J79x'] = 81.75,
+  },
   window_decorations = 'RESIZE',
   -- window_background_opacity = 0.85,
-  macos_window_background_blur = 20,
-  line_height = 1.25,
+  -- macos_window_background_blur = 20,
+  line_height = 1.2,
   keys = {
     -- Make Option-Left equivalent to Alt-b; backward-word
     {

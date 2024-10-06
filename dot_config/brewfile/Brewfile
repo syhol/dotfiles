@@ -12,12 +12,13 @@ brew "kubectx"
 brew "helm"
 
 # Shell
-brew "nushell"
-brew "chezmoi"
-brew "antidote"
-brew "vivid"
+brew "nushell" # Alternative shell
+brew "fish" # Alternative shell
+brew "antidote" # zsh plugin manager
+brew "vivid" # ls colors theme generator
+brew "starship" # shell prompt 
 
-# Shell utilities
+# Shell utilities
 brew "zoxide" # cd alternative - change directories
 brew "eza" # ls alternative - list directory contents
 brew "bat" # cat alternative - print file contents
@@ -26,33 +27,53 @@ brew "hyperfine" # time alternative - benchmark cli commands
 brew "oha" # ab alternative - benchmark http endpoints
 brew "procs" # ps alternative - list os processes
 brew "fd" # find alternative - search files by file name
-brew "rg" # grep alternative - search files by contents
+brew "sd" # sed alternative - replace text
+brew "ripgrep" # grep alternative - search files by contents
 brew "dust" # du alternative - show directory disk usage
 brew "btop" # top alternative - show processes using the most resources
 brew "viddy" # watch alternative - rerun a command every n seconds
 brew "sevenzip" # tar/zip alternative - compress and decompress archives
 brew "tealdeer" # man alternative - help pages
-brew "fzf"
+brew "glow" # markdown viewer
+brew "yazi" # filesystem explorer
+brew "fzf" # fuzzy finder
+brew "topgrade" # multi-system updater
+brew "chezmoi" # dotfiles and user config version control
+
+# Data processing
 brew "jq"
 brew "yq"
+brew "jless"
+brew "trurl"
+brew "xsv"
 
-# GitHub
+# Media
+brew "ffmpeg"
+brew "imagemagick"
+
+# Git
 brew "gh"
+brew "git-extras"
+brew "gitui"
 brew "dashlane/tap/dashlane-cli"
 
-# Neovim
+# Neovim & Editors
 brew "neovim"
+brew "helix"
 brew "stylua"
 
 # Http & Net
 brew "curl"
 brew "wget"
 brew "netcat"
-brew "xh" # curl alternative - make http requests
+brew "gping" # ping alternative - test ip address reachability and latency
+brew "xh" # curl alternative - make http requests
 brew "dog" # dig alternative - lookup dns records
+brew "doggo" # dig alternative - lookup dns records 
 
 # Fonts
 cask "font-meslo-lg-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
 
 # Apps
 cask "google-chrome"
@@ -63,6 +84,9 @@ cask "visual-studio-code"
 cask "monitorcontrol"
 cask "rectangle"
 cask "mullvadvpn"
+cask "slack"
+cask "keepassxc"
+cask "steam"
 
 # VS Code Extensions
 vscode "bradlc.vscode-tailwindcss"

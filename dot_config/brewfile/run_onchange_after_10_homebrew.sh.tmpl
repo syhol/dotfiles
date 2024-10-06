@@ -9,3 +9,5 @@ fi
 
 brew bundle --file {{ joinPath .chezmoi.homeDir ".config/brewfile/Brewfile" | quote }}
 
+helm plugin install https://github.com/databus23/helm-diff || true
+
