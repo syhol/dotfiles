@@ -1,11 +1,7 @@
-[env]
-NPM_CONFIG_CACHE = "{{ env.HOME }}/.cache/npm"
-GOPATH = "{{ env.HOME }}/.local/share/go/gopath"
-_.path = "{{ env.GOPATH }}/bin"
-
 [tools]
 deno = "latest"
 usage = "latest"
+node = "latest"
 
 [settings]
 experimental = true

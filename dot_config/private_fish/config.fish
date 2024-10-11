@@ -1,10 +1,11 @@
-fish_add_path /opt/homebrew/bin/
-fish_add_path $HOME/.local/bin/
+
+/opt/homebrew/bin/brew shellenv | source
 
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+    set fish_greeting # Disable fish greeting
     starship init fish | source
     mise activate fish | source
     zoxide init fish --cmd cd | source
-    set fish_greeting
+else
+    mise activate fish --shims | source
 end

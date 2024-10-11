@@ -6,4 +6,5 @@ export DISABLE_OPENCOLLECTIVE=true
 export CLICOLOR=1
 export EDITOR="nvim"
 export PATH="$HOME/.local/bin:$PATH"
+export NPM_CONFIG_CACHE="$HOME/.cache/npm"
 export EXA_ICON_SPACING=2

@@ -12,5 +12,7 @@
   "[json][typescript][jsonc][javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "editor.renderFinalNewline": "off",
+  "files.insertFinalNewline": true,
   "workbench.sideBar.location": "right"
 }
