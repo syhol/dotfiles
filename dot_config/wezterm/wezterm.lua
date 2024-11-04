@@ -2,10 +2,10 @@
 local wezterm = require 'wezterm'
 
 return {
-  color_scheme = 'Dark+',
+  color_scheme = 'Catppuccin Macchiato',
   font = wezterm.font('JetBrainsMono NF', { weight = 'Medium' }),
   font_size = 11,
-  -- freetype_load_flags = 'NO_HINTING',
+  freetype_load_flags = 'NO_HINTING',
   window_padding = {
     left = '40px',
     right = '40px',

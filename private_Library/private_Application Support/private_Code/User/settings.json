@@ -14,5 +14,7 @@
   },
   "editor.renderFinalNewline": "off",
   "files.insertFinalNewline": true,
-  "workbench.sideBar.location": "right"
+  "workbench.sideBar.location": "right",
+  "workbench.colorTheme": "Catppuccin Macchiato",
+  "gitlens.plusFeatures.enabled": false
 }

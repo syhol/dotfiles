@@ -1,7 +1,6 @@
 [tools]
-deno = "latest"
-usage = "latest"
 node = "latest"
+deno = "2"
 
 [settings]
 experimental = true

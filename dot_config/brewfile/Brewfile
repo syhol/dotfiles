@@ -28,6 +28,7 @@ brew "oha" # ab alternative - benchmark http endpoints
 brew "procs" # ps alternative - list os processes
 brew "fd" # find alternative - search files by file name
 brew "sd" # sed alternative - replace text
+brew "choose" # cut alternative - extract text
 brew "ripgrep" # grep alternative - search files by contents
 brew "dust" # du alternative - show directory disk usage
 brew "btop" # top alternative - show processes using the most resources
@@ -55,6 +56,7 @@ brew "imagemagick"
 brew "gh"
 brew "git-extras"
 brew "gitui"
+brew "lazygit"
 brew "dashlane/tap/dashlane-cli"
 
 # Neovim & Editors
