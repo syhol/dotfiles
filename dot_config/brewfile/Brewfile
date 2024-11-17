@@ -1,10 +1,13 @@
 # Taps
+tap "dashlane/tap"
 tap "homebrew/bundle"
 tap "homebrew/services"
-tap "dashlane/tap"
+tap "jorgerojas26/lazysql"
+tap "pkgxdev/made"
 
-# Dev tooling
+# Dev tooling & package management
 brew "mise"
+brew "pkgxdev/made/pkgx"
 
 # Kubernetes
 brew "kubernetes-cli"
@@ -12,11 +15,12 @@ brew "kubectx"
 brew "helm"
 
 # Shell
-brew "nushell" # Alternative shell
-brew "fish" # Alternative shell
-brew "antidote" # zsh plugin manager
+brew "nushell" # Alternative shell
+brew "fish" # Alternative shell
+brew "fisher" # fish plugin manager
+brew "antidote" # zsh plugin manager
 brew "vivid" # ls colors theme generator
-brew "starship" # shell prompt 
+brew "starship" # shell prompt
 
 # Shell utilities
 brew "zoxide" # cd alternative - change directories
@@ -28,7 +32,7 @@ brew "oha" # ab alternative - benchmark http endpoints
 brew "procs" # ps alternative - list os processes
 brew "fd" # find alternative - search files by file name
 brew "sd" # sed alternative - replace text
-brew "choose" # cut alternative - extract text
+brew "choose-rust" # cut alternative - extract text
 brew "ripgrep" # grep alternative - search files by contents
 brew "dust" # du alternative - show directory disk usage
 brew "btop" # top alternative - show processes using the most resources
@@ -37,26 +41,30 @@ brew "sevenzip" # tar/zip alternative - compress and decompress archives
 brew "tealdeer" # man alternative - help pages
 brew "glow" # markdown viewer
 brew "yazi" # filesystem explorer
-brew "fzf" # fuzzy finder
-brew "topgrade" # multi-system updater
-brew "chezmoi" # dotfiles and user config version control
+brew "broot" # filesystem explorer
+brew "fzf" # fuzzy finder
+brew "topgrade" # multi-system updater
+brew "chezmoi" # dotfiles and user config version control
 
-# Data processing
+# Data processing
 brew "jq"
 brew "yq"
 brew "jless"
 brew "trurl"
 brew "xsv"
+brew "jorgerojas26/lazysql/lazysql"
 
 # Media
 brew "ffmpeg"
 brew "imagemagick"
 
-# Git
-brew "gh"
-brew "git-extras"
-brew "gitui"
-brew "lazygit"
+# Git & VCS
+brew "gh" # github cli
+brew "git-extras" # extra git commands
+brew "gitoxide"
+brew "gitui" # tui for git
+brew "lazygit" # tui for git
+brew "jj" # vcs that can be used on top of git
 brew "dashlane/tap/dashlane-cli"
 
 # Neovim & Editors
@@ -68,10 +76,26 @@ brew "stylua"
 brew "curl"
 brew "wget"
 brew "netcat"
-brew "gping" # ping alternative - test ip address reachability and latency
+brew "gping" # ping alternative - test ip address reachability and latency
 brew "xh" # curl alternative - make http requests
 brew "dog" # dig alternative - lookup dns records
 brew "doggo" # dig alternative - lookup dns records 
+
+# Capably
+brew "cairo"
+brew "libolm"
+brew "automake"
+brew "libxmlsec1"
+brew "pkgconf"
+brew "poppler"
+brew "postgresql@14"
+brew "swig"
+brew "llvm"
+brew "dbus"
+brew "openssl@3"
+brew "pango"
+cask "libreoffice"
+cask "1password"
 
 # Fonts
 cask "font-meslo-lg-nerd-font"
@@ -91,16 +115,51 @@ cask "keepassxc"
 cask "steam"
 
 # VS Code Extensions
-vscode "bradlc.vscode-tailwindcss"
-vscode "dbaeumer.vscode-eslint"
-vscode "denoland.vscode-deno"
+
+## VS Code Languages
+vscode "denoland.vscode-deno" # js/ts - deno
+vscode "oven.bun-vscode" # js/ts - bun
+vscode "tamasfe.even-better-toml" # toml
+vscode "redhat.vscode-yaml" # yaml
+vscode "yzhang.markdown-all-in-one" # markdown
+vscode "timonwong.shellcheck" # bash/sh
+vscode "hashicorp.terraform" # hcl
+vscode "matheusq94.tfs" # hcl
+vscode "mechatroner.rainbow-csv" # csv
+vscode "ms-python.debugpy" # python
+vscode "ms-python.python" # python
+vscode "ms-python.vscode-pylance" # python
+vscode "golang.go" # go
+vscode "ms-vscode.makefile-tools" # c/make
+vscode "jakebecker.elixir-ls" # elixir
+vscode "thenuprojectcontributors.vscode-nushell-lang" # nu
+vscode "ms-azuretools.vscode-docker" # dockerfile
+
+## VS Code Language Extras
+vscode "charliermarsh.ruff" # python
+vscode "esbenp.prettier-vscode" # js/html/css
+vscode "dbaeumer.vscode-eslint" # js
+vscode "orta.vscode-jest" # js
+vscode "vitest.explorer" # js
+vscode "bradlc.vscode-tailwindcss" # js/css
+
+## VS Code Themes
+vscode "catppuccin.catppuccin-vsc"
+vscode "dracula-theme.theme-dracula"
+vscode "enkia.tokyo-night"
+vscode "equinusocio.vsc-material-theme"
+vscode "equinusocio.vsc-material-theme-icons"
+vscode "zhuangtongfa.material-theme"
+vscode "mvllow.rose-pine"
+
+## VS Code Tools
+vscode "aaron-bond.better-comments"
+vscode "connor4312.esbuild-problem-matchers"
+vscode "eamodio.gitlens"
 vscode "foam.foam-vscode"
-vscode "golang.go"
-vscode "mechatroner.rainbow-csv"
-vscode "ms-azuretools.vscode-docker"
-vscode "ms-vscode.makefile-tools"
+vscode "hverlin.mise-vscode"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode.extension-test-runner"
 vscode "mushan.vscode-paste-image"
-vscode "orta.vscode-jest"
 vscode "pomdtr.excalidraw-editor"
-vscode "thenuprojectcontributors.vscode-nushell-lang"
-vscode "yzhang.markdown-all-in-one"
+vscode "ryu1kn.partial-diff"

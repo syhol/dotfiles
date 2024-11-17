@@ -1,0 +1,11 @@
+# Load cross shell config
+source ~/.config/shell/aliases.sh
+source ~/.config/shell/env.sh
+source ~/.config/shell/theme.sh
+source ~/.config/shell/secrets.sh
+
+# Load custom shell integrations
+eval "$(fzf --bash)"
+eval "$(zoxide init bash --cmd cd)"
+eval "$(mise activate bash)"
+eval "$(starship init bash)"

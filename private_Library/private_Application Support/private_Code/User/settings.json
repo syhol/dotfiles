@@ -14,6 +14,25 @@
   },
   "editor.renderFinalNewline": "off",
   "files.insertFinalNewline": true,
+  "editor.rulers": [80, 120],
+  "terminal.integrated.defaultProfile.osx": "fish",
+  "terminal.integrated.profiles.osx": {
+    "bash": {
+      "path": "bash",
+      "args": ["-l"],
+      "icon": "terminal-bash"
+    },
+    "zsh": {
+      "path": "zsh",
+      "args": ["-l"]
+    },
+    "fish": {
+      "path": "fish",
+      "args": ["-l"]
+    }
+  },
+  "mise.binPath": "/opt/homebrew/bin/mise",
+  "terminal.integrated.shellIntegration.enabled": false,
   "workbench.sideBar.location": "right",
   "workbench.colorTheme": "Catppuccin Macchiato",
   "gitlens.plusFeatures.enabled": false

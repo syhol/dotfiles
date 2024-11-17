@@ -24,6 +24,7 @@ return {
   -- window_background_opacity = 0.85,
   -- macos_window_background_blur = 20,
   line_height = 1.2,
+  automatically_reload_config = true,
   keys = {
     -- Make Option-Left equivalent to Alt-b; backward-word
     {

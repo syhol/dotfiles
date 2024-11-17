@@ -1,7 +1,29 @@
 [tools]
 node = "latest"
-deno = "2"
+deno = "latest"
+bun = "latest"
+# "ubi:charmbracelet/gum" = "latest"
+# "ubi:pemistahl/grex" = "latest"
+# "ubi:MaybeJustJames/zephyr" = "latest"
+# "ubi:google/yamlfmt" = "latest"
+# "ubi:kkinnear/zprint" = "latest"
+# "ubi:nektro/zigmod" = "latest"
+# "ubi:joerdav/xc" = "latest"
+# "ubi:vultr/vultr-cli" = "latest"
+# "ubi:charmbracelet/vhs" = "latest"
+# "ubi:ovh/venom" = "latest"
+# "ubi:traefik/traefik" = "latest"
+# "ubi:tree-sitter/tree-sitter" = "latest"
+# "ubi:titan-data/titan" = "latest"
+# "ubi:stefanprodan/timoni" = "latest"
+# "ubi:tellerops/teller" = "latest"
 
 [settings]
 experimental = true
+
+[settings.pipx]
+uvx = true
+
+[settings.npm]
+bun = true
 

@@ -18,6 +18,9 @@ function apply() {
   NEOVIM_THEME="$(yq '.neovim' $1)"
   sd "colorscheme = \"(.*)\"" "colorscheme = \"${NEOVIM_THEME}\"" ~/.config/nvim/lua/plugins/colorscheme.lua
 
+  VSCODE_THEME="$(yq '.vscode' $1)"
+  sd "\"workbench.colorTheme\": \"(.*)\"" "\"workbench.colorTheme\": \"${VSCODE_THEME}\"" ~/Library/Application\ Support/Code/User/settings.json
+
   FISH_THEME="$(yq '.fish' $1)"
   fish -c "yes | fish_config theme save '${FISH_THEME}'"
 
