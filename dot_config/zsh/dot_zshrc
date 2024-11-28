@@ -1,33 +1,20 @@
-
-# Register key bindings
-bindkey -e
-bindkey '\e\e[C' forward-word
-bindkey '\e\e[D' backward-word
-
 # Load cross shell config
 source ~/.config/shell/aliases.sh
 source ~/.config/shell/env.sh
 source ~/.config/shell/theme.sh
 source ~/.config/shell/secrets.sh
 
-# Load zsh specific early stage config
-source ~/.config/zsh/conf.d/history.zsh
-
 # Load custom shell integrations
+eval "$(mise activate zsh)"
 eval "$(fzf --zsh)" # 2ms
 eval "$(zoxide init zsh --cmd cd)" # 2ms
-eval "$(mise activate zsh)"
-
-# Load the zsh antidote plugins, see ~/.config/zsh/.zsh_plugins.txt
-zstyle ':antidote:bundle' use-friendly-names 'yes'
-source "$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh" && antidote load
-
-# Load zsh specific late stage config
-source ~/.config/zsh/conf.d/completions.zsh
-source ~/.config/zsh/conf.d/fzf-tab.zsh
-
-# Load the prompt
 eval "$(starship init zsh)"
 
+# Load zsh specific config
+source ~/.config/zsh/conf.d/antidote.zsh
+source ~/.config/zsh/conf.d/keybindings.zsh
+source ~/.config/zsh/conf.d/history.zsh
+source ~/.config/zsh/conf.d/completions.zsh
+source ~/.config/zsh/conf.d/fzf-tab.zsh
 
 export KUBECONFIG=~/.kube/config:~/.kube/ar-dev-kubeconfig.yaml

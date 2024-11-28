@@ -14,10 +14,10 @@ _user_completions="${HOME}/.local/share/zsh/site-functions"
 eval "$(mise hook-env -s zsh)"
 [[ ! -d "${_user_completions}" ]] && mkdir -p ${_user_completions}  
 [[ ! -f "${_user_completions}/_deno" ]] && deno completions zsh > ${_user_completions}/_deno
-[[ ! -f "${_user_completions}/_pnpm" ]] && pnpm completion zsh > ${_user_completions}/_pnpm
 [[ ! -f "${_user_completions}/_kubectl" ]] && kubectl completion zsh > ${_user_completions}/_kubectl
 [[ ! -f "${_user_completions}/_helm" ]] && helm completion zsh > ${_user_completions}/_helm
 [[ ! -f "${_user_completions}/_uv" ]] && uv generate-shell-completion zsh > ${_user_completions}/_uv
+[[ ! -f "${_user_completions}/_mise" ]] && mise completion zsh > ${_user_completions}/_mise
 
 # Add user completions to the FPATH
 export FPATH="${_user_completions}:${FPATH}"
@@ -40,7 +40,4 @@ if (( $#_comp_files )); then
 else
     compinit -d "${_zcompdump}"
 fi
-
-# Call any completion scripts that can't be autoloaded
-source ${_user_completions}/_pnpm
 

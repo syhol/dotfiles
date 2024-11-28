@@ -3,11 +3,6 @@ tap "dashlane/tap"
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "jorgerojas26/lazysql"
-tap "pkgxdev/made"
-
-# Dev tooling & package management
-brew "mise"
-brew "pkgxdev/made/pkgx"
 
 # Kubernetes
 brew "kubernetes-cli"
@@ -36,6 +31,7 @@ brew "choose-rust" # cut alternative - extract text
 brew "ripgrep" # grep alternative - search files by contents
 brew "dust" # du alternative - show directory disk usage
 brew "btop" # top alternative - show processes using the most resources
+brew "bottom" # top alternative - show processes using the most resources
 brew "viddy" # watch alternative - rerun a command every n seconds
 brew "sevenzip" # tar/zip alternative - compress and decompress archives
 brew "tealdeer" # man alternative - help pages
@@ -67,9 +63,10 @@ brew "lazygit" # tui for git
 brew "jj" # vcs that can be used on top of git
 brew "dashlane/tap/dashlane-cli"
 
-# Neovim & Editors
+# Neovim & Editors & Lua based tooling
 brew "neovim"
 brew "helix"
+brew "luarocks"
 brew "stylua"
 
 # Http & Net

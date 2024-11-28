@@ -1,9 +1,5 @@
-zsh-users/zsh-completions
-ahmetb/kubectx path:completion kind:fpath
-zsh-users/zsh-syntax-highlighting kind:defer
-
 Aloxaf/fzf-tab
-romkatv/zsh-bench kind:path
-
+zsh-users/zsh-completions
+zsh-users/zsh-syntax-highlighting kind:defer
 zsh-users/zsh-autosuggestions
 

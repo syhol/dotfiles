@@ -2,6 +2,7 @@
 
 # Chezmoi mise/config.toml hash: {{ include "dot_config/mise/config.toml" | sha256sum }}
 
-/opt/homebrew/bin/mise install
-/opt/homebrew/bin/mise prune --yes
+curl https://mise.run | sh
+~/.local/bin/mise install
+~/.local/bin/mise prune --yes
 

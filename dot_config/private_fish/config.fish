@@ -1,10 +1,9 @@
-
 /opt/homebrew/bin/brew shellenv | source
+mise activate fish --shims | source
 
 if status is-interactive
     set fish_greeting # Disable fish greeting
-    starship init fish | source
+    mise activate fish | source
     zoxide init fish --cmd cd | source
-else
-    mise activate fish --shims | source
+    starship init fish | source
 end

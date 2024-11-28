@@ -5,7 +5,7 @@ source ~/.config/shell/theme.sh
 source ~/.config/shell/secrets.sh
 
 # Load custom shell integrations
+eval "$(mise activate bash)"
 eval "$(fzf --bash)"
 eval "$(zoxide init bash --cmd cd)"
-eval "$(mise activate bash)"
 eval "$(starship init bash)"
