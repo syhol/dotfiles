@@ -12,6 +12,9 @@
   "[json][typescript][jsonc][javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "editor.renderFinalNewline": "off",
   "files.insertFinalNewline": true,
   "editor.rulers": [80, 120],

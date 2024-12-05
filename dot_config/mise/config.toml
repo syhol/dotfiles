@@ -31,4 +31,3 @@ uvx = true
 
 [settings.npm]
 bun = true
-
