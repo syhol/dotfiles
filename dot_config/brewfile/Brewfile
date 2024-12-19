@@ -127,6 +127,7 @@ vscode "ms-python.debugpy" # python
 vscode "ms-python.python" # python
 vscode "ms-python.vscode-pylance" # python
 vscode "golang.go" # go
+vscode "rust-lang.rust-analyzer" # rust
 vscode "ms-vscode.makefile-tools" # c/make
 vscode "jakebecker.elixir-ls" # elixir
 vscode "thenuprojectcontributors.vscode-nushell-lang" # nu

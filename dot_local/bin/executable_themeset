@@ -1,8 +1,9 @@
 #!/usr/bin/env -S usage bash
 #USAGE cmd "apply" {
-#USAGE   arg "<file>"
+#USAGE   arg "<theme>"
 #USAGE }
 #USAGE cmd "select" {}
+#USAGE complete "theme" run="ls -1 --icons=never --color=never ~/.config/themes"
 
 function apply() {
 

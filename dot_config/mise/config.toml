@@ -7,6 +7,7 @@ go = "latest"
 usage = "latest"
 "ubi:aquaproj/aqua" = "latest"
 "ubi:pkgxdev/pkgx" = "latest"
+rust = "latest"
 # "ubi:charmbracelet/gum" = "latest"
 # "ubi:pemistahl/grex" = "latest"
 # "ubi:MaybeJustJames/zephyr" = "latest"
@@ -23,6 +24,9 @@ usage = "latest"
 # "ubi:stefanprodan/timoni" = "latest"
 # "ubi:tellerops/teller" = "latest"
 
+[tasks.docker]
+run = "docker run --pull=always -it --rm --entrypoint bash jdxcode/mise:latest"
+
 [settings]
 experimental = true
 
@@ -31,3 +35,4 @@ uvx = true
 
 [settings.npm]
 bun = true
+
