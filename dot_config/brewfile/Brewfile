@@ -109,7 +109,6 @@ cask "rectangle"
 cask "mullvadvpn"
 cask "slack"
 cask "keepassxc"
-cask "steam"
 
 # VS Code Extensions
 
