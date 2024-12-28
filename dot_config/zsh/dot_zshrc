@@ -17,4 +17,3 @@ source ~/.config/zsh/conf.d/history.zsh
 source ~/.config/zsh/conf.d/completions.zsh
 source ~/.config/zsh/conf.d/fzf-tab.zsh
 
-export KUBECONFIG=~/.kube/config:~/.kube/ar-dev-kubeconfig.yaml
