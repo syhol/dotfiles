@@ -15,3 +15,5 @@
 [pager]
         difftool = true
 
+[pull]
+	rebase = true
