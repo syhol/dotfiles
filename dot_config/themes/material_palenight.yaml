@@ -1,6 +1,7 @@
 bat: base16 
 vivid: tokyonight-storm
 wezterm: Material Palenight (base16)
+ghostty: PaleNightHC
 fish: fish default
 helix: material_palenight
 neovim: material-palenight

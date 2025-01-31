@@ -1,6 +1,7 @@
 bat: base16 
 vivid: tokyonight-storm
 wezterm: MaterialDarker
+ghostty: MaterialDarker
 fish: fish default
 helix: material_darker
 neovim: material-darker

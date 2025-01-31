@@ -1,6 +1,8 @@
-bat: base16-256
+bat: Catppuccin Mocha
+delta: catppuccin-mocha
 vivid: catppuccin-mocha
 wezterm: Catppuccin Mocha
+ghostty: catppuccin-mocha
 fish: bright-pastel
 helix: catppuccin_mocha
 neovim: catppuccin-mocha

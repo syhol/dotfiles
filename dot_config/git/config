@@ -1,21 +1,39 @@
+# User
 [user]
-	email = simon@syhol.io
-	name = Simon Holloway
+  email = simon@syhol.io
+  name = Simon Holloway
+
+# Difftastic
+; [diff]
+;   external = difft
+;   tool = difftastic
+; [difftool]
+;   prompt = false
+; [difftool "difftastic"]
+;   cmd = difft "$LOCAL" "$REMOTE"
+; [pager]
+;   difftool = true
+
+# Delta
+[include]
+  path = ~/.config/delta/themes/catppuccin.gitconfig
+  path = ~/.config/delta/themes/themes.gitconfig
+[core]
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  syntax-theme = Catppuccin Macchiato
+  features = catppuccin-macchiato # themeset
+[merge]
+  conflictstyle = zdiff3
+
+# Behaviour
 [push]
-	autoSetupRemote = true
-[diff]
-        external = difft
-        tool = difftastic
-[difftool]
-        prompt = false
-
-[difftool "difftastic"]
-        cmd = difft "$LOCAL" "$REMOTE"
-
-[pager]
-        difftool = true
-
+  autoSetupRemote = true
 [pull]
-	rebase = true
+  rebase = true
 [help]
-	autocorrect = 1
+  autocorrect = 1
+[rebase]
+  autoStash = true

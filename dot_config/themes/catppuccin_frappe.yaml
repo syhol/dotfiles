@@ -1,6 +1,8 @@
-bat: base16-256
+bat: Catppuccin Frappe
+delta: catppuccin-frappe
 vivid: catppuccin-frappe
 wezterm: Catppuccin Frappe
+ghostty: catppuccin-frappe
 fish: bright-pastel
 helix: catppuccin_frappe
 neovim: catppuccin-frappe

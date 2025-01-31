@@ -1,6 +1,7 @@
 bat: OneHalfDark
 vivid: one-dark
 wezterm: OneHalfDark
+ghostty: OneHalfDark
 fish: bright-pastel
 helix: onedark
 neovim: onedark

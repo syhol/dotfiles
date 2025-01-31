@@ -17,7 +17,7 @@
   },
   "editor.renderFinalNewline": "off",
   "files.insertFinalNewline": true,
-  "editor.rulers": [80, 120],
+  // "editor.rulers": [80, 120],
   "terminal.integrated.defaultProfile.osx": "fish",
   "terminal.integrated.profiles.osx": {
     "bash": {

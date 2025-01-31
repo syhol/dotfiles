@@ -1,6 +1,8 @@
-bat: base16-256
+bat: Catppuccin Macchiato
+delta: catppuccin-macchiato
 vivid: catppuccin-macchiato
 wezterm: Catppuccin Macchiato
+ghostty: catppuccin-macchiato
 fish: bright-pastel
 helix: catppuccin_macchiato
 neovim: catppuccin-macchiato

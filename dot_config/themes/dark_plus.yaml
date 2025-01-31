@@ -1,6 +1,7 @@
 bat: Visual Studio Dark+
 vivid: tokyonight-storm
 wezterm: Dark+
+ghostty: Dark+
 fish: bright-pastel
 helix: dark_plus
 neovim: vscode
