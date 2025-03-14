@@ -22,6 +22,7 @@ brew "zoxide" # cd alternative - change directories
 brew "eza" # ls alternative - list directory contents
 brew "bat" # cat alternative - print file contents
 brew "difftastic" # diff alternative - print the diff between files
+brew "git-delta" # diff alternative - print the diff between files
 brew "hyperfine" # time alternative - benchmark cli commands
 brew "procs" # ps alternative - list os processes
 brew "fd" # find alternative - search files by file name
@@ -47,6 +48,7 @@ brew "yq"
 brew "jless"
 brew "trurl"
 brew "xsv"
+brew "pgcli"
 brew "jorgerojas26/lazysql/lazysql"
 
 # Media
@@ -101,6 +103,7 @@ cask "font-jetbrains-mono-nerd-font"
 # Apps
 cask "google-chrome"
 cask "docker"
+cask "ghostty"
 cask "kitty"
 cask "wezterm"
 cask "visual-studio-code"
