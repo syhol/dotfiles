@@ -95,6 +95,9 @@ brew "openssl@3"
 brew "pango"
 cask "libreoffice"
 cask "1password"
+cask "linear-linear"
+cask "notion"
+cask "notion-calendar"
 
 # Fonts
 cask "font-meslo-lg-nerd-font"
@@ -112,6 +115,9 @@ cask "rectangle"
 cask "mullvadvpn"
 cask "slack"
 cask "keepassxc"
+cask "dbeaver-community"
+cask "lm-studio"
+cask "syncthing"
 
 # VS Code Extensions
 
@@ -134,6 +140,7 @@ vscode "ms-vscode.makefile-tools" # c/make
 vscode "jakebecker.elixir-ls" # elixir
 vscode "thenuprojectcontributors.vscode-nushell-lang" # nu
 vscode "ms-azuretools.vscode-docker" # dockerfile
+vscode "docker.docker"
 
 ## VS Code Language Extras
 vscode "charliermarsh.ruff" # python
