@@ -12,7 +12,6 @@ brew "helm"
 # Shell
 brew "nushell" # Alternative shell
 brew "fish" # Alternative shell
-brew "fisher" # fish plugin manager
 brew "antidote" # zsh plugin manager
 brew "vivid" # ls colors theme generator
 brew "starship" # shell prompt
