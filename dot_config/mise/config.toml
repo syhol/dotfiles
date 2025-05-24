@@ -7,7 +7,6 @@ go = "latest"
 usage = "latest"
 "ubi:aquaproj/aqua" = "latest"
 "ubi:pkgxdev/pkgx" = "latest"
-rust = "latest"
 "pipx:kube-shell" = "latest"
 "pipx:litecli" = "latest"
 # "ubi:charmbracelet/gum" = "latest"
@@ -26,8 +25,8 @@ rust = "latest"
 # "ubi:stefanprodan/timoni" = "latest"
 # "ubi:tellerops/teller" = "latest"
 
-[tasks.docker]
-run = "docker run --pull=always -it --rm --entrypoint bash jdxcode/mise:latest"
+# [tasks.docker]
+# run = "docker run --pull=always -it --rm --entrypoint bash jdxcode/mise:latest"
 
 [settings]
 experimental = true

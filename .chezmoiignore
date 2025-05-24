@@ -1,4 +1,5 @@
 !.config
+!.hushlogin
 .config/chezmoi
 README.md
 *

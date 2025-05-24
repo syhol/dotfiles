@@ -50,6 +50,10 @@ brew "xsv"
 brew "pgcli"
 brew "jorgerojas26/lazysql/lazysql"
 
+# Crpyto
+brew "age"
+brew "minisign"
+
 # Media
 brew "ffmpeg"
 brew "imagemagick"

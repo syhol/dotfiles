@@ -37,6 +37,7 @@ export FZF_CTRL_R_OPTS="$FZF_DEFAULT_OPTS --preview 'echo {2..} | $FZF_PREVIEW_F
 
 # XDG Settings
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:$HOME/.lmstudio/bin"
 export HOMEBREW_BUNDLE_FILE_GLOBAL="$HOME/.config/brewfile/Brewfile"
 export NPM_CONFIG_CACHE="$HOME/.cache/npm"
 export BUN_INSTALL="$HOME/.local/share/bun"
