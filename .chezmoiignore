@@ -1,5 +1,6 @@
 !.config
 !.hushlogin
+!.bashrc
 .config/chezmoi
 README.md
 *

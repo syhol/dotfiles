@@ -1,4 +1,8 @@
-set --local plugins (find "$HOME/.local/share/fish-plugins" -type d -not -path plugins -depth 1)
+set --local shellstrap_dir "$HOME/.local/share/shellstrap/fish"
+set --local plugins (find "$shellstrap_dir/plugins" -type d -not -path plugins -depth 1)
+
+set fish_complete_path "$shellstrap_dir/completions" $fish_complete_path
+set fish_function_path "$shellstrap_dir/functions" $fish_function_path
 
 for plugin in $plugins
     if test -d "$plugin/completions"; and not contains "$plugin/completions" $fish_complete_path
@@ -11,5 +15,3 @@ for plugin in $plugins
         builtin source "$f"
     end
 end
-
-set --erase plugins

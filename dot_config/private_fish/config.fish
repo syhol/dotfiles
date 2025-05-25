@@ -1,5 +1,5 @@
 source "$HOME/.config/shell/foundation.sh"
-source "$HOME/.config/fish/local-plugins.fish"
+source "$HOME/.config/fish/load_plugins.fish"
 /opt/homebrew/bin/brew shellenv | source
 mise activate fish --shims | source
 

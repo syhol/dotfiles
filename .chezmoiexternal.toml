@@ -1,24 +1,24 @@
-[".local/share/fish-plugins/fzf-tab"]
+[".local/share/shellstrap/fish/plugins/fzf-tab"]
 type = "git-repo"
 url = "https://github.com/jethrokuan/fzf"
 refreshPeriod = "24h"
 
-[".local/share/zsh-plugins/fzf-tab"]
+[".local/share/shellstrap/zsh/plugins/fzf-tab"]
 type = "git-repo"
 url = "https://github.com/Aloxaf/fzf-tab"
 refreshPeriod = "24h"
 
-[".local/share/zsh-plugins/zsh-completions"]
+[".local/share/shellstrap/zsh/plugins/zsh-completions"]
 type = "git-repo"
 url = "https://github.com/zsh-users/zsh-completions"
 refreshPeriod = "24h"
 
-[".local/share/zsh-plugins/zsh-syntax-highlighting"]
+[".local/share/shellstrap/zsh/plugins/zsh-syntax-highlighting"]
 type = "git-repo"
 url = "https://github.com/zsh-users/zsh-syntax-highlighting"
 refreshPeriod = "24h"
 
-[".local/share/zsh-plugins/zsh-autosuggestions"]
+[".local/share/shellstrap/zsh/plugins/zsh-autosuggestions"]
 type = "git-repo"
 url = "https://github.com/zsh-users/zsh-autosuggestions"
 refreshPeriod = "24h"

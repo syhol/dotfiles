@@ -7,8 +7,10 @@ eval "$(fzf --zsh)" # 2ms
 eval "$(zoxide init zsh --cmd cd)" # 2ms
 eval "$(starship init zsh)"
 
+# Load 3rd party plugins
+source ~/.config/zsh/load_plugins.zsh
+
 # Load zsh specific config
-source ~/.config/zsh/conf.d/plugins.zsh
 source ~/.config/zsh/conf.d/keybindings.zsh
 source ~/.config/zsh/conf.d/history.zsh
 source ~/.config/zsh/conf.d/completions.zsh

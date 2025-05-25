@@ -84,6 +84,7 @@ brew "dog" # dig alternative - lookup dns records
 brew "doggo" # dig alternative - lookup dns records 
 
 # Capably
+brew "watch"
 brew "cairo"
 brew "libolm"
 brew "automake"
