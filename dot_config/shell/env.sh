@@ -8,6 +8,7 @@ export CLICOLOR=1
 export EXA_ICON_SPACING=2
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export BASH_SILENCE_DEPRECATION_WARNING=1
+export PATH="$PATH:$HOME/.lmstudio/bin"
 
 # FZF
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
@@ -36,8 +37,6 @@ export FZF_CTRL_T_OPTS="$FZF_DEFAULT_OPTS --preview '$FZF_PREVIEW_DIR_CMD {}'"
 export FZF_CTRL_R_OPTS="$FZF_DEFAULT_OPTS --preview 'echo {2..} | $FZF_PREVIEW_FILE_CMD -l bash' --preview-window 1,bottom,wrap,border-top"
 
 # XDG Settings
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$PATH:$HOME/.lmstudio/bin"
 export HOMEBREW_BUNDLE_FILE_GLOBAL="$HOME/.config/brewfile/Brewfile"
 export NPM_CONFIG_CACHE="$HOME/.cache/npm"
 export BUN_INSTALL="$HOME/.local/share/bun"
