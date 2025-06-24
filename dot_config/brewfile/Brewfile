@@ -1,7 +1,5 @@
 # Taps
 tap "dashlane/tap"
-tap "homebrew/bundle"
-tap "homebrew/services"
 tap "jorgerojas26/lazysql"
 
 # Kubernetes
@@ -48,6 +46,7 @@ brew "jless"
 brew "trurl"
 brew "xsv"
 brew "pgcli"
+brew "miller"
 brew "jorgerojas26/lazysql/lazysql"
 
 # Crpyto
@@ -59,11 +58,12 @@ brew "ffmpeg"
 brew "imagemagick"
 
 # Git & VCS
-brew "gh" # github cli
-brew "git-extras" # extra git commands
+brew "gh" # github cli
+brew "git-extras" # extra git commands
+brew "git-branchless" # extra git commands
 brew "gitoxide"
-brew "gitui" # tui for git
-brew "lazygit" # tui for git
+brew "gitui" # tui for git (rust)
+brew "lazygit" # tui for git (go)
 brew "jj" # vcs that can be used on top of git
 brew "dashlane/tap/dashlane-cli"
 
@@ -81,7 +81,7 @@ brew "gping" # ping alternative - test ip address reachability and latency
 brew "oha" # ab alternative - benchmark http endpoints
 brew "xh" # curl alternative - make http requests
 brew "dog" # dig alternative - lookup dns records
-brew "doggo" # dig alternative - lookup dns records 
+brew "doggo" # dig alternative - lookup dns records (since dog is dead)
 
 # Capably
 brew "watch"
@@ -109,19 +109,19 @@ cask "font-jetbrains-mono-nerd-font"
 
 # Apps
 cask "google-chrome"
-cask "docker"
+cask "docker-desktop"
 cask "ghostty"
 cask "kitty"
 cask "wezterm"
 cask "visual-studio-code"
 cask "monitorcontrol"
 cask "rectangle"
-cask "mullvadvpn"
+cask "mullvad-vpn"
 cask "slack"
 cask "keepassxc"
 cask "dbeaver-community"
 cask "lm-studio"
-cask "syncthing"
+cask "syncthing-app"
 
 # VS Code Extensions
 
@@ -131,7 +131,6 @@ vscode "oven.bun-vscode" # js/ts - bun
 vscode "tamasfe.even-better-toml" # toml
 vscode "redhat.vscode-yaml" # yaml
 vscode "yzhang.markdown-all-in-one" # markdown
-vscode "timonwong.shellcheck" # bash/sh
 vscode "hashicorp.terraform" # hcl
 vscode "matheusq94.tfs" # hcl
 vscode "mechatroner.rainbow-csv" # csv
@@ -143,8 +142,9 @@ vscode "rust-lang.rust-analyzer" # rust
 vscode "ms-vscode.makefile-tools" # c/make
 vscode "jakebecker.elixir-ls" # elixir
 vscode "thenuprojectcontributors.vscode-nushell-lang" # nu
-vscode "ms-azuretools.vscode-docker" # dockerfile
-vscode "docker.docker"
+vscode "ms-azuretools.vscode-docker" # docker (microsoft)
+vscode "ms-azuretools.vscode-containers" # docker (microsoft)
+vscode "docker.docker" # docker (docker inc)
 
 ## VS Code Language Extras
 vscode "charliermarsh.ruff" # python
@@ -153,6 +153,9 @@ vscode "dbaeumer.vscode-eslint" # js
 vscode "orta.vscode-jest" # js
 vscode "vitest.explorer" # js
 vscode "bradlc.vscode-tailwindcss" # js/css
+vscode "mkhl.shfmt" # bash/sh
+vscode "timonwong.shellcheck" # bash/sh
+vscode "editorconfig.editorconfig" # all
 
 ## VS Code Themes
 vscode "catppuccin.catppuccin-vsc"

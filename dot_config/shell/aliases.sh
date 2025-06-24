@@ -31,3 +31,4 @@ alias klo="kubectl logs"
 alias kd='kubectl describe'
 alias krm='kubectl delete'
 alias capably='mise run'
+alias c='mise run'

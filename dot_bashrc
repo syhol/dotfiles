@@ -1,5 +1,5 @@
 # Load cross shell config
-source ~/.config/shell/foundation.sh
+source "$HOME/.config/shell/foundation.sh"
 
 # Load custom shell integrations
 eval "$(mise activate bash)"
