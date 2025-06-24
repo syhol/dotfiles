@@ -1,9 +1,9 @@
 #!/usr/bin/env -S usage bash
 #USAGE cmd "apply" {
-#USAGE   arg "<theme>"
+#USAGE   arg <THEME>
 #USAGE }
 #USAGE cmd "select" {}
-#USAGE complete "theme" run="ls -1 --icons=never --color=never ~/.config/themes"
+#USAGE complete "theme" run="ls -1 ~/.config/themes"
 
 function apply() {
 
@@ -47,6 +47,15 @@ EOL
 
   echo "To finish applying the theme to the current shell, run the following:"
   echo "source ~/.config/shell/theme.sh"
+
+  osascript << 'EOL'
+tell application "System Events"
+    tell process "Ghostty"
+        click menu item "Reload Configuration" of menu "Ghostty" of menu bar item "Ghostty" of menu bar 1
+    end tell
+end tell
+EOL
+
 }
 
 function select_theme() {

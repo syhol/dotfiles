@@ -2,5 +2,6 @@
 !.hushlogin
 !.bashrc
 .config/chezmoi
+.local/share
 README.md
 *
