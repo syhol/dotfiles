@@ -8,6 +8,7 @@ return {
           "ruff_format",
           "ruff_organize_imports",
         },
+        sh = { "shfmt" },
       },
     },
   },
