@@ -1,7 +1,5 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.editor.fzf",
-    "lazyvim.plugins.extras.editor.neo-tree",
     "lazyvim.plugins.extras.lang.markdown"
   ],
   "install_version": 7,

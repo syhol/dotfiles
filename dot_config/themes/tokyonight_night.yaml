@@ -1,7 +1,7 @@
 bat: base16-256
 vivid: tokyonight-night
 wezterm: tokyonight_night
-ghostty: tokyonight_night
+ghostty: TokyoNight Night
 fish: bright-pastel
 helix: tokyonight
 neovim: tokyonight-night
