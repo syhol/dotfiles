@@ -1,4 +1,4 @@
-theme = catppuccin-macchiato
+theme = Catppuccin Frappe
 font-family = "JetBrainsMono NF"
 font-size = 14
 font-thicken = true
@@ -7,3 +7,4 @@ adjust-cell-height = 1
 window-padding-x = 30
 window-padding-y = 5,30
 macos-titlebar-style = tabs
+keybind = shift+enter=text:\n

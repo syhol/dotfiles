@@ -23,8 +23,8 @@
 [interactive]
   diffFilter = delta --color-only
 [delta]
-  syntax-theme = Catppuccin Macchiato
-  features = catppuccin-macchiato # themeset
+  syntax-theme = Catppuccin Frappe
+  features = catppuccin-frappe # themeset
 [merge]
   conflictstyle = zdiff3
 

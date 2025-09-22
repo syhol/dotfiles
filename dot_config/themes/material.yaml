@@ -1,7 +1,7 @@
 bat: base16 
 vivid: tokyonight-storm
 wezterm: Material (base16)
-ghostty: OceanicMaterial
+ghostty: Oceanic Material
 fish: fish default
 helix: material_oceanic
 neovim: material

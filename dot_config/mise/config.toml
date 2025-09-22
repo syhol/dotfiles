@@ -10,27 +10,15 @@ usage = "latest"
 "pipx:kube-shell" = "latest"
 "pipx:litecli" = "latest"
 rust = "latest"
-# "ubi:charmbracelet/gum" = "latest"
-# "ubi:pemistahl/grex" = "latest"
-# "ubi:MaybeJustJames/zephyr" = "latest"
-# "ubi:google/yamlfmt" = "latest"
-# "ubi:kkinnear/zprint" = "latest"
-# "ubi:nektro/zigmod" = "latest"
-# "ubi:joerdav/xc" = "latest"
-# "ubi:vultr/vultr-cli" = "latest"
-# "ubi:charmbracelet/vhs" = "latest"
-# "ubi:ovh/venom" = "latest"
-# "ubi:traefik/traefik" = "latest"
-# "ubi:tree-sitter/tree-sitter" = "latest"
-# "ubi:titan-data/titan" = "latest"
-# "ubi:stefanprodan/timoni" = "latest"
-# "ubi:tellerops/teller" = "latest"
+"npm:@anthropic-ai/claude-code" = "latest"
+"npm:@openai/codex" = "latest"
 
 [tasks.docker]
 run = "docker run --pull=always -it --rm --entrypoint bash jdxcode/mise:latest"
 
 [settings]
 experimental = true
+idiomatic_version_file_enable_tools = []
 
 [settings.pipx]
 uvx = true

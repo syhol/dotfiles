@@ -122,6 +122,8 @@ cask "keepassxc"
 cask "dbeaver-community"
 cask "lm-studio"
 cask "syncthing-app"
+cask "steam"
+cask "discord"
 
 # VS Code Extensions
 
@@ -137,6 +139,7 @@ vscode "mechatroner.rainbow-csv" # csv
 vscode "ms-python.debugpy" # python
 vscode "ms-python.python" # python
 vscode "ms-python.vscode-pylance" # python
+vscode "ms-python.vscode-python-envs"
 vscode "golang.go" # go
 vscode "rust-lang.rust-analyzer" # rust
 vscode "ms-vscode.makefile-tools" # c/make
@@ -156,6 +159,7 @@ vscode "bradlc.vscode-tailwindcss" # js/css
 vscode "mkhl.shfmt" # bash/sh
 vscode "timonwong.shellcheck" # bash/sh
 vscode "editorconfig.editorconfig" # all
+vscode "johnnymorganz.stylua"
 
 ## VS Code Themes
 vscode "catppuccin.catppuccin-vsc"
@@ -177,3 +181,4 @@ vscode "ms-vscode.extension-test-runner"
 vscode "mushan.vscode-paste-image"
 vscode "pomdtr.excalidraw-editor"
 vscode "ryu1kn.partial-diff"
+vscode "anthropic.claude-code"
