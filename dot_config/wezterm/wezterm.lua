@@ -2,7 +2,7 @@
 local wezterm = require 'wezterm'
 
 return {
-  color_scheme = 'Catppuccin Frappe',
+  color_scheme = 'Catppuccin Macchiato',
   font = wezterm.font('JetBrainsMono NF', { weight = 'Medium' }),
   font_size = 11,
   freetype_load_flags = 'NO_HINTING',

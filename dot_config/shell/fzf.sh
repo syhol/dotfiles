@@ -1,6 +1,8 @@
 # FZF
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
   --prompt '∷ ' --pointer ▶ \
+  --gutter ▎\
+  --color=gutter:#565656 \
   --color=fg:#c0caf5,hl:#ff9e64 \
   --color=fg+:#c0caf5,bg+:-1,hl+:#ff9e64 \
   --color=info:#7aa2f7,prompt:#7dcfff,pointer:#7dcfff \

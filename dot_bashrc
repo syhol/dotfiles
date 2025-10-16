@@ -6,3 +6,8 @@ eval "$(mise activate bash)"
 eval "$(fzf --bash)"
 eval "$(zoxide init bash --cmd cd)"
 eval "$(starship init bash)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/simon/.lmstudio/bin"
+# End of LM Studio CLI section
+

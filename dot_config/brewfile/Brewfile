@@ -71,6 +71,7 @@ brew "dashlane/tap/dashlane-cli"
 brew "neovim"
 brew "helix"
 brew "luarocks"
+brew "tree-sitter-cli"
 brew "stylua"
 
 # Http & Net
