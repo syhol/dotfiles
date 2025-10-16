@@ -2,10 +2,11 @@
 tap "dashlane/tap"
 tap "jorgerojas26/lazysql"
 
-# Kubernetes
+# Kubernetes & Docker
 brew "kubernetes-cli"
 brew "kubectx"
 brew "helm"
+brew "lazydocker"
 
 # Shell
 brew "nushell" # Alternative shell
