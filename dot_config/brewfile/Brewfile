@@ -86,6 +86,7 @@ brew "dog" # dig alternative - lookup dns records
 brew "doggo" # dig alternative - lookup dns records (since dog is dead)
 
 # Capably
+brew "awscli"
 brew "watch"
 brew "cairo"
 brew "libolm"
