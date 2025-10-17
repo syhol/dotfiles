@@ -2,6 +2,7 @@
 !.hushlogin
 !.bashrc
 .config/chezmoi
+.config/k9s/clusters
 .local/share
 README.md
 *

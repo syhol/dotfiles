@@ -12,6 +12,7 @@ export PATH="$PATH:/usr/local/bin:$HOME/.lmstudio/bin"
 
 # XDG Settings
 export HOMEBREW_BUNDLE_FILE_GLOBAL="$HOME/.config/brewfile/Brewfile"
+export K9S_CONFIG_DIR="$HOME/.config/k9s"
 export NPM_CONFIG_CACHE="$HOME/.cache/npm"
 export HELIX_RUNTIME="$HOME/.local/share/helix"
 export BUN_INSTALL="$HOME/.local/share/bun"

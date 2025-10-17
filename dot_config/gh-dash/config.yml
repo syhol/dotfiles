@@ -15,6 +15,9 @@ issuesSections:
   filters: is:open assignee:@me
 - title: Involved
   filters: is:open involves:@me -author:@me
+repoPaths:
+  CapablyAI/ar-monorepo: ~/Code/capably/ar-monorepo
+  syhol/*: ~/Code/syhol/*
 defaults:
   preview:
     open: true
@@ -61,5 +64,5 @@ theme:
       showSeparator: true
       compact: false
 pager:
-  diff: ""
+  diff: "delta"
 confirmQuit: false
