@@ -80,6 +80,7 @@ brew "stylua"
 brew "curl"
 brew "wget"
 brew "netcat"
+brew "somo" # port scanner
 brew "gping" # ping alternative - test ip address reachability and latency
 brew "oha" # ab alternative - benchmark http endpoints
 brew "xh" # curl alternative - make http requests
