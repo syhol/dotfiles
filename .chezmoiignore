@@ -3,6 +3,8 @@
 !.bashrc
 .config/chezmoi
 .config/k9s/clusters
+.config/yazi/plugins
+.config/yazi/flavors
 .local/share
 README.md
 *

@@ -1,0 +1,9 @@
+[[plugin.deps]]
+use = "Lil-Dank/lazygit"
+rev = "8f37dc5"
+hash = "ee71543790f0ce3951161045a3787abd"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-macchiato"
+rev = "f6b425a"
+hash = "4127d9d6c96862ed96a7a64b3973a5af"
