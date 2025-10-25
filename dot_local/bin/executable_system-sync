@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-mise self-update --yes
-mise install --yes
-mise upgrade --yes
-mise prune --yes
-brew bundle install --upgrade --cleanup --file ~/.config/brewfile/Brewfile
-helm plugin update diff
-gh extension upgrade --all

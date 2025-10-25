@@ -24,7 +24,7 @@ end
 with_fish_completion uv "uv generate-shell-completion fish"
 with_fish_completion mise "mise completion fish"
 with_fish_completion bun "SHELL=fish bun completions"
-with_fish_completion themeset "usage g completion --file $HOME/.local/bin/themeset fish themeset"
+with_fish_completion themeset "usage g completion --file $HOME/.config/shell/bin/themeset fish themeset"
 
 with_fish_plugin fzf-tab "https://github.com/jethrokuan/fzf.git"
 

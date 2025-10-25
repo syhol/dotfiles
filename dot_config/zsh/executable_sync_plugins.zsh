@@ -1,6 +1,5 @@
 #!/usr/bin/env zsh
 
-
 shellstrap_dir="$HOME/.local/share/shellstrap/zsh"
 dist_dirs=(
   "$shellstrap_dir/site-functions"
