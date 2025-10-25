@@ -6,5 +6,7 @@
 .config/yazi/plugins
 .config/yazi/flavors
 .local/share
+!.local/bin
+.local/bin/mise
 README.md
 *
