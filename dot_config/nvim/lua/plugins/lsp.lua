@@ -7,14 +7,18 @@ return {
       servers = {
         -- Add the server you want, e.g.:
         pyright = {},
-        tsserver = {},
+        -- tsserver = {}, -- Using pmizio/typescript-tools.nvim instead
         html = {
           filetypes = { "html", "htmldjango" }, -- customize if needed
         },
       },
     },
   },
-
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
+  },
   {
     "mason-org/mason.nvim",
     opts = function(_, opts)
