@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# Chezmoi mise/config.toml hash: {{ include "dot_config/mise/config.toml" | sha256sum }}
-
-curl https://mise.run | sh
-~/.local/bin/mise self-update --yes
-~/.local/bin/mise install --yes
-~/.local/bin/mise prune --yes
-

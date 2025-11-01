@@ -34,3 +34,4 @@ bat cache --build
 # Shell plugins
 ~/.config/fish/sync_plugins.fish
 ~/.config/zsh/sync_plugins.zsh
+touch ~/.config/shell/secrets.sh

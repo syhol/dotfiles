@@ -1,35 +1,6 @@
 #!/bin/bash
 
 # Chezmoi Brewfile hash: {{ include "dot_config/brewfile/Brewfile" | sha256sum }}
+# Chezmoi mise.toml hash: {{ include "dot_config/mise/config.toml" | sha256sum }}
 
-if ! command -v brew &> /dev/null; then
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-  # Array of possible Homebrew locations
-  BREW_LOCATIONS=(
-    "/usr/local/bin/brew"
-    "/opt/homebrew/bin/brew"
-    "/home/linuxbrew/.linuxbrew/bin/brew"
-  )
-
-  # Iterate over the locations
-  for BREW_PATH in "${BREW_LOCATIONS[@]}"; do
-    if [ -f "$BREW_PATH" ]; then
-      echo "Found Homebrew at: $BREW_PATH"
-      eval "$($BREW_PATH shellenv)"
-      echo "Homebrew environment has been set."
-      exit 0
-    fi
-  done
-
-  # If no Homebrew binary was found
-  echo "Homebrew not found in the standard locations."
-  exit 1
-fi
-
-brew bundle install --upgrade --cleanup --file {{ joinPath .chezmoi.homeDir ".config/brewfile/Brewfile" | quote }}
-
-helm plugin install https://github.com/databus23/helm-diff || true
-
-gh extensions install dlvhdr/gh-dash
-
+$HOME/.config.shell/system-sync
