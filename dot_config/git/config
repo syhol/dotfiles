@@ -28,6 +28,15 @@
 [merge]
   conflictstyle = zdiff3
 
+# Diffview (mergetool)
+[merge]
+  tool = nvimdiff
+[mergetool "nvimdiff"]
+  cmd = nvim -c "DiffviewOpen"
+[mergetool]
+  prompt = false
+  keepBackup = false
+
 # Behaviour
 [push]
   autoSetupRemote = true
@@ -37,3 +46,4 @@
   autocorrect = 1
 [rebase]
   autoStash = true
+
