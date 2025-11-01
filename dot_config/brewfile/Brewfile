@@ -14,6 +14,7 @@ brew "vivid" # ls colors theme generator
 brew "starship" # shell prompt
 
 # Shell utilities
+brew "coreutils"
 brew "zoxide" # cd alternative - change directories
 brew "eza" # ls alternative - list directory contents
 brew "bat" # cat alternative - print file contents

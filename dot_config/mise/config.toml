@@ -11,6 +11,15 @@ rust = "latest"
 
 [tasks.docker]
 run = "docker run --pull=always -it --rm --entrypoint bash jdxcode/mise:latest"
+[tasks.refresh]
+dir = "{{cwd}}"
+run = '''
+./scripts/stop.sh
+./scripts/reset.sh
+docker builder prune --filter "until=168h" -f
+docker volume prune -f
+./scripts/start.sh
+''''
 
 [settings]
 experimental = true

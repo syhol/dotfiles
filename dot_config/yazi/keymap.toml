@@ -3,8 +3,3 @@ on   = [ "g", "g" ]
 run  = "plugin lazygit"
 desc = "run lazygit"
 
-[[mgr.prepend_keymap]]
-on   = "<C-d>"
-run  = "plugin diff"
-desc = "Diff the selected with the hovered file"
-
