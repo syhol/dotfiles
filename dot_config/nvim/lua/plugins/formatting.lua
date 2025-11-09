@@ -9,6 +9,7 @@ return {
           "ruff_organize_imports",
         },
         sh = { "shfmt" },
+        zsh = { "shfmt" },
         markdown = { "prettier" },
         md = { "prettier" },
       },
