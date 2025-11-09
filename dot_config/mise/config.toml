@@ -14,12 +14,12 @@ run = "docker run --pull=always -it --rm --entrypoint bash jdxcode/mise:latest"
 [tasks.refresh]
 dir = "{{cwd}}"
 run = '''
-./scripts/stop.sh
-./scripts/reset.sh
+mise run stop
+mise run reset
 docker builder prune --filter "until=168h" -f
 docker volume prune -f
-./scripts/start.sh
-''''
+mise run start
+'''
 
 [settings]
 experimental = true

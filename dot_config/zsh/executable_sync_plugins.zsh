@@ -2,7 +2,8 @@
 
 shellstrap_dir="$HOME/.local/share/shellstrap/zsh"
 dist_dirs=(
-  "$shellstrap_dir/site-functions"
+  "$shellstrap_dir/functions"
+  "$shellstrap_dir/completions"
   "$shellstrap_dir/plugins"
 )
 
@@ -12,7 +13,7 @@ do
   mkdir -p $dir
 done
 
-_user_completions="${shellstrap_dir}/site-functions"
+_user_completions="${shellstrap_dir}/completions"
 with_zsh_completion() {
   [[ ! -f "${_user_completions}/_${1}" ]] && bash -c "${2}" >${_user_completions}/_${1}
 }

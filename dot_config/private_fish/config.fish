@@ -6,8 +6,3 @@ if status is-interactive
     zoxide init fish --cmd cd | source
     starship init fish | source
 end
-
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH /Users/simon/.lmstudio/bin
-# End of LM Studio CLI section
-
