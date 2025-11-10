@@ -8,9 +8,9 @@ export CLICOLOR=1
 export EXA_ICON_SPACING=2
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export BASH_SILENCE_DEPRECATION_WARNING=1
-export PATH="$PATH:/usr/local/bin"
-export PATH="$PATH:$HOME/.lmstudio/bin"
-export PATH="$PATH:$HOME/.config/shell/bin"
+export PATH="/usr/local/bin:$PATH"
+export PATH="$HOME/.lmstudio/bin:$PATH"
+export PATH="$HOME/.config/shell/bin:$PATH"
 
 # XDG Settings
 export HOMEBREW_BUNDLE_FILE_GLOBAL="$HOME/.config/brewfile/Brewfile"

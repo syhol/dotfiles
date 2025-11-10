@@ -9,4 +9,4 @@ window-padding-y = 5,15
 macos-titlebar-style = tabs
 keybind = shift+enter=text:\n
 keybind = option+backspace=text:\x1b\x7f
-
+custom-shader = cursor_shader.glsl
