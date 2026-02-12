@@ -4,10 +4,10 @@ deno = "latest"
 bun = "latest"
 uv = "latest"
 go = "latest"
-usage = "latest"
-rust = "latest"
+# rust = "latest"
 "npm:@anthropic-ai/claude-code" = "latest"
-"npm:@openai/codex" = "latest"
+usage = "2.16"
+# "npm:@openai/codex" = "latest"
 
 [tasks.docker]
 run = "docker run --pull=always -it --rm --entrypoint bash jdxcode/mise:latest"
@@ -23,6 +23,7 @@ mise run start
 
 [settings]
 experimental = true
+color_theme = "catppuccin"
 idiomatic_version_file_enable_tools = []
 
 [settings.pipx]

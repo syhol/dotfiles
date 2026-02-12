@@ -10,3 +10,7 @@ macos-titlebar-style = tabs
 keybind = shift+enter=text:\n
 keybind = option+backspace=text:\x1b\x7f
 custom-shader = cursor_shader.glsl
+macos-option-as-alt = left
+keybind = alt+left=unbind
+keybind = alt+right=unbind
+
