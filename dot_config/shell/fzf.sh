@@ -1,7 +1,7 @@
 # FZF
 export FZF_DEFAULT_OPTS=" \
   --prompt '∷ ' --pointer ▶ \
-  --gutter ▎\
+  --gutter ▎ \
   --color=gutter:#565656 \
   --color=fg:#c0caf5,hl:#ff9e64 \
   --color=fg+:#c0caf5,bg+:-1,hl+:#ff9e64 \
@@ -27,6 +27,9 @@ export FZF_CD_OPTS="--preview '$FZF_PREVIEW_DIR_CMD {}'"
 export FZF_CD_WITH_HIDDEN_OPTS="--preview '$FZF_PREVIEW_DIR_CMD {}'"
 export FZF_REVERSE_ISEARCH_OPTS="--preview 'echo {2..} | $FZF_PREVIEW_FILE_CMD -l bash' --preview-window 1,bottom,wrap,border-top"
 export FZF_ENABLE_OPEN_PREVIEW=1
+export FZF_DISABLE_KEYBINDINGS=0
+export FZF_LEGACY_KEYBINDINGS=1
+export FZF_TMUX_HEIGHT="40%"
 
 # Core FZF key bindings
 export FZF_ALT_C_OPTS="--preview '$FZF_PREVIEW_DIR_CMD {}'"

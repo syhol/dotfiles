@@ -4,9 +4,10 @@ deno = "latest"
 bun = "latest"
 uv = "latest"
 go = "latest"
-# rust = "latest"
-"npm:@anthropic-ai/claude-code" = "latest"
 usage = "2.16"
+claude = "latest"
+biome = "latest"
+dprint = "latest"
 # "npm:@openai/codex" = "latest"
 
 [tasks.docker]

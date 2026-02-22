@@ -58,6 +58,7 @@ brew "imagemagick"
 # Git & VCS
 brew "gh" # github cli
 brew "git-extras" # extra git commands
+brew "git-town" # stacked pr manager
 brew "lazygit" # tui for git (go)
 brew "dashlane/tap/dashlane-cli"
 
