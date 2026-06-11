@@ -33,5 +33,6 @@ alias klo="kubectl logs"
 alias kd='kubectl describe'
 alias krm='kubectl delete'
 alias gg='lazygit'
+alias gt='git town'
 alias capably='mise run'
 alias c='mise run'

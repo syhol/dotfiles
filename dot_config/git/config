@@ -47,3 +47,8 @@
 [rebase]
   autoStash = true
 
+[alias]
+  hack = town hack --sync
+  s = town sync
+  sa = "town sync --all"
+
