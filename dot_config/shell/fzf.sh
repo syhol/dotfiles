@@ -30,6 +30,7 @@ export FZF_ENABLE_OPEN_PREVIEW=1
 export FZF_DISABLE_KEYBINDINGS=0
 export FZF_LEGACY_KEYBINDINGS=1
 export FZF_TMUX_HEIGHT="40%"
+export FZF_COMPLETION_OPTS="--bind tab:down,shift-tab:up"
 
 # Core FZF key bindings
 export FZF_ALT_C_OPTS="--preview '$FZF_PREVIEW_DIR_CMD {}'"

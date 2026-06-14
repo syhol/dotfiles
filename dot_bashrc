@@ -1,7 +1,8 @@
 # Load cross shell config
 source "$HOME/.config/shell/foundation.sh"
+source "$HOME/.config/bash/plugins.bash"
 
-# Load custom shell integrations
+# Load custom shell integrations
 eval "$(mise activate bash)"
 eval "$(fzf --bash)"
 eval "$(zoxide init bash --cmd cd)"

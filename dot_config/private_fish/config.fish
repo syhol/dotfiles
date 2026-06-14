@@ -1,5 +1,5 @@
 source "$HOME/.config/shell/foundation.sh"
-source "$HOME/.config/fish/load_plugins.fish"
+source "$HOME/.config/fish/plugins.fish"
 
 if status is-interactive
     mise activate fish | source

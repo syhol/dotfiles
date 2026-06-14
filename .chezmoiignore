@@ -5,6 +5,8 @@
 .config/k9s/clusters
 .config/yazi/plugins
 .config/yazi/flavors
+.config/linear
+.config/github-copilot
 .local/share
 !.local/bin
 .local/bin/mise

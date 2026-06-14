@@ -1,5 +1,5 @@
 source "$HOME/.config/shell/foundation.sh"
-source "$HOME/.config/zsh/load_plugins.zsh"
+source "$HOME/.config/zsh/plugins.zsh"
 
 eval "$(mise activate zsh)"
 eval "$(fzf --zsh)"                # 2ms

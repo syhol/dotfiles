@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+ffmpeg -i "$1" \
+  -c:v libx264 -profile:v high -level 4.2 \
+  -crf 23 -pix_fmt yuv420p \
+  -movflags +faststart \
+  -c:a aac -b:a 128k \
+  "${1%.*}_smol.mp4"

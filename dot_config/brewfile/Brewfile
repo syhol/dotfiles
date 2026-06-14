@@ -6,12 +6,17 @@ brew "lazydocker"
 brew "k9s"
 
 # Shell
+brew "bash" # Modern bash (macOS ships 3.2)
+brew "bash-completion@2" # Bash tab completions
 brew "fish" # Alternative shell
 brew "vivid" # ls colors theme generator
 brew "starship" # shell prompt
 
 # Shell utilities
 brew "coreutils"
+brew "gawk" # Required by fzf-tab-completion
+brew "gnu-sed" # Required by fzf-tab-completion
+brew "grep" # Required by fzf-tab-completion (installs as ggrep)
 brew "zoxide" # cd alternative - change directories
 brew "eza" # ls alternative - list directory contents
 brew "bat" # cat alternative - print file contents
@@ -92,7 +97,7 @@ brew "openssl@3"
 brew "pango"
 cask "libreoffice"
 cask "1password"
-cask "linear-linear"
+cask "linear"
 cask "notion"
 cask "notion-calendar"
 
@@ -143,6 +148,9 @@ vscode "ms-azuretools.vscode-containers" # docker (microsoft)
 vscode "docker.docker" # docker (docker inc)
 
 ## VS Code Language Extras
+vscode "biomejs.biome" # js/ts
+vscode "dprint.dprint" # multi-language formatter
+vscode "oxc.oxc-vscode" # js/ts
 vscode "charliermarsh.ruff" # python
 vscode "esbenp.prettier-vscode" # js/html/css
 vscode "dbaeumer.vscode-eslint" # js
@@ -164,6 +172,9 @@ vscode "zhuangtongfa.material-theme"
 vscode "mvllow.rose-pine"
 
 ## VS Code Tools
+vscode "aikidosecurity.aikido" # security
+vscode "mirone.milkdown" # markdown editor
+vscode "ms-playwright.playwright" # e2e testing
 vscode "aaron-bond.better-comments"
 vscode "connor4312.esbuild-problem-matchers"
 vscode "eamodio.gitlens"
