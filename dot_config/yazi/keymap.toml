@@ -3,3 +3,8 @@ on   = [ "g", "g" ]
 run  = "plugin lazygit"
 desc = "run lazygit"
 
+[[mgr.prepend_keymap]]
+on   = "z"
+run  = "plugin fzf-full"
+desc = "Jump to a file/dir via fzf (fullscreen)"
+

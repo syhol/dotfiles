@@ -3,7 +3,9 @@
 !.bashrc
 .config/chezmoi
 .config/k9s/clusters
-.config/yazi/plugins
+.config/yazi/plugins/*
+!.config/yazi/plugins/fzf-full.yazi
+!.config/yazi/plugins/fzf-full.yazi/**
 .config/yazi/flavors
 .config/linear
 .config/github-copilot
