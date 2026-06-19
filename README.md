@@ -52,6 +52,7 @@ mise dotfiles status        # show what each dotfile maps to
 mise dotfiles apply         # (re)create symlinks / copies
 mise run sync               # upgrade packages, tools, plugins, extensions
 mise run vscode             # install/update VS Code extensions
+mise run dotfiles-unmanaged # list files in symlink-each dirs mise doesn't manage
 mise bootstrap packages ls  # show package install status
 ```
 
