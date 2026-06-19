@@ -1,4 +1,4 @@
 #!/usr/bin/env -S usage bash
-#USAGE arg "<command>" var=true
+#USAGE arg "<command>" var=#true
 
 exec mise exec "${1}" -- ${@}

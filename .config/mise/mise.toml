@@ -70,6 +70,10 @@ bun = true
 # resolve the file tasks from anywhere.
 "~/.config/mise" = {}
 
+# Personal scripts on PATH (mx, themeset, vid-smol). symlink-each so the
+# runtime mise binary and other installed executables in ~/.local/bin coexist.
+"~/.local/bin" = {}
+
 # Config dirs — symlink-each (the default): tracked files become symlinks while
 # the directory itself stays real, so runtime files (yazi plugins via
 # `ya pkg install`, zsh history/compdump, helix runtime, btop state, etc.)
