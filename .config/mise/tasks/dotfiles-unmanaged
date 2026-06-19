@@ -1,17 +1,21 @@
 #!/usr/bin/env bash
-#MISE description="List files in symlink-each dotfile dirs that mise doesn't manage"
+#MISE description="List what mise dotfiles doesn't manage (inside symlink-each dirs + top-level ~/.config)"
 #
-# For every [dotfiles] entry with mode = symlink-each, walk the live target dir
-# and report any leaf that ISN'T a symlink into the dotfiles repo — i.e. real
-# files, runtime dirs, or foreign symlinks (app state, plugin installs, caches,
-# secrets). copy-mode dirs (gh, k9s) are excluded; "unmanaged" means something
-# different there.
+# Pass 1: for every [dotfiles] entry with mode = symlink-each, walk the live
+#   target dir and report any leaf that ISN'T a symlink into the dotfiles repo
+#   (real files, runtime dirs, foreign symlinks — app state, plugin installs,
+#   caches, secrets). copy-mode dirs (gh, k9s) are excluded.
+# Pass 2: scan ~/.config's top level for entries that have no [dotfiles] entry
+#   at all — config dirs/files on disk that aren't tracked by the repo.
 set -euo pipefail
 
 # Repo root, derived from the mise.toml symlink (no hardcoded path).
 repo=$(readlink "$HOME/.config/mise/mise.toml" | sed 's#/\.config/mise/mise\.toml$##')
+status=$(mise dotfiles status -J 2>/dev/null)
 
-mise dotfiles status -J 2>/dev/null \
+# --- Pass 1: unmanaged files inside symlink-each dirs -------------------------
+echo "── Inside symlink-each dirs ──"
+printf '%s' "$status" \
   | jq -r '.files[] | select(.mode=="symlink-each") | .target' \
   | while IFS= read -r target; do
       dir="${target/#\~/$HOME}"
@@ -32,3 +36,26 @@ mise dotfiles status -J 2>/dev/null \
         printf '%s\n' "$unmanaged" | sed 's/^/    /'
       fi
     done
+
+# --- Pass 2: top-level ~/.config entries with no [dotfiles] entry -------------
+echo
+echo "── Top-level ~/.config (no dotfile entry) ──"
+# All managed targets, expanded to absolute paths (an entry counts as managed
+# if a target equals it or is nested under it, e.g. ~/.config/vscode is covered
+# by the ~/.config/vscode/extensions.txt entry).
+targets=$(printf '%s' "$status" | jq -r '.files[].target' | sed "s#^~#$HOME#")
+found=0
+while IFS= read -r entry; do
+  managed=no
+  while IFS= read -r t; do
+    [ -z "$t" ] && continue
+    case "$t" in "$entry" | "$entry"/*) managed=yes; break ;; esac
+  done <<< "$targets"
+  if [ "$managed" = no ]; then
+    printf '\033[33m    %s\033[0m\n' "${entry#"$HOME"/.config/}"
+    found=$((found + 1))
+  fi
+done < <(find "$HOME/.config" -mindepth 1 -maxdepth 1 2>/dev/null | sort)
+if [ "$found" -eq 0 ]; then
+  echo "    (none — every ~/.config entry maps to a dotfile)"
+fi

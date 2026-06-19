@@ -108,8 +108,9 @@ whole `bootstrap` task (installing anything newly added), then upgrades:
 
 - `mise run vscode` — install/update VS Code extensions from
   `.config/vscode/extensions.txt`. (Also invoked by `bootstrap`.)
-- `mise run dotfiles-unmanaged` — audit: list files in symlink-each dirs that
-  mise doesn't manage.
+- `mise run dotfiles-unmanaged` — audit what mise doesn't manage: unmanaged
+  files inside symlink-each dirs, plus top-level `~/.config` entries that have
+  no `[dotfiles]` entry at all.
 
 `docker` and `refresh` are small inline tasks in `mise.toml` (Docker dev-env
 helpers), unrelated to the dotfiles lifecycle.
@@ -128,7 +129,7 @@ There should be **zero broken symlinks** after an apply.
 
 ## Git workflow
 
-Default branch is `main`. This repo uses [git-town](https://www.git-town.com/):
-`git town hack` (new branch), `git town append` (stacked), `git town sync`,
-`git town propose` (PR), `git town ship`. Branch before committing; don't commit
-directly to `main`.
+Default branch is `main`; committing directly to `main` is fine. This repo also
+uses [git-town](https://www.git-town.com/) for branch-based work when you want
+it: `git town hack` (new branch), `git town append` (stacked), `git town sync`,
+`git town propose` (PR), `git town ship`.
