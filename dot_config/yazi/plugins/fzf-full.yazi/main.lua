@@ -46,8 +46,16 @@ function M.run_with(cwd, selected)
 	-- (fzf uses the last --height it sees).
 	local opts = (os.getenv("FZF_DEFAULT_OPTS") or "") .. " --height=100%"
 
+	-- Preview on the right: dirs use $FZF_PREVIEW_DIR_CMD (eza), files use
+	-- $FZF_PREVIEW_FILE_CMD (bat). Both are exported from shell/fzf.sh and
+	-- inherited here, so this stays in sync with the rest of the fzf config.
+	-- --preview-window right,border-left already comes from FZF_DEFAULT_OPTS.
+	local preview = [[[ -d {} ] && eval "$FZF_PREVIEW_DIR_CMD {}" || eval "$FZF_PREVIEW_FILE_CMD {}"]]
+
 	local child, err = Command("fzf")
 		:arg("-m")
+		:arg("--preview")
+		:arg(preview)
 		:env("FZF_DEFAULT_OPTS", opts)
 		:cwd(tostring(cwd))
 		:stdin(#selected > 0 and Command.PIPED or Command.INHERIT)

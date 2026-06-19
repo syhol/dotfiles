@@ -9,11 +9,11 @@ claude = "latest"
 codex = "latest"
 biome = "latest"
 dprint = "latest"
+"github:earendil-works/pi" = "latest"
 "github:Dashlane/dashlane-cli" = "latest"
 "github:fioncat/otree" = "latest"
 "github:schpet/linear-cli" = "1.10.0"
 "npm:agent-browser" = "latest"
-"npm:@mariozechner/pi-coding-agent" = "latest"
 "http:acme.sh" = { version = "1.0.0", url = "https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh" }
 
 
