@@ -1,0 +1,4 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$($HOME/.local/bin/mise activate zsh --shims)"
+export ZDOTDIR=~/.config/zsh
+export ZSH_CACHE_DIR=~/.local/share/shellstrap/zsh

@@ -1,0 +1,102 @@
+# Homebrew casks + VS Code extensions.
+#
+# Formulae live in mise.toml under [bootstrap.packages]. Casks and VS Code
+# extensions stay here because mise's [bootstrap.packages] can't install them:
+# it only supports plain `.app` casks and rejects binary/font/pkg/manpage/
+# bash_completion artifacts (VS Code, fonts, docker-desktop, ghostty, kitty,
+# wezterm, dbeaver, keepassxc, mullvad-vpn, libreoffice, ...).
+#
+# The `bootstrap` mise task installs these with `brew bundle install`.
+
+# Capably / productivity
+cask "libreoffice"
+cask "1password"
+cask "linear"
+cask "notion"
+cask "notion-calendar"
+
+# Fonts
+cask "font-meslo-lg-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
+
+# Apps
+cask "google-chrome"
+cask "docker-desktop"
+cask "ghostty"
+cask "kitty"
+cask "wezterm"
+cask "visual-studio-code"
+cask "monitorcontrol"
+cask "rectangle"
+cask "mullvad-vpn"
+cask "slack"
+cask "keepassxc"
+cask "dbeaver-community"
+cask "lm-studio"
+cask "syncthing-app"
+cask "steam"
+cask "discord"
+
+# VS Code Extensions
+
+## VS Code Languages
+vscode "denoland.vscode-deno" # js/ts - deno
+vscode "oven.bun-vscode" # js/ts - bun
+vscode "tamasfe.even-better-toml" # toml
+vscode "redhat.vscode-yaml" # yaml
+vscode "yzhang.markdown-all-in-one" # markdown
+vscode "hashicorp.terraform" # hcl
+vscode "matheusq94.tfs" # hcl
+vscode "mechatroner.rainbow-csv" # csv
+vscode "ms-python.debugpy" # python
+vscode "ms-python.python" # python
+vscode "ms-python.vscode-pylance" # python
+vscode "ms-python.vscode-python-envs"
+vscode "golang.go" # go
+vscode "rust-lang.rust-analyzer" # rust
+vscode "ms-vscode.makefile-tools" # c/make
+vscode "jakebecker.elixir-ls" # elixir
+vscode "thenuprojectcontributors.vscode-nushell-lang" # nu
+vscode "ms-azuretools.vscode-docker" # docker (microsoft)
+vscode "ms-azuretools.vscode-containers" # docker (microsoft)
+vscode "docker.docker" # docker (docker inc)
+
+## VS Code Language Extras
+vscode "biomejs.biome" # js/ts
+vscode "dprint.dprint" # multi-language formatter
+vscode "oxc.oxc-vscode" # js/ts
+vscode "charliermarsh.ruff" # python
+vscode "esbenp.prettier-vscode" # js/html/css
+vscode "dbaeumer.vscode-eslint" # js
+vscode "orta.vscode-jest" # js
+vscode "vitest.explorer" # js
+vscode "bradlc.vscode-tailwindcss" # js/css
+vscode "mkhl.shfmt" # bash/sh
+vscode "timonwong.shellcheck" # bash/sh
+vscode "editorconfig.editorconfig" # all
+vscode "johnnymorganz.stylua"
+
+## VS Code Themes
+vscode "catppuccin.catppuccin-vsc"
+vscode "dracula-theme.theme-dracula"
+vscode "enkia.tokyo-night"
+vscode "equinusocio.vsc-material-theme"
+vscode "equinusocio.vsc-material-theme-icons"
+vscode "zhuangtongfa.material-theme"
+vscode "mvllow.rose-pine"
+
+## VS Code Tools
+vscode "aikidosecurity.aikido" # security
+vscode "mirone.milkdown" # markdown editor
+vscode "ms-playwright.playwright" # e2e testing
+vscode "aaron-bond.better-comments"
+vscode "connor4312.esbuild-problem-matchers"
+vscode "eamodio.gitlens"
+vscode "foam.foam-vscode"
+vscode "hverlin.mise-vscode"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode.extension-test-runner"
+vscode "mushan.vscode-paste-image"
+vscode "pomdtr.excalidraw-editor"
+vscode "ryu1kn.partial-diff"
+vscode "anthropic.claude-code"

@@ -1,0 +1,265 @@
+# Canonical mise config for syhol's dotfiles.
+#
+# This file is the single source of truth. The [dotfiles] section below
+# symlinks it to ~/.config/mise/config.toml so [tools] are active globally
+# and `mise activate` (wired into every shell rc) picks it up.
+#
+# First-time setup on a new machine:
+#   git clone https://github.com/syhol/dotfiles ~/Code/syhol/dotfiles
+#   cd ~/Code/syhol/dotfiles
+#   curl https://mise.run | sh
+#   mise bootstrap
+
+[tools]
+node = "latest"
+deno = "latest"
+bun = "latest"
+uv = "latest"
+go = "latest"
+usage = "latest"
+claude = "latest"
+codex = "latest"
+biome = "latest"
+dprint = "latest"
+"github:earendil-works/pi" = "latest"
+"github:Dashlane/dashlane-cli" = "latest"
+"github:fioncat/otree" = "latest"
+"github:schpet/linear-cli" = "1.10.0"
+"npm:agent-browser" = "latest"
+"http:acme.sh" = { version = "1.0.0", url = "https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh" }
+
+[settings]
+experimental = true
+color_theme = "catppuccin"
+idiomatic_version_file_enable_tools = []
+dotfiles.root = "~/Code/syhol/dotfiles/home"
+# symlink-each (not whole-dir symlink) keeps each config dir a REAL directory
+# with only tracked files symlinked. Apps write history/state/secrets
+# (e.g. zsh .zsh_history/secrets.zsh, shell/secrets.sh, helix/runtime) into
+# those dirs at runtime — symlink-each keeps those local instead of routing
+# them back into this git repo.
+dotfiles.default_mode = "symlink-each"
+
+[settings.pipx]
+uvx = true
+
+[settings.npm]
+bun = true
+
+# --- Dotfiles -----------------------------------------------------------------
+# Source files live under home/ (mirrors $HOME). With dotfiles.root set, an
+# entry's source is inferred from its home-relative target, so most entries are
+# empty {}. Default mode is symlink-each; overrides are noted inline.
+[dotfiles]
+# Single-file entries (mode = symlink; symlink-each only works on directories).
+# .bashrc / .zshenv / VS Code settings keep tidy source paths under home/.config
+# via an explicit source, while the symlink still lands at the real target.
+"~/.bashrc" = { source = "~/Code/syhol/dotfiles/home/.config/bash/bashrc", mode = "symlink" }
+"~/.zshenv" = { source = "~/Code/syhol/dotfiles/home/.config/zsh/zshenv", mode = "symlink" }
+"~/.hushlogin" = { mode = "symlink" }
+"~/.ignore" = { mode = "symlink" }
+"~/.ssh/config" = { mode = "symlink" }
+"~/Library/Application Support/Code/User/settings.json" = { source = "~/Code/syhol/dotfiles/home/.config/vscode/settings.json", mode = "symlink" }
+
+# mise's own config + lockfile point back to this repo's canonical files
+# Absolute (~-based) sources so these resolve the same whether mise runs from
+# the repo or loads this file via the global ~/.config/mise/config.toml symlink.
+"~/.config/mise/config.toml" = { source = "~/Code/syhol/dotfiles/mise.toml", mode = "symlink" }
+"~/.config/mise/mise.lock" = { source = "~/Code/syhol/dotfiles/mise.lock", mode = "symlink" }
+
+# Config dirs — symlink-each (the default): tracked files become symlinks while
+# the directory itself stays real, so runtime files (yazi plugins via
+# `ya pkg install`, zsh history/compdump, helix runtime, btop state, etc.)
+# coexist locally without polluting the repo.
+"~/.config/bash" = {}
+"~/.config/bat" = {}
+"~/.config/broot" = {}
+"~/.config/btop" = {}
+"~/.config/brewfile" = {}
+"~/.config/delta" = {}
+"~/.config/dprint" = {}
+"~/.config/fish" = {}
+"~/.config/gh-dash" = {}
+"~/.config/ghostty" = {}
+"~/.config/git" = {}
+"~/.config/helix" = {}
+"~/.config/kitty" = {}
+"~/.config/nvim" = {}
+"~/.config/shell" = {}
+"~/.config/themes" = {}
+"~/.config/wezterm" = {}
+"~/.config/yazi" = {}
+"~/.config/zsh" = {}
+"~/.config/starship.toml" = { mode = "symlink" }
+"~/.config/topgrade.toml" = { mode = "symlink" }
+
+# gh and k9s rewrite their files at runtime (auth metadata / UI state). Copy
+# instead of symlink so those writes don't churn the git repo.
+"~/.config/gh" = { mode = "copy" }
+"~/.config/k9s" = { mode = "copy" }
+
+# --- Bootstrap: system packages (Homebrew formulae) ---------------------------
+# `mise bootstrap packages install` installs these formulae straight into the
+# Homebrew prefix. CASKS ARE NOT HERE: mise's brew-cask support only handles
+# plain `.app` casks, so casks (+ VS Code extensions) live in the Brewfile and
+# are installed by the `bootstrap` task via `brew bundle`.
+# NOTE: there is no equivalent of `brew bundle cleanup` — removing an entry here
+# does NOT uninstall the package; run `brew uninstall` manually if needed.
+[bootstrap.packages]
+# Kubernetes & Docker
+"brew:kubernetes-cli" = "latest"
+"brew:kubectx" = "latest"
+"brew:helm" = "latest"
+"brew:lazydocker" = "latest"
+"brew:k9s" = "latest"
+
+# Shell
+"brew:bash" = "latest"              # Modern bash (macOS ships 3.2)
+"brew:bash-completion@2" = "latest" # Bash tab completions
+"brew:fish" = "latest"              # Alternative shell
+"brew:vivid" = "latest"             # ls colors theme generator
+"brew:starship" = "latest"          # shell prompt
+
+# Shell utilities
+"brew:coreutils" = "latest"
+"brew:gawk" = "latest"        # Required by fzf-tab-completion
+"brew:gnu-sed" = "latest"     # Required by fzf-tab-completion
+"brew:grep" = "latest"        # Required by fzf-tab-completion (installs as ggrep)
+"brew:zoxide" = "latest"      # cd alternative - change directories
+"brew:eza" = "latest"         # ls alternative - list directory contents
+"brew:bat" = "latest"         # cat alternative - print file contents
+"brew:difftastic" = "latest"  # diff alternative - print the diff between files
+"brew:git-delta" = "latest"   # diff alternative - print the diff between files
+"brew:hyperfine" = "latest"   # time alternative - benchmark cli commands
+"brew:procs" = "latest"       # ps alternative - list os processes
+"brew:fd" = "latest"          # find alternative - search files by file name
+"brew:sd" = "latest"          # sed alternative - replace text
+"brew:choose-rust" = "latest" # cut alternative - extract text
+"brew:ripgrep" = "latest"     # grep alternative - search files by contents
+"brew:dust" = "latest"        # du alternative - show directory disk usage
+"brew:btop" = "latest"        # top alternative - show processes using the most resources
+"brew:viddy" = "latest"       # watch alternative - rerun a command every n seconds
+"brew:sevenzip" = "latest"    # tar/zip alternative - compress and decompress archives
+"brew:tealdeer" = "latest"    # man alternative - help pages
+"brew:glow" = "latest"        # markdown viewer
+"brew:yazi" = "latest"        # filesystem explorer
+"brew:broot" = "latest"       # filesystem explorer
+"brew:fzf" = "latest"         # fuzzy finder
+"brew:topgrade" = "latest"    # multi-system updater
+
+# Data processing
+"brew:jq" = "latest"
+"brew:yq" = "latest"
+"brew:jless" = "latest"
+"brew:trurl" = "latest"
+"brew:xsv" = "latest"
+"brew:pgcli" = "latest"
+"brew:lazysql" = "latest"
+
+# Crpyto
+"brew:age" = "latest"
+"brew:minisign" = "latest"
+
+# Media
+"brew:ffmpeg" = "latest"
+"brew:imagemagick" = "latest"
+
+# Git & VCS
+"brew:gh" = "latest"         # github cli
+"brew:git-extras" = "latest" # extra git commands
+"brew:git-town" = "latest"   # stacked pr manager
+"brew:lazygit" = "latest"    # tui for git (go)
+
+# Neovim & Editors & Lua based tooling
+"brew:neovim" = "latest"
+"brew:luarocks" = "latest"
+"brew:tree-sitter-cli" = "latest"
+"brew:stylua" = "latest"
+
+# Http & Net
+"brew:curl" = "latest"
+"brew:wget" = "latest"
+"brew:netcat" = "latest"
+"brew:somo" = "latest"   # port scanner
+"brew:gping" = "latest"  # ping alternative - test ip address reachability and latency
+"brew:oha" = "latest"    # ab alternative - benchmark http endpoints
+"brew:xh" = "latest"     # curl alternative - make http requests
+"brew:dog" = "latest"    # dig alternative - lookup dns records (keeping for posterity)
+"brew:doggo" = "latest"  # dig alternative - lookup dns records (since dog is dead)
+
+# Capably
+"brew:awscli" = "latest"
+"brew:watch" = "latest"
+"brew:cairo" = "latest"
+"brew:libolm" = "latest"
+"brew:automake" = "latest"
+"brew:libxmlsec1" = "latest"
+"brew:pkgconf" = "latest"
+"brew:poppler" = "latest"
+"brew:postgresql" = "latest"
+"brew:swig" = "latest"
+"brew:llvm" = "latest"
+"brew:dbus" = "latest"
+"brew:openssl@3" = "latest"
+"brew:pango" = "latest"
+
+# --- Bootstrap: login shell ---------------------------------------------------
+[bootstrap.user]
+login_shell = "/opt/homebrew/bin/fish"
+
+# --- Tasks --------------------------------------------------------------------
+# `bootstrap` runs at the end of `mise bootstrap` (step 8), with tools on PATH.
+# It covers everything not handled by the declarative sections above: Homebrew
+# casks + VS Code extensions (via brew bundle), helm/gh plugins, yazi packages,
+# bat cache, and shell plugins.
+[tasks.bootstrap]
+description = "Install casks, VS Code extensions, plugins, and shell completions"
+run = '''
+set -e
+# Homebrew is required for casks + VS Code extensions (mise's [bootstrap.packages]
+# can't install those). Install it if missing, then apply the Brewfile.
+if ! command -v brew >/dev/null 2>&1; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
+brew bundle install --file ~/.config/brewfile/Brewfile
+
+helm plugin install https://github.com/databus23/helm-diff || true
+helm plugin update diff || true
+gh extension install dlvhdr/gh-dash || true
+gh extension upgrade --all || true
+ya pkg install || true
+bat cache --build
+~/.config/bash/plugins.bash sync
+~/.config/fish/plugins.fish sync
+~/.config/zsh/plugins.zsh sync
+touch ~/.config/shell/secrets.sh
+'''
+
+# `mise run sync` is the ongoing-update entry point (replaces the old
+# system-sync script): run the bootstrap steps, then upgrade everything.
+[tasks.sync]
+description = "Upgrade all packages, tools, plugins, and extensions"
+depends = ["bootstrap"]
+run = '''
+mise bootstrap packages upgrade
+mise self-update --yes || true
+mise upgrade --yes
+mise prune --yes
+eval "$(/opt/homebrew/bin/brew shellenv)"
+brew upgrade || true
+brew upgrade --cask || true
+'''
+
+[tasks.docker]
+run = "docker run --pull=always -it --rm --entrypoint bash jdxcode/mise:latest"
+
+[tasks.refresh]
+dir = "{{cwd}}"
+run = '''
+mise run stop
+mise run reset
+docker builder prune --filter "until=168h" -f
+docker volume prune -f
+mise run start
+'''
