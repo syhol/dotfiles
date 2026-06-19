@@ -1,7 +1,9 @@
 # Syhol Dotfiles
 
 Managed with [mise](https://mise.jdx.dev): dotfiles, Homebrew packages, the
-login shell, and tool versions all live in [`mise.toml`](./mise.toml).
+login shell, and tool versions all live in
+[`.config/mise/mise.toml`](./.config/mise/mise.toml). The repo root mirrors
+`$HOME`.
 
 ## Setup Instructions
 
@@ -23,18 +25,23 @@ mise's `brew-cask` support only installs plain `.app` casks; it rejects
 `binary`, `font`, `pkg`, `manpage`, and `bash_completion` artifacts (which rules
 out VS Code, the Nerd Fonts, docker-desktop, ghostty, kitty, wezterm, dbeaver,
 keepassxc, mullvad-vpn, libreoffice, …). So formulae live in `mise.toml` and
-casks + VS Code extensions live in `home/.config/brewfile/Brewfile`, installed
-by the `bootstrap` task with `brew bundle`.
+casks + VS Code extensions live in `.config/brewfile/Brewfile`, installed by the
+`bootstrap` task with `brew bundle`.
 
 ## Layout
 
-- `mise.toml` — the single source of truth (tools, dotfiles, packages, tasks).
-- `mise.lock` — pinned tool versions.
-- `home/` — source tree mirroring `$HOME`; files are symlinked into place by
-  `mise dotfiles apply` (the default mode is `symlink-each`, so config dirs stay
-  real directories and app runtime state is never written back into the repo).
-- `home/.config/brewfile/Brewfile` — Homebrew casks + VS Code extensions
-  (formulae live in `mise.toml`).
+The repo root mirrors `$HOME`, so a file's path in the repo is its path under
+`$HOME`. `mise dotfiles apply` symlinks each tracked file into place (default
+mode `symlink-each`, so config dirs stay real directories and app runtime state
+is never written back into the repo).
+
+- `.config/mise/mise.toml` — the single source of truth (tools, dotfiles,
+  packages, tasks). Symlinked to `~/.config/mise/mise.toml`, which mise loads
+  globally.
+- `.config/mise/mise.lock` — pinned tool versions.
+- `.config/mise/tasks/` — file tasks (`bootstrap`, `sync`).
+- `.config/brewfile/Brewfile` — Homebrew casks + VS Code extensions (formulae
+  live in `mise.toml`).
 
 ## Common commands
 

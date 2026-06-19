@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#MISE description="Upgrade all packages, tools, plugins, and extensions"
+#MISE depends=["bootstrap"]
+#
+# Ongoing-update entry point (replaces the old system-sync script): run the
+# bootstrap steps (via the dependency above), then upgrade everything.
+set -e
+
+mise bootstrap packages upgrade
+mise self-update --yes || true
+mise upgrade --yes
+mise prune --yes
+eval "$(/opt/homebrew/bin/brew shellenv)"
+brew upgrade || true
+brew upgrade --cask || true
