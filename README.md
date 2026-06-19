@@ -11,13 +11,15 @@ login shell, and tool versions all live in
 git clone https://github.com/syhol/dotfiles ~/Code/syhol/dotfiles
 cd ~/Code/syhol/dotfiles
 curl https://mise.run | sh
+mise trust    # a fresh clone's mise.toml is untrusted until you allow it
 mise bootstrap
 ```
 
-`mise bootstrap` installs `[bootstrap.packages]` (Homebrew formulae), applies
-`[dotfiles]`, sets the login shell, installs `[tools]`, and runs the `bootstrap`
-task (Homebrew casks via `brew bundle`, VS Code extensions via the `vscode`
-task, plus helm/gh plugins, yazi packages, bat cache, and shell plugins).
+[`mise bootstrap`](https://mise.jdx.dev/bootstrap.html) installs
+`[bootstrap.packages]` (Homebrew formulae), applies `[dotfiles]`, sets the login
+shell, installs `[tools]`, and runs the `bootstrap` task (Homebrew casks via
+`brew bundle`, VS Code extensions via the `vscode` task, plus helm/gh plugins,
+yazi packages, bat cache, and shell plugins).
 
 ### Why casks aren't in `[bootstrap.packages]`
 
@@ -40,23 +42,33 @@ is never written back into the repo).
   packages, tasks). Symlinked to `~/.config/mise/mise.toml`, which mise loads
   globally.
 - `.config/mise/mise.lock` — pinned tool versions.
-- `.config/mise/tasks/` — file tasks (`bootstrap`, `sync`, `vscode`).
+- `.config/mise/tasks/` — file tasks (`bootstrap`, `sync`, `vscode`,
+  `dotfiles-unmanaged`).
 - `.config/brewfile/Brewfile` — Homebrew casks (formulae live in `mise.toml`).
 - `.config/vscode/extensions.txt` — declarative VS Code extension list
   (`mise run vscode` installs/updates them).
+- `.local/bin/` — personal scripts on `PATH` (`mx`, `themeset`, `vid-smol`).
+- `.nvim.lua` — repo-local Neovim config (loaded via `exrc`); shows hidden
+  files in snacks pickers while editing this repo. Run `:trust` once.
+
+See [`AGENTS.md`](./AGENTS.md) for how the repo is structured and how to change
+it safely (also used by AI coding agents).
 
 ## Common commands
 
 ```sh
+mise bootstrap              # full first-time setup (packages, dotfiles, shell, tools)
+mise run bootstrap          # re-run just the imperative setup (casks, extensions, plugins)
+mise run sync               # update everything (runs bootstrap, then upgrades)
 mise dotfiles status        # show what each dotfile maps to
 mise dotfiles apply         # (re)create symlinks / copies
-mise run sync               # upgrade packages, tools, plugins, extensions
 mise run vscode             # install/update VS Code extensions
 mise run dotfiles-unmanaged # list files in symlink-each dirs mise doesn't manage
 mise bootstrap packages ls  # show package install status
 ```
 
-> Note: `mise.toml` uses `[dotfiles]` and `[bootstrap.*]`, which are
-> experimental mise features (`experimental = true` is set in settings).
+> Note: `mise.toml` uses [`[dotfiles]`](https://mise.jdx.dev/dotfiles.html) and
+> [`[bootstrap.*]`](https://mise.jdx.dev/bootstrap.html), which are experimental
+> mise features (`experimental = true` is set in settings).
 > Unlike `brew bundle cleanup`, removing a package from `[bootstrap.packages]`
 > does not uninstall it — run `brew uninstall` manually.
