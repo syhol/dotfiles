@@ -61,6 +61,9 @@ bun = true
 "~/.ignore" = { mode = "symlink" }
 "~/.ssh/config" = { mode = "symlink" }
 "~/Library/Application Support/Code/User/settings.json" = { source = "~/Code/syhol/dotfiles/.config/vscode/settings.json", mode = "symlink" }
+# Declarative VS Code extension list, read by the `vscode` task. Deployed to a
+# stable ~/.config path (VS Code itself reads settings from the Library path).
+"~/.config/vscode/extensions.txt" = { source = "~/Code/syhol/dotfiles/.config/vscode/extensions.txt", mode = "symlink" }
 
 # mise's own config dir: symlink-each links mise.toml, mise.lock, and tasks/*
 # into ~/.config/mise/ so the config loads globally and `mise run sync` etc.
@@ -208,9 +211,11 @@ bun = true
 login_shell = "/opt/homebrew/bin/fish"
 
 # --- Tasks --------------------------------------------------------------------
-# `bootstrap` and `sync` are file tasks in .config/mise/tasks/ (auto-discovered).
-# `bootstrap` runs at the end of `mise bootstrap` (step 8); `sync` is the
-# ongoing-update entry point. The tasks below stay inline as simple one-liners.
+# bootstrap / sync / vscode are file tasks in .config/mise/tasks/ (auto-
+# discovered). `bootstrap` runs at the end of `mise bootstrap` (step 8) and
+# calls `vscode`; `sync` is the ongoing-update entry point; `vscode`
+# installs/updates extensions from .config/vscode/extensions.txt. The tasks
+# below stay inline as simple one-liners.
 [tasks.docker]
 run = "docker run --pull=always -it --rm --entrypoint bash jdxcode/mise:latest"
 

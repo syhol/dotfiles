@@ -16,8 +16,8 @@ mise bootstrap
 
 `mise bootstrap` installs `[bootstrap.packages]` (Homebrew formulae), applies
 `[dotfiles]`, sets the login shell, installs `[tools]`, and runs the `bootstrap`
-task (Homebrew casks + VS Code extensions via `brew bundle`, plus helm/gh
-plugins, yazi packages, bat cache, and shell plugins).
+task (Homebrew casks via `brew bundle`, VS Code extensions via the `vscode`
+task, plus helm/gh plugins, yazi packages, bat cache, and shell plugins).
 
 ### Why casks aren't in `[bootstrap.packages]`
 
@@ -25,8 +25,9 @@ mise's `brew-cask` support only installs plain `.app` casks; it rejects
 `binary`, `font`, `pkg`, `manpage`, and `bash_completion` artifacts (which rules
 out VS Code, the Nerd Fonts, docker-desktop, ghostty, kitty, wezterm, dbeaver,
 keepassxc, mullvad-vpn, libreoffice, …). So formulae live in `mise.toml` and
-casks + VS Code extensions live in `.config/brewfile/Brewfile`, installed by the
-`bootstrap` task with `brew bundle`.
+casks live in `.config/brewfile/Brewfile`, installed by the `bootstrap` task
+with `brew bundle`. VS Code extensions are listed declaratively in
+`.config/vscode/extensions.txt` and installed by the `vscode` task.
 
 ## Layout
 
@@ -39,9 +40,10 @@ is never written back into the repo).
   packages, tasks). Symlinked to `~/.config/mise/mise.toml`, which mise loads
   globally.
 - `.config/mise/mise.lock` — pinned tool versions.
-- `.config/mise/tasks/` — file tasks (`bootstrap`, `sync`).
-- `.config/brewfile/Brewfile` — Homebrew casks + VS Code extensions (formulae
-  live in `mise.toml`).
+- `.config/mise/tasks/` — file tasks (`bootstrap`, `sync`, `vscode`).
+- `.config/brewfile/Brewfile` — Homebrew casks (formulae live in `mise.toml`).
+- `.config/vscode/extensions.txt` — declarative VS Code extension list
+  (`mise run vscode` installs/updates them).
 
 ## Common commands
 
@@ -49,6 +51,7 @@ is never written back into the repo).
 mise dotfiles status        # show what each dotfile maps to
 mise dotfiles apply         # (re)create symlinks / copies
 mise run sync               # upgrade packages, tools, plugins, extensions
+mise run vscode             # install/update VS Code extensions
 mise bootstrap packages ls  # show package install status
 ```
 

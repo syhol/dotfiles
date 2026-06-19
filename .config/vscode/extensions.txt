@@ -1,0 +1,67 @@
+# VS Code extensions (declarative list).
+#
+# Installed/updated by the 'vscode' mise task: `mise run vscode`.
+# One extension ID per line; blank lines and # comments are ignored.
+
+
+# VS Code Languages
+denoland.vscode-deno # js/ts - deno
+oven.bun-vscode # js/ts - bun
+tamasfe.even-better-toml # toml
+redhat.vscode-yaml # yaml
+yzhang.markdown-all-in-one # markdown
+hashicorp.terraform # hcl
+matheusq94.tfs # hcl
+mechatroner.rainbow-csv # csv
+ms-python.debugpy # python
+ms-python.python # python
+ms-python.vscode-pylance # python
+ms-python.vscode-python-envs
+golang.go # go
+rust-lang.rust-analyzer # rust
+ms-vscode.makefile-tools # c/make
+jakebecker.elixir-ls # elixir
+thenuprojectcontributors.vscode-nushell-lang # nu
+ms-azuretools.vscode-docker # docker (microsoft)
+ms-azuretools.vscode-containers # docker (microsoft)
+docker.docker # docker (docker inc)
+
+# VS Code Language Extras
+biomejs.biome # js/ts
+dprint.dprint # multi-language formatter
+oxc.oxc-vscode # js/ts
+charliermarsh.ruff # python
+esbenp.prettier-vscode # js/html/css
+dbaeumer.vscode-eslint # js
+orta.vscode-jest # js
+vitest.explorer # js
+bradlc.vscode-tailwindcss # js/css
+mkhl.shfmt # bash/sh
+timonwong.shellcheck # bash/sh
+editorconfig.editorconfig # all
+johnnymorganz.stylua
+
+# VS Code Themes
+catppuccin.catppuccin-vsc
+dracula-theme.theme-dracula
+enkia.tokyo-night
+equinusocio.vsc-material-theme
+equinusocio.vsc-material-theme-icons
+zhuangtongfa.material-theme
+mvllow.rose-pine
+
+# VS Code Tools
+aikidosecurity.aikido # security
+mirone.milkdown # markdown editor
+ms-playwright.playwright # e2e testing
+aaron-bond.better-comments
+connor4312.esbuild-problem-matchers
+eamodio.gitlens
+foam.foam-vscode
+hverlin.mise-vscode
+ms-vscode-remote.remote-containers
+ms-vscode.extension-test-runner
+mushan.vscode-paste-image
+pomdtr.excalidraw-editor
+ryu1kn.partial-diff
+anthropic.claude-code
