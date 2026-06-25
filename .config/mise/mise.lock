@@ -385,9 +385,109 @@ url_api = "https://api.github.com/repos/Dashlane/dashlane-cli/releases/assets/39
 version = "0.79.6"
 backend = "github:earendil-works/pi"
 
+[tools."github:earendil-works/pi"."platforms.linux-arm64"]
+checksum = "sha256:c4c6f3984e7b556a4f447c0b6a458a20d1d53bb646565cadb7a0ca080ce690d8"
+url = "https://github.com/earendil-works/pi/releases/download/v0.79.6/pi-linux-arm64.tar.gz"
+url_api = "https://api.github.com/repos/earendil-works/pi/releases/assets/449629393"
+
+[tools."github:earendil-works/pi"."platforms.linux-arm64-musl"]
+checksum = "sha256:c4c6f3984e7b556a4f447c0b6a458a20d1d53bb646565cadb7a0ca080ce690d8"
+url = "https://github.com/earendil-works/pi/releases/download/v0.79.6/pi-linux-arm64.tar.gz"
+url_api = "https://api.github.com/repos/earendil-works/pi/releases/assets/449629393"
+
+[tools."github:earendil-works/pi"."platforms.linux-x64"]
+checksum = "sha256:05000ec8f5b2a8a2df8e2f505aab89eb80552dcf6dc11680fa0f3285839bb4cf"
+url = "https://github.com/earendil-works/pi/releases/download/v0.79.6/pi-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/earendil-works/pi/releases/assets/449629395"
+
+[tools."github:earendil-works/pi"."platforms.linux-x64-baseline"]
+checksum = "sha256:05000ec8f5b2a8a2df8e2f505aab89eb80552dcf6dc11680fa0f3285839bb4cf"
+url = "https://github.com/earendil-works/pi/releases/download/v0.79.6/pi-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/earendil-works/pi/releases/assets/449629395"
+
+[tools."github:earendil-works/pi"."platforms.linux-x64-musl"]
+checksum = "sha256:05000ec8f5b2a8a2df8e2f505aab89eb80552dcf6dc11680fa0f3285839bb4cf"
+url = "https://github.com/earendil-works/pi/releases/download/v0.79.6/pi-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/earendil-works/pi/releases/assets/449629395"
+
+[tools."github:earendil-works/pi"."platforms.linux-x64-musl-baseline"]
+checksum = "sha256:05000ec8f5b2a8a2df8e2f505aab89eb80552dcf6dc11680fa0f3285839bb4cf"
+url = "https://github.com/earendil-works/pi/releases/download/v0.79.6/pi-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/earendil-works/pi/releases/assets/449629395"
+
+[tools."github:earendil-works/pi"."platforms.macos-arm64"]
+checksum = "sha256:ec0d7bf5c855376fb904732e702b1ad3b4fa5425bf6fe66e0fd90d1cc2f57595"
+url = "https://github.com/earendil-works/pi/releases/download/v0.79.6/pi-darwin-arm64.tar.gz"
+url_api = "https://api.github.com/repos/earendil-works/pi/releases/assets/449629392"
+
+[tools."github:earendil-works/pi"."platforms.macos-x64"]
+checksum = "sha256:b800ac6936f4d9ab93c229a2920a64e3e9fd23e45c1718b95f18e09aecd67572"
+url = "https://github.com/earendil-works/pi/releases/download/v0.79.6/pi-darwin-x64.tar.gz"
+url_api = "https://api.github.com/repos/earendil-works/pi/releases/assets/449629391"
+
+[tools."github:earendil-works/pi"."platforms.macos-x64-baseline"]
+checksum = "sha256:b800ac6936f4d9ab93c229a2920a64e3e9fd23e45c1718b95f18e09aecd67572"
+url = "https://github.com/earendil-works/pi/releases/download/v0.79.6/pi-darwin-x64.tar.gz"
+url_api = "https://api.github.com/repos/earendil-works/pi/releases/assets/449629391"
+
+[tools."github:earendil-works/pi"."platforms.windows-x64"]
+checksum = "sha256:53f8e9ee863e83f0cfdde4ce6f59ca5531a950b7a1478d48e5a7f8518f2f511d"
+url = "https://github.com/earendil-works/pi/releases/download/v0.79.6/pi-windows-x64.zip"
+url_api = "https://api.github.com/repos/earendil-works/pi/releases/assets/449629394"
+
+[tools."github:earendil-works/pi"."platforms.windows-x64-baseline"]
+checksum = "sha256:53f8e9ee863e83f0cfdde4ce6f59ca5531a950b7a1478d48e5a7f8518f2f511d"
+url = "https://github.com/earendil-works/pi/releases/download/v0.79.6/pi-windows-x64.zip"
+url_api = "https://api.github.com/repos/earendil-works/pi/releases/assets/449629394"
+
 [[tools."github:fioncat/otree"]]
 version = "0.6.5"
 backend = "github:fioncat/otree"
+
+[tools."github:fioncat/otree"."platforms.linux-arm64"]
+checksum = "sha256:c0b2f30f4912bd8579d9fd5213af1754645e1ce7473711658ac1f010d0c8b568"
+url = "https://github.com/fioncat/otree/releases/download/v0.6.5/otree-aarch64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/fioncat/otree/releases/assets/365982084"
+
+[tools."github:fioncat/otree"."platforms.linux-arm64-musl"]
+checksum = "sha256:c0b2f30f4912bd8579d9fd5213af1754645e1ce7473711658ac1f010d0c8b568"
+url = "https://github.com/fioncat/otree/releases/download/v0.6.5/otree-aarch64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/fioncat/otree/releases/assets/365982084"
+
+[tools."github:fioncat/otree"."platforms.linux-x64"]
+checksum = "sha256:35d8ea4145ac369d6d40c43fd2bc4c60de59f9494c1e1184cb26514d0b8be02e"
+url = "https://github.com/fioncat/otree/releases/download/v0.6.5/otree-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/fioncat/otree/releases/assets/365982073"
+
+[tools."github:fioncat/otree"."platforms.linux-x64-baseline"]
+checksum = "sha256:35d8ea4145ac369d6d40c43fd2bc4c60de59f9494c1e1184cb26514d0b8be02e"
+url = "https://github.com/fioncat/otree/releases/download/v0.6.5/otree-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/fioncat/otree/releases/assets/365982073"
+
+[tools."github:fioncat/otree"."platforms.linux-x64-musl"]
+checksum = "sha256:35d8ea4145ac369d6d40c43fd2bc4c60de59f9494c1e1184cb26514d0b8be02e"
+url = "https://github.com/fioncat/otree/releases/download/v0.6.5/otree-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/fioncat/otree/releases/assets/365982073"
+
+[tools."github:fioncat/otree"."platforms.linux-x64-musl-baseline"]
+checksum = "sha256:35d8ea4145ac369d6d40c43fd2bc4c60de59f9494c1e1184cb26514d0b8be02e"
+url = "https://github.com/fioncat/otree/releases/download/v0.6.5/otree-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/fioncat/otree/releases/assets/365982073"
+
+[tools."github:fioncat/otree"."platforms.macos-arm64"]
+checksum = "sha256:0d1f2e5ee7186e5e756254f0e3e517a199e6cf82b8c8fed494187a867dad3438"
+url = "https://github.com/fioncat/otree/releases/download/v0.6.5/otree-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/fioncat/otree/releases/assets/365981899"
+
+[tools."github:fioncat/otree"."platforms.windows-x64"]
+checksum = "sha256:4c1920852bc30f1842a5956d34ecfcf8564377cd9b30582669f94d1c55ebe1d7"
+url = "https://github.com/fioncat/otree/releases/download/v0.6.5/otree-x86_64-pc-windows-msvc.zip"
+url_api = "https://api.github.com/repos/fioncat/otree/releases/assets/365982668"
+
+[tools."github:fioncat/otree"."platforms.windows-x64-baseline"]
+checksum = "sha256:4c1920852bc30f1842a5956d34ecfcf8564377cd9b30582669f94d1c55ebe1d7"
+url = "https://github.com/fioncat/otree/releases/download/v0.6.5/otree-x86_64-pc-windows-msvc.zip"
+url_api = "https://api.github.com/repos/fioncat/otree/releases/assets/365982668"
 
 [[tools."github:schpet/linear-cli"]]
 version = "1.10.0"
@@ -614,6 +714,10 @@ url = "https://nodejs.org/dist/v26.3.0/node-v26.3.0-win-x64.zip"
 [[tools."npm:@mariozechner/pi-coding-agent"]]
 version = "0.73.1"
 backend = "npm:@mariozechner/pi-coding-agent"
+
+[[tools."npm:@nubjs/nub"]]
+version = "0.1.6"
+backend = "npm:@nubjs/nub"
 
 [[tools."npm:agent-browser"]]
 version = "0.27.2"
