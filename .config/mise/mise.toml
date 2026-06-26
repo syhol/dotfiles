@@ -107,6 +107,9 @@ package_manager = "aube"
 "~/.config/gh" = { mode = "copy" }
 "~/.config/k9s" = { mode = "copy" }
 
+[bootstrap.repos]
+"~/Code/syhol/knowledge" = { url = "git@github.com:syhol/knowledge.git" }
+
 # --- Bootstrap: system packages (Homebrew formulae) ---------------------------
 # `mise bootstrap packages install` installs these formulae straight into the
 # Homebrew prefix. CASKS ARE NOT HERE: mise has gained a `brew-cask:` backend,
