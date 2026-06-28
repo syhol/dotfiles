@@ -21,4 +21,4 @@ while IFS= read -r ext; do
 done < <(grep -vE '^[[:space:]]*(#|$)' "$list" | awk '{print $1}')
 
 [ ${#args[@]} -eq 0 ] && exit 0
-code "${args[@]}" --force
+code "${args[@]}" --update-extensions --force
