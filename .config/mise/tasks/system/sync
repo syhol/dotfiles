@@ -6,10 +6,12 @@
 # bootstrap steps (via the dependency above), then upgrade everything.
 set -e
 
-mise bootstrap packages upgrade
 mise self-update --yes || true
+mise bootstrap packages upgrade
+mise bootstrap packages prune --yes
 mise upgrade --yes
 mise prune --yes
 eval "$(/opt/homebrew/bin/brew shellenv)"
 brew upgrade || true
 brew upgrade --cask || true
+nvim --headless "+Lazy! update" +qa || true # upgrade nvim plugins, refresh lazy-lock.json

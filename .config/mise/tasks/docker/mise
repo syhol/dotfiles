@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#MISE description="Run an interactive mise container shell (latest image)"
+set -e
+
+docker run --pull=always -it --rm --entrypoint bash jdxcode/mise:latest

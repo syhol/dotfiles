@@ -22,6 +22,7 @@ helm plugin update diff || true
 gh extension install dlvhdr/gh-dash || true
 gh extension upgrade --all || true
 ya pkg install || true
+nvim --headless "+Lazy! restore" +qa || true # install nvim plugins at locked versions
 bat cache --build
 ~/.config/bash/plugins.bash sync
 ~/.config/fish/plugins.fish sync

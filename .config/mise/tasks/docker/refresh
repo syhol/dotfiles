@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#MISE description="Rebuild the Docker dev env: stop, reset, prune, start"
+#MISE dir="{{cwd}}"
+set -e
+
+mise run stop
+mise run reset
+docker builder prune --filter "until=168h" -f
+docker volume prune -f
+mise run start

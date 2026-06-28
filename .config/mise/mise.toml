@@ -25,11 +25,12 @@ biome = "latest"
 dprint = "latest"
 "github:earendil-works/pi" = "latest"
 "github:Dashlane/dashlane-cli" = "latest"
-"github:fioncat/otree" = "latest"
+"github:janosmiko/lfk" = "latest"
 "github:schpet/linear-cli" = "1.10.0"
 "github:vercel-labs/agent-browser" = "latest"
 "http:acme.sh" = { version = "1.0.0", url = "https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh" }
 "npm:@nubjs/nub" = "latest"
+"pipx:twg" = "latest"
 
 [settings]
 experimental = true
@@ -107,6 +108,10 @@ package_manager = "aube"
 "~/.config/gh" = { mode = "copy" }
 "~/.config/k9s" = { mode = "copy" }
 
+# --- Bootstrap: login shell ---------------------------------------------------
+[bootstrap.user]
+login_shell = "/opt/homebrew/bin/fish"
+
 [bootstrap.repos]
 "~/Code/syhol/knowledge" = { url = "git@github.com:syhol/knowledge.git" }
 
@@ -139,35 +144,36 @@ package_manager = "aube"
 
 # Shell utilities
 "brew:coreutils" = "latest"
-"brew:gawk" = "latest"                           # Required by fzf-tab-completion
-"brew:gnu-sed" = "latest"                        # Required by fzf-tab-completion
-"brew:grep" = "latest"                           # Required by fzf-tab-completion (installs as ggrep)
-"brew:zoxide" = "latest"                         # cd alternative - change directories
-"brew:eza" = "latest"                            # ls alternative - list directory contents
-"brew:bat" = "latest"                            # cat alternative - print file contents
-"brew:difftastic" = "latest"                     # diff alternative - print the diff between files
-"brew:git-delta" = "latest"                      # diff alternative - print the diff between files
-"brew:hyperfine" = "latest"                      # time alternative - benchmark cli commands
-"brew:procs" = "latest"                          # ps alternative - list os processes
-"brew:fd" = "latest"                             # find alternative - search files by file name
-"brew:sd" = "latest"                             # sed alternative - replace text
-"brew:choose-rust" = "latest"                    # cut alternative - extract text
-"brew:ripgrep" = "latest"                        # grep alternative - search files by contents
-"brew:dust" = "latest"                           # du alternative - show directory disk usage
-"brew:btop" = "latest"                           # top alternative - show processes using the most resources
-"brew:viddy" = "latest"                          # watch alternative - rerun a command every n seconds
-"brew:sevenzip" = "latest"                       # tar/zip alternative - compress and decompress archives
-"brew:tealdeer" = "latest"                       # man alternative - help pages
-"brew:glow" = "latest"                           # markdown viewer
-"brew:yazi" = "latest"                           # filesystem explorer
-"brew:broot" = "latest"                          # filesystem explorer
-"brew:fzf" = "latest"                            # fuzzy finder
-"brew:topgrade" = "latest"                       # multi-system updater
+"brew:gawk" = "latest"        # Required by fzf-tab-completion
+"brew:gnu-sed" = "latest"     # Required by fzf-tab-completion
+"brew:grep" = "latest"        # Required by fzf-tab-completion (installs as ggrep)
+"brew:zoxide" = "latest"      # cd alternative - change directories
+"brew:eza" = "latest"         # ls alternative - list directory contents
+"brew:bat" = "latest"         # cat alternative - print file contents
+"brew:difftastic" = "latest"  # diff alternative - print the diff between files
+"brew:git-delta" = "latest"   # diff alternative - print the diff between files
+"brew:hyperfine" = "latest"   # time alternative - benchmark cli commands
+"brew:procs" = "latest"       # ps alternative - list os processes
+"brew:fd" = "latest"          # find alternative - search files by file name
+"brew:sd" = "latest"          # sed alternative - replace text
+"brew:choose-rust" = "latest" # cut alternative - extract text
+"brew:ripgrep" = "latest"     # grep alternative - search files by contents
+"brew:dust" = "latest"        # du alternative - show directory disk usage
+"brew:btop" = "latest"        # top alternative - show processes using the most resources
+"brew:viddy" = "latest"       # watch alternative - rerun a command every n seconds
+"brew:sevenzip" = "latest"    # tar/zip alternative - compress and decompress archives
+"brew:tealdeer" = "latest"    # man alternative - help pages
+"brew:glow" = "latest"        # markdown viewer
+"brew:yazi" = "latest"        # filesystem explorer
+"brew:broot" = "latest"       # filesystem explorer
+"brew:fzf" = "latest"         # fuzzy finder
+"brew:topgrade" = "latest"    # multi-system updater
 
 # Data processing
 "brew:jq" = "latest"
 "brew:yq" = "latest"
 "brew:jless" = "latest"
+"brew:otree" = "latest"
 "brew:trurl" = "latest"
 "brew:xsv" = "latest"
 "brew:pgcli" = "latest"
@@ -218,26 +224,3 @@ package_manager = "aube"
 "brew:dbus" = "latest"
 "brew:openssl@3" = "latest"
 "brew:pango" = "latest"
-
-# --- Bootstrap: login shell ---------------------------------------------------
-[bootstrap.user]
-login_shell = "/opt/homebrew/bin/fish"
-
-# --- Tasks --------------------------------------------------------------------
-# bootstrap / sync / vscode are file tasks in .config/mise/tasks/ (auto-
-# discovered). `bootstrap` runs at the end of `mise bootstrap` (step 8) and
-# calls `vscode`; `sync` is the ongoing-update entry point; `vscode`
-# installs/updates extensions from .config/vscode/extensions.txt. The tasks
-# below stay inline as simple one-liners.
-[tasks.docker]
-run = "docker run --pull=always -it --rm --entrypoint bash jdxcode/mise:latest"
-
-[tasks.refresh]
-dir = "{{cwd}}"
-run = '''
-mise run stop
-mise run reset
-docker builder prune --filter "until=168h" -f
-docker volume prune -f
-mise run start
-'''
