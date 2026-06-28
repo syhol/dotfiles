@@ -114,6 +114,7 @@ login_shell = "/opt/homebrew/bin/fish"
 
 [bootstrap.repos]
 "~/Code/syhol/knowledge" = { url = "git@github.com:syhol/knowledge.git" }
+"~/Code/syhol/dotfiles" = { url = "git@github.com:syhol/dotfiles.git" }
 
 # --- Bootstrap: system packages (Homebrew formulae) ---------------------------
 # `mise bootstrap packages install` installs these formulae straight into the
