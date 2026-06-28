@@ -12,6 +12,13 @@ if ! command -v code >/dev/null 2>&1; then
 fi
 
 list="$HOME/.config/vscode/extensions.txt"
-grep -vE '^[[:space:]]*(#|$)' "$list" | awk '{print $1}' | while IFS= read -r ext; do
-  [ -n "$ext" ] && code --install-extension "$ext" --force
-done
+
+# Build a single invocation: code --install-extension A --install-extension B ...
+# This starts the code CLI once instead of once per extension.
+args=()
+while IFS= read -r ext; do
+  [ -n "$ext" ] && args+=(--install-extension "$ext")
+done < <(grep -vE '^[[:space:]]*(#|$)' "$list" | awk '{print $1}')
+
+[ ${#args[@]} -eq 0 ] && exit 0
+code "${args[@]}" --force

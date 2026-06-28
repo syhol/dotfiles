@@ -15,7 +15,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew bundle install --file ~/.config/brewfile/Brewfile
 
 # VS Code extensions (brew installed the `code` CLI via the visual-studio-code cask)
-mise run vscode
+mise run system:vscode-extensions
 
 helm plugin install https://github.com/databus23/helm-diff || true
 helm plugin update diff || true

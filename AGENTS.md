@@ -21,7 +21,7 @@ mise loads globally. `mise dotfiles apply` deploys everything.
 - **Default mode is `symlink-each`**, not whole-dir symlink. Each tracked file
   is symlinked individually while the directory stays a *real* directory, so
   app runtime state (caches, histories, plugin installs, secrets) lives there
-  locally and must **never be committed**. Run `mise run dotfiles-unmanaged` to
+  locally and must **never be committed**. Run `mise run system:dotfiles-unmanaged` to
   see what's local-only in each symlink-each dir.
 - **Never commit secrets or runtime state.** e.g. `~/.config/shell/secrets.sh`,
   `~/.config/zsh/.zcompdump`, `ya pkg install` plugins. They're unmanaged by
@@ -37,7 +37,7 @@ mise loads globally. `mise dotfiles apply` deploys everything.
 |---|---|---|
 | Homebrew **formulae** | `mise.toml` `[bootstrap.packages]` as `"brew:<name>"` | installed by `mise bootstrap` |
 | Homebrew **casks** | `.config/brewfile/Brewfile` | mise can't install most casks; `bootstrap` task runs `brew bundle` |
-| **VS Code extensions** | `.config/vscode/extensions.txt` | one id per line; `vscode` task installs via `code --install-extension` |
+| **VS Code extensions** | `.config/vscode/extensions.txt` | one id per line; `system:vscode-extensions` task installs via `code --install-extension` |
 | **Tool versions** | `mise.toml` `[tools]` | runtimes + CLIs |
 | **Tasks** | `.config/mise/tasks/<name>` | executable file tasks with `#MISE` headers |
 | Personal scripts | `.local/bin/` | on `PATH` |
@@ -89,16 +89,16 @@ lifecycle:
 - **the `bootstrap` task** (`.config/mise/tasks/bootstrap`, also runnable as
   `mise run bootstrap`) — the *imperative leftovers* the declarative sections
   can't express: installs Homebrew if missing, `brew bundle install` (casks),
-  `mise run vscode` (extensions), then helm/gh plugins, `ya pkg install`,
+  `mise run system:vscode-extensions` (extensions), then helm/gh plugins, `ya pkg install`,
   `bat cache --build`, and the per-shell `plugins.{bash,fish,zsh} sync`. It's
   idempotent — safe to re-run.
 
 So `mise bootstrap` (command) ⊇ the `bootstrap` task. On a fresh machine you run
 the command; to just re-run the imperative bits, `mise run bootstrap`.
 
-### `sync` — ongoing updates
+### `system:sync` — ongoing updates
 
-`mise run sync` is the day-to-day "update everything" command (it replaced the
+`mise run system:sync` is the day-to-day "update everything" command (it replaced the
 old `system-sync` script). It **`depends = ["bootstrap"]`**, so it first runs the
 whole `bootstrap` task (installing anything newly added), then upgrades:
 `mise bootstrap packages upgrade`, `mise self-update`, `mise upgrade`,
@@ -106,9 +106,9 @@ whole `bootstrap` task (installing anything newly added), then upgrades:
 
 ### Helpers
 
-- `mise run vscode` — install/update VS Code extensions from
+- `mise run system:vscode-extensions` — install/update VS Code extensions from
   `.config/vscode/extensions.txt`. (Also invoked by `bootstrap`.)
-- `mise run dotfiles-unmanaged` — audit what mise doesn't manage: unmanaged
+- `mise run system:dotfiles-unmanaged` — audit what mise doesn't manage: unmanaged
   files inside symlink-each dirs, plus top-level `~/.config` entries that have
   no `[dotfiles]` entry at all.
 
@@ -122,7 +122,7 @@ After touching dotfiles, confirm clean state:
 ```sh
 mise dotfiles status            # every entry should read "applied"
 mise dotfiles apply --dry-run   # preview before applying
-mise run dotfiles-unmanaged     # sanity-check what's intentionally local
+mise run system:dotfiles-unmanaged # sanity-check what's intentionally local
 ```
 
 There should be **zero broken symlinks** after an apply.
