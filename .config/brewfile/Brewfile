@@ -13,9 +13,6 @@
 # Capably / productivity
 cask "libreoffice"
 cask "1password"
-cask "linear"
-cask "notion"
-cask "notion-calendar"
 
 # Fonts
 cask "font-meslo-lg-nerd-font"
@@ -33,8 +30,6 @@ cask "rectangle"
 cask "mullvad-vpn"
 cask "slack"
 cask "keepassxc"
-cask "dbeaver-community"
-cask "lm-studio"
 cask "syncthing-app"
 cask "steam"
 cask "discord"
