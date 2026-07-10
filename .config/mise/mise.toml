@@ -142,6 +142,7 @@ login_shell = "/opt/homebrew/bin/fish"
 "brew:fish" = "latest"              # Alternative shell
 "brew:vivid" = "latest"             # ls colors theme generator
 "brew:starship" = "latest"          # shell prompt
+"brew:herdr" = "latest"
 
 # Shell utilities
 "brew:coreutils" = "latest"
@@ -203,12 +204,11 @@ login_shell = "/opt/homebrew/bin/fish"
 # Http & Net
 "brew:curl" = "latest"
 "brew:wget" = "latest"
-"brew:netcat" = "latest"
-"brew:somo" = "latest"   # port scanner
-"brew:gping" = "latest"  # ping alternative - test ip address reachability and latency
-"brew:oha" = "latest"    # ab alternative - benchmark http endpoints
-"brew:xh" = "latest"     # curl alternative - make http requests
-"brew:doggo" = "latest"  # dig alternative - lookup dns records (since dog is dead)
+"brew:somo" = "latest"  # port scanner
+"brew:gping" = "latest" # ping alternative - test ip address reachability and latency
+"brew:oha" = "latest"   # ab alternative - benchmark http endpoints
+"brew:xh" = "latest"    # curl alternative - make http requests
+"brew:doggo" = "latest" # dig alternative - lookup dns records (since dog is dead)
 
 # Capably
 "brew:awscli" = "latest"
