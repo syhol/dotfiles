@@ -11,7 +11,8 @@ mise bootstrap packages upgrade
 mise bootstrap packages prune --yes
 mise upgrade --yes
 mise prune --yes
-eval "$(/opt/homebrew/bin/brew shellenv)"
-brew upgrade || true
-brew upgrade --cask || true
+# No `brew upgrade` here: formulae AND casks are mise-managed via
+# [bootstrap.packages], and `mise bootstrap packages upgrade` (above) also
+# upgrades the transitive dependency closure — brew itself has nothing left
+# to upgrade (and `brew upgrade --cask` would fight mise's Caskroom layout).
 nvim --headless "+Lazy! update" +qa || true # upgrade nvim plugins, refresh lazy-lock.json

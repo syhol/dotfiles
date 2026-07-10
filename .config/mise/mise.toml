@@ -85,7 +85,6 @@ package_manager = "aube"
 "~/.config/bat" = {}
 "~/.config/broot" = {}
 "~/.config/btop" = {}
-"~/.config/brewfile" = {}
 "~/.config/delta" = {}
 "~/.config/dprint" = {}
 "~/.config/fish" = {}
@@ -116,18 +115,13 @@ login_shell = "/opt/homebrew/bin/fish"
 "~/Code/syhol/knowledge" = { url = "git@github.com:syhol/knowledge.git" }
 "~/Code/syhol/dotfiles" = { url = "git@github.com:syhol/dotfiles.git" }
 
-# --- Bootstrap: system packages (Homebrew formulae) ---------------------------
-# `mise bootstrap packages install` installs these formulae straight into the
-# Homebrew prefix. CASKS ARE NOT HERE: mise has gained a `brew-cask:` backend,
-# but it only handles casks whose artifacts are `app` bundles and/or simple
-# `pkg` installers — it errors on any other artifact type (`binary`, `font`,
-# `manpage`, `*_completion`, …). Roughly half of our casks trip that (VS Code,
-# the Nerd Fonts, docker-desktop, ghostty, kitty, wezterm, dbeaver, keepassxc,
-# libreoffice), so rather than split them across two files we keep ALL casks
-# (+ VS Code extensions) in the Brewfile, installed by the `bootstrap` task via
-# `brew bundle`. Revisit a full migration once brew-cask covers those artifacts.
-# NOTE: there is no equivalent of `brew bundle cleanup` — removing an entry here
-# does NOT uninstall the package; run `brew uninstall` manually if needed.
+# --- Bootstrap: system packages (Homebrew formulae + casks) -------------------
+# `mise bootstrap packages apply` installs these straight into the Homebrew
+# prefix: `brew:` formulae, and `brew-cask:` casks staged in the Caskroom with
+# apps/binaries/fonts/pkgs linked by mise itself (no Brewfile / `brew bundle`
+# anymore — mise's brew-cask backend now covers all our casks' artifact types).
+# `mise bootstrap packages prune` uninstalls packages removed from this list
+# (system:sync runs it).
 [bootstrap.packages]
 # Kubernetes & Docker
 "brew:kubernetes-cli" = "latest"
@@ -226,3 +220,28 @@ login_shell = "/opt/homebrew/bin/fish"
 "brew:dbus" = "latest"
 "brew:openssl@3" = "latest"
 "brew:pango" = "latest"
+
+# Casks: Capably / productivity
+# "brew-cask:libreoffice" = "latest"
+"brew-cask:1password" = "latest"
+
+# Casks: Fonts
+"brew-cask:font-meslo-lg-nerd-font" = "latest"
+"brew-cask:font-jetbrains-mono-nerd-font" = "latest"
+
+# Casks: Apps
+"brew-cask:google-chrome" = "latest"
+# "brew-cask:docker-desktop" = "latest"
+"brew-cask:ghostty" = "latest"
+# "brew-cask:kitty" = "latest"
+"brew-cask:wezterm" = "latest"
+"brew-cask:visual-studio-code" = "latest"
+"brew-cask:monitorcontrol" = "latest"
+"brew-cask:rectangle" = "latest"
+"brew-cask:mullvad-vpn" = "latest"
+"brew-cask:slack" = "latest"
+"brew-cask:keepassxc" = "latest"
+"brew-cask:syncthing-app" = "latest"
+"brew-cask:steam" = "latest"
+"brew-cask:discord" = "latest"
+"brew-cask:handy" = "latest"

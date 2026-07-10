@@ -16,19 +16,16 @@ mise bootstrap
 ```
 
 [`mise bootstrap`](https://mise.jdx.dev/bootstrap.html) installs
-`[bootstrap.packages]` (Homebrew formulae), applies `[dotfiles]`, sets the login
-shell, installs `[tools]`, and runs the `bootstrap` task (Homebrew casks via
-`brew bundle`, VS Code extensions via the `system:vscode-extensions` task, plus helm/gh plugins,
+`[bootstrap.packages]` (Homebrew formulae + casks), applies `[dotfiles]`, sets
+the login shell, installs `[tools]`, and runs the `bootstrap` task (VS Code
+extensions via the `system:vscode-extensions` task, plus helm/gh plugins,
 yazi packages, bat cache, and shell plugins).
 
-### Why casks aren't in `[bootstrap.packages]`
-
-mise's `brew-cask` support only installs plain `.app` casks; it rejects
-`binary`, `font`, `pkg`, `manpage`, and `bash_completion` artifacts (which rules
-out VS Code, the Nerd Fonts, docker-desktop, ghostty, kitty, wezterm, dbeaver,
-keepassxc, mullvad-vpn, libreoffice, …). So formulae live in `mise.toml` and
-casks live in `.config/brewfile/Brewfile`, installed by the `bootstrap` task
-with `brew bundle`. VS Code extensions are listed declaratively in
+Casks live in `[bootstrap.packages]` as
+[`brew-cask:`](https://mise.jdx.dev/bootstrap/packages/brew.html#casks) entries
+alongside the `brew:` formulae — mise stages them in the Caskroom and links
+apps/binaries/fonts/pkgs itself, so there is no Brewfile or `brew bundle`
+step. VS Code extensions are listed declaratively in
 `.config/vscode/extensions.txt` and installed by the `system:vscode-extensions` task.
 
 ## Layout
@@ -44,7 +41,6 @@ is never written back into the repo).
 - `.config/mise/mise.lock` — pinned tool versions.
 - `.config/mise/tasks/` — file tasks (`bootstrap`, `system:sync`,
   `system:vscode-extensions`, `system:dotfiles-unmanaged`).
-- `.config/brewfile/Brewfile` — Homebrew casks (formulae live in `mise.toml`).
 - `.config/vscode/extensions.txt` — declarative VS Code extension list
   (`mise run system:vscode-extensions` installs/updates them).
 - `.local/bin/` — personal scripts on `PATH` (`mx`, `themeset`, `vid-smol`).
@@ -58,7 +54,7 @@ it safely (also used by AI coding agents).
 
 ```sh
 mise bootstrap              # full first-time setup (packages, dotfiles, shell, tools)
-mise run bootstrap          # re-run just the imperative setup (casks, extensions, plugins)
+mise run bootstrap          # re-run just the imperative setup (extensions, plugins)
 mise run system:sync        # update everything (runs bootstrap, then upgrades)
 mise dotfiles status        # show what each dotfile maps to
 mise dotfiles apply         # (re)create symlinks / copies
@@ -70,5 +66,5 @@ mise bootstrap packages ls  # show package install status
 > Note: `mise.toml` uses [`[dotfiles]`](https://mise.jdx.dev/dotfiles.html) and
 > [`[bootstrap.*]`](https://mise.jdx.dev/bootstrap.html), which are experimental
 > mise features (`experimental = true` is set in settings).
-> Unlike `brew bundle cleanup`, removing a package from `[bootstrap.packages]`
-> does not uninstall it — run `brew uninstall` manually.
+> Removing a package from `[bootstrap.packages]` does not uninstall it
+> immediately — `mise bootstrap packages prune` does (run by `system:sync`).

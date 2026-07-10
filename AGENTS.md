@@ -36,7 +36,7 @@ mise loads globally. `mise dotfiles apply` deploys everything.
 | Kind | Location | Notes |
 |---|---|---|
 | Homebrew **formulae** | `mise.toml` `[bootstrap.packages]` as `"brew:<name>"` | installed by `mise bootstrap` |
-| Homebrew **casks** | `.config/brewfile/Brewfile` | mise can't install most casks; `bootstrap` task runs `brew bundle` |
+| Homebrew **casks** | `mise.toml` `[bootstrap.packages]` as `"brew-cask:<name>"` | installed by `mise bootstrap`; no Brewfile |
 | **VS Code extensions** | `.config/vscode/extensions.txt` | one id per line; `system:vscode-extensions` task installs via `code --install-extension` |
 | **Tool versions** | `mise.toml` `[tools]` | runtimes + CLIs |
 | **Tasks** | `.config/mise/tasks/<name>` | executable file tasks with `#MISE` headers |
@@ -67,7 +67,7 @@ Repo-root files that are **not** deployed to `$HOME` (no `[dotfiles]` entry):
   `[dotfiles]` entry (`"~/path" = {}` for a dir; `{ mode = "symlink" }` for a
   single file). `mise dotfiles apply`.
 - **Add a formula**: add `"brew:<name>" = "latest"` under `[bootstrap.packages]`.
-- **Add a cask**: add `cask "<name>"` to `.config/brewfile/Brewfile`.
+- **Add a cask**: add `"brew-cask:<name>" = "latest"` under `[bootstrap.packages]`.
 - **Add a VS Code extension**: add its id to `.config/vscode/extensions.txt`.
 - **Add a task**: drop an executable script in `.config/mise/tasks/` with a
   `#MISE description="…"` header (and `#MISE depends=[…]` if needed).
@@ -83,12 +83,12 @@ lifecycle:
 
 - **[`mise bootstrap`](https://mise.jdx.dev/bootstrap.html)** — a *built-in mise
   command*. It runs the declarative
-  setup in order: install `[bootstrap.packages]` (Homebrew formulae) → apply
-  `[dotfiles]` → set `[bootstrap.user]` login shell → install `[tools]` →
+  setup in order: install `[bootstrap.packages]` (Homebrew formulae + casks) →
+  apply `[dotfiles]` → set `[bootstrap.user]` login shell → install `[tools]` →
   **then run the `bootstrap` task** (step 8). This is the new-machine entry point.
 - **the `bootstrap` task** (`.config/mise/tasks/bootstrap`, also runnable as
   `mise run bootstrap`) — the *imperative leftovers* the declarative sections
-  can't express: installs Homebrew if missing, `brew bundle install` (casks),
+  can't express: installs Homebrew if missing,
   `mise run system:vscode-extensions` (extensions), then helm/gh plugins, `ya pkg install`,
   `bat cache --build`, and the per-shell `plugins.{bash,fish,zsh} sync`. It's
   idempotent — safe to re-run.
@@ -101,8 +101,9 @@ the command; to just re-run the imperative bits, `mise run bootstrap`.
 `mise run system:sync` is the day-to-day "update everything" command (it replaced the
 old `system-sync` script). It **`depends = ["bootstrap"]`**, so it first runs the
 whole `bootstrap` task (installing anything newly added), then upgrades:
-`mise bootstrap packages upgrade`, `mise self-update`, `mise upgrade`,
-`mise prune`, and `brew upgrade` / `brew upgrade --cask`.
+`mise bootstrap packages upgrade` (formulae + casks + their dependency
+closure), `mise bootstrap packages prune`, `mise self-update`, `mise upgrade`,
+and `mise prune`. No `brew upgrade` — brew has nothing mise doesn't manage.
 
 ### Helpers
 

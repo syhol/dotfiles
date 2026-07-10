@@ -217,8 +217,9 @@ checksum = "sha256:b0eb5e450a2e0bab298db724e895b3f86881f3653b4f12042e24699c112bb
 url = "https://github.com/openai/codex/releases/download/rust-v0.142.2/codex-x86_64-unknown-linux-musl.zst"
 
 [tools.codex."platforms.macos-arm64"]
-checksum = "sha256:bda03bc5361a25a8a0315c336bb7ff22652ff5e5a0b2c17892876a9f0e2806d9"
-url = "https://github.com/openai/codex/releases/download/rust-v0.142.2/codex-aarch64-apple-darwin.zst"
+checksum = "sha256:fd7e9479ab23c4a1d82b197e1fbbaae1b3ff0da3d2e5f0a4f37a44f991d9f7f2"
+url = "https://github.com/openai/codex/releases/download/rust-v0.142.2/codex-package-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/openai/codex/releases/assets/457407994"
 
 [tools.codex."platforms.macos-x64"]
 checksum = "sha256:c574842008a4869495ae63c5ba3df5533f3c143d101d61965951a0ef5db6241b"
@@ -729,8 +730,38 @@ url = "https://dl.google.com/go/go1.26.4.windows-amd64.zip"
 version = "1.0.0"
 backend = "http:acme.sh"
 
+[tools."http:acme.sh"."platforms.linux-arm64"]
+url = "https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh"
+
+[tools."http:acme.sh"."platforms.linux-arm64-musl"]
+url = "https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh"
+
+[tools."http:acme.sh"."platforms.linux-x64"]
+url = "https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh"
+
+[tools."http:acme.sh"."platforms.linux-x64-baseline"]
+url = "https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh"
+
+[tools."http:acme.sh"."platforms.linux-x64-musl"]
+url = "https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh"
+
+[tools."http:acme.sh"."platforms.linux-x64-musl-baseline"]
+url = "https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh"
+
 [tools."http:acme.sh"."platforms.macos-arm64"]
 checksum = "blake3:c1f68d7d63dcd16f351bdc1d851c7fc18e30d95798bee8752915bc5d083e8e85"
+url = "https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh"
+
+[tools."http:acme.sh"."platforms.macos-x64"]
+url = "https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh"
+
+[tools."http:acme.sh"."platforms.macos-x64-baseline"]
+url = "https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh"
+
+[tools."http:acme.sh"."platforms.windows-x64"]
+url = "https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh"
+
+[tools."http:acme.sh"."platforms.windows-x64-baseline"]
 url = "https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh"
 
 [[tools.node]]
