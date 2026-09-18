@@ -65,10 +65,6 @@ package_manager = "aube"
 "~/.ignore" = { mode = "symlink" }
 "~/.ssh/config" = { mode = "symlink" }
 "~/Library/Application Support/Code/User/settings.json" = { source = "~/Code/syhol/dotfiles/.config/vscode/settings.json", mode = "symlink" }
-# Declarative VS Code extension list, read by the `vscode` task. Deployed to a
-# stable ~/.config path (VS Code itself reads settings from the Library path).
-"~/.config/vscode/extensions.txt" = { source = "~/Code/syhol/dotfiles/.config/vscode/extensions.txt", mode = "symlink" }
-
 # mise's own config dir: symlink-each links mise.toml, mise.lock, and tasks/*
 # into ~/.config/mise/ so the config loads globally and `mise run sync` etc.
 # resolve the file tasks from anywhere.
@@ -116,13 +112,20 @@ login_shell = "/opt/homebrew/bin/fish"
 "~/Code/syhol/knowledge" = { url = "git@github.com:syhol/knowledge.git" }
 "~/Code/syhol/dotfiles" = { url = "git@github.com:syhol/dotfiles.git" }
 
+# --- Bootstrap: package-manager plugins ---------------------------------------
+# Installed in bootstrap's plugin phase, before the packages they manage.
+# `vscode:` entries in [bootstrap.packages] are VS Code extensions, driven by
+# the `code` CLI (replaces the old extensions.txt + system:vscode-extensions task).
+[bootstrap.plugins]
+vscode = "https://github.com/syhol/mise-plugin-vscode.git"
+
 # --- Bootstrap: system packages (Homebrew formulae + casks) -------------------
 # `mise bootstrap packages install` installs these straight into the Homebrew
 # prefix: `brew:` formulae and `brew-cask:` casks (mise's brew-cask backend now
 # handles `app`, `pkg`, `binary`, `font`, `manpage`, `command_wrapper` and
 # `*_completion` artifacts, so the old Brewfile + `brew bundle` step is gone).
 # Casks still land in the Caskroom and show up in `brew list --cask`.
-# VS Code extensions stay declarative in .config/vscode/extensions.txt.
+# VS Code extensions are `vscode:` entries at the bottom of this section.
 # NOTE: removing an entry here does NOT uninstall the package by itself — run
 # `mise bootstrap packages prune` (or `brew uninstall`) to drop it.
 [bootstrap.packages]
@@ -254,6 +257,69 @@ login_shell = "/opt/homebrew/bin/fish"
 "brew-cask:steam" = "latest"
 "brew-cask:discord" = "latest"
 "brew-cask:handy" = "latest"
+
+# --- VS Code extensions (vscode plugin) ---------------------------------------
+# VS Code Languages
+"vscode:denoland.vscode-deno" = "latest" # js/ts - deno
+"vscode:oven.bun-vscode" = "latest" # js/ts - bun
+"vscode:tamasfe.even-better-toml" = "latest" # toml
+"vscode:redhat.vscode-yaml" = "latest" # yaml
+"vscode:yzhang.markdown-all-in-one" = "latest" # markdown
+"vscode:hashicorp.terraform" = "latest" # hcl
+"vscode:matheusq94.tfs" = "latest" # hcl
+"vscode:mechatroner.rainbow-csv" = "latest" # csv
+"vscode:ms-python.debugpy" = "latest" # python
+"vscode:ms-python.python" = "latest" # python
+"vscode:ms-python.vscode-pylance" = "latest" # python
+"vscode:ms-python.vscode-python-envs" = "latest"
+"vscode:golang.go" = "latest" # go
+"vscode:rust-lang.rust-analyzer" = "latest" # rust
+"vscode:ms-vscode.makefile-tools" = "latest" # c/make
+"vscode:jakebecker.elixir-ls" = "latest" # elixir
+"vscode:thenuprojectcontributors.vscode-nushell-lang" = "latest" # nu
+"vscode:ms-azuretools.vscode-docker" = "latest" # docker (microsoft)
+"vscode:ms-azuretools.vscode-containers" = "latest" # docker (microsoft)
+"vscode:docker.docker" = "latest" # docker (docker inc)
+
+# VS Code Language Extras
+"vscode:biomejs.biome" = "latest" # js/ts
+"vscode:dprint.dprint" = "latest" # multi-language formatter
+"vscode:oxc.oxc-vscode" = "latest" # js/ts
+"vscode:charliermarsh.ruff" = "latest" # python
+"vscode:esbenp.prettier-vscode" = "latest" # js/html/css
+"vscode:dbaeumer.vscode-eslint" = "latest" # js
+"vscode:orta.vscode-jest" = "latest" # js
+"vscode:vitest.explorer" = "latest" # js
+"vscode:bradlc.vscode-tailwindcss" = "latest" # js/css
+"vscode:mkhl.shfmt" = "latest" # bash/sh
+"vscode:timonwong.shellcheck" = "latest" # bash/sh
+"vscode:editorconfig.editorconfig" = "latest" # all
+"vscode:johnnymorganz.stylua" = "latest"
+
+# VS Code Themes
+"vscode:catppuccin.catppuccin-vsc" = "latest"
+"vscode:dracula-theme.theme-dracula" = "latest"
+"vscode:enkia.tokyo-night" = "latest"
+"vscode:equinusocio.vsc-material-theme" = "latest"
+"vscode:equinusocio.vsc-material-theme-icons" = "latest"
+"vscode:zhuangtongfa.material-theme" = "latest"
+"vscode:mvllow.rose-pine" = "latest"
+
+# VS Code Tools
+"vscode:aikidosecurity.aikido" = "latest" # security
+"vscode:mirone.milkdown" = "latest" # markdown editor
+"vscode:ms-playwright.playwright" = "latest" # e2e testing
+"vscode:aaron-bond.better-comments" = "latest"
+"vscode:connor4312.esbuild-problem-matchers" = "latest"
+"vscode:eamodio.gitlens" = "latest"
+"vscode:foam.foam-vscode" = "latest"
+"vscode:hverlin.mise-vscode" = "latest"
+"vscode:ms-vscode-remote.remote-containers" = "latest"
+"vscode:ms-vscode.extension-test-runner" = "latest"
+"vscode:mushan.vscode-paste-image" = "latest"
+"vscode:pomdtr.excalidraw-editor" = "latest"
+"vscode:ryu1kn.partial-diff" = "latest"
+"vscode:anthropic.claude-code" = "latest"
 
 [bootstrap.brew.taps]
 "silverstein/tap" = "https://github.com/silverstein/homebrew-tap.git"

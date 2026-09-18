@@ -14,4 +14,7 @@ mise prune --yes
 eval "$(/opt/homebrew/bin/brew shellenv)"
 brew upgrade || true
 brew upgrade --cask || true
+# mise installs and pins extensions, but an unpinned one reads as satisfied, so
+# ask VS Code itself to pull newer builds.
+code --update-extensions || true
 nvim --headless "+Lazy! update" +qa || true # upgrade nvim plugins, refresh lazy-lock.json

@@ -37,7 +37,7 @@ mise loads globally. `mise dotfiles apply` deploys everything.
 |---|---|---|
 | Homebrew **formulae** | `mise.toml` `[bootstrap.packages]` as `"brew:<name>"` | installed by `mise bootstrap` |
 | Homebrew **casks** | `mise.toml` `[bootstrap.packages]` as `"brew-cask:<name>"` | installed by `mise bootstrap` |
-| **VS Code extensions** | `.config/vscode/extensions.txt` | one id per line; `system:vscode-extensions` task installs via `code --install-extension` |
+| **VS Code extensions** | `mise.toml` `[bootstrap.packages]` as `"vscode:<publisher>.<name>"` | needs the `vscode` plugin in `[bootstrap.plugins]` ([mise-plugin-vscode](https://github.com/syhol/mise-plugin-vscode)) |
 | **Tool versions** | `mise.toml` `[tools]` | runtimes + CLIs |
 | **Tasks** | `.config/mise/tasks/<name>` | executable file tasks with `#MISE` headers |
 | Personal scripts | `.local/bin/` | on `PATH` |
@@ -68,7 +68,8 @@ Repo-root files that are **not** deployed to `$HOME` (no `[dotfiles]` entry):
   single file). `mise dotfiles apply`.
 - **Add a formula**: add `"brew:<name>" = "latest"` under `[bootstrap.packages]`.
 - **Add a cask**: add `"brew-cask:<name>" = "latest"` under `[bootstrap.packages]`.
-- **Add a VS Code extension**: add its id to `.config/vscode/extensions.txt`.
+- **Add a VS Code extension**: add `"vscode:<publisher>.<name>" = "latest"` under
+  `[bootstrap.packages]`.
 - **Add a task**: drop an executable script in `.config/mise/tasks/` with a
   `#MISE description="…"` header (and `#MISE depends=[…]` if needed).
 
@@ -83,15 +84,15 @@ lifecycle:
 
 - **[`mise bootstrap`](https://mise.jdx.dev/bootstrap.html)** — a *built-in mise
   command*. It runs the declarative
-  setup in order: install `[bootstrap.packages]` (Homebrew formulae + casks) → apply
+  setup in order: install `[bootstrap.plugins]` (package-manager plugins) and
+  `[bootstrap.packages]` (Homebrew formulae + casks, VS Code extensions) → apply
   `[dotfiles]` → set `[bootstrap.user]` login shell → install `[tools]` →
   **then run the `bootstrap` task** (step 8). This is the new-machine entry point.
 - **the `bootstrap` task** (`.config/mise/tasks/bootstrap`, also runnable as
   `mise run bootstrap`) — the *imperative leftovers* the declarative sections
-  can't express: installs Homebrew if missing,
-  `mise run system:vscode-extensions` (extensions), then helm/gh plugins, `ya pkg install`,
-  `bat cache --build`, and the per-shell `plugins.{bash,fish,zsh} sync`. It's
-  idempotent — safe to re-run.
+  can't express: installs Homebrew if missing, then helm/gh plugins,
+  `ya pkg install`, `bat cache --build`, and the per-shell
+  `plugins.{bash,fish,zsh} sync`. It's idempotent — safe to re-run.
 
 So `mise bootstrap` (command) ⊇ the `bootstrap` task. On a fresh machine you run
 the command; to just re-run the imperative bits, `mise run bootstrap`.
@@ -106,8 +107,6 @@ whole `bootstrap` task (installing anything newly added), then upgrades:
 
 ### Helpers
 
-- `mise run system:vscode-extensions` — install/update VS Code extensions from
-  `.config/vscode/extensions.txt`. (Also invoked by `bootstrap`.)
 - `mise run system:dotfiles-unmanaged` — audit what mise doesn't manage: unmanaged
   files inside symlink-each dirs, plus top-level `~/.config` entries that have
   no `[dotfiles]` entry at all.

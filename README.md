@@ -16,18 +16,25 @@ mise bootstrap
 ```
 
 [`mise bootstrap`](https://mise.jdx.dev/bootstrap.html) installs
-`[bootstrap.packages]` (Homebrew formulae and casks), applies `[dotfiles]`, sets
-the login shell, installs `[tools]`, and runs the `bootstrap` task (VS Code
-extensions via the `system:vscode-extensions` task, plus helm/gh plugins, yazi
-packages, bat cache, and shell plugins).
+`[bootstrap.plugins]` (package-manager plugins) and `[bootstrap.packages]`
+(Homebrew formulae and casks, VS Code extensions), applies `[dotfiles]`, sets
+the login shell, installs `[tools]`, and runs the `bootstrap` task (helm/gh
+plugins, yazi packages, bat cache, and shell plugins).
 
-### Homebrew packages
+### Packages
 
-Both formulae (`brew:<name>`) and casks (`brew-cask:<name>`) live in `mise.toml`
-under `[bootstrap.packages]`; mise installs casks into the Homebrew prefix, so
-they still show up in `brew list --cask`. VS Code extensions are listed
-declaratively in `.config/vscode/extensions.txt` and installed by the
-`system:vscode-extensions` task.
+Everything installable lives in `mise.toml` under `[bootstrap.packages]`, keyed
+by manager:
+
+| Prefix | What |
+| --- | --- |
+| `brew:` | Homebrew formulae |
+| `brew-cask:` | Homebrew casks — mise installs them into the Homebrew prefix, so they still show up in `brew list --cask` |
+| `vscode:` | VS Code extensions, via [mise-plugin-vscode](https://github.com/syhol/mise-plugin-vscode) declared in `[bootstrap.plugins]` |
+
+An extension pinned to a version (`"vscode:foo.bar" = "1.2.3"`) is held there;
+unpinned ones read as satisfied once installed, so `system:sync` runs
+`code --update-extensions` to pull newer builds.
 
 ## Layout
 
@@ -41,9 +48,7 @@ is never written back into the repo).
   globally.
 - `.config/mise/mise.lock` — pinned tool versions.
 - `.config/mise/tasks/` — file tasks (`bootstrap`, `system:sync`,
-  `system:vscode-extensions`, `system:dotfiles-unmanaged`).
-- `.config/vscode/extensions.txt` — declarative VS Code extension list
-  (`mise run system:vscode-extensions` installs/updates them).
+  `system:dotfiles-unmanaged`).
 - `.local/bin/` — personal scripts on `PATH` (`mx`, `themeset`, `vid-smol`).
 - `.nvim.lua` — repo-local Neovim config (loaded via `exrc`); shows hidden
   files in snacks pickers while editing this repo. Run `:trust` once.
@@ -55,13 +60,13 @@ it safely (also used by AI coding agents).
 
 ```sh
 mise bootstrap              # full first-time setup (packages, dotfiles, shell, tools)
-mise run bootstrap          # re-run just the imperative setup (casks, extensions, plugins)
+mise run bootstrap          # re-run just the imperative setup (editor/CLI plugins, completions)
 mise run system:sync        # update everything (runs bootstrap, then upgrades)
 mise dotfiles status        # show what each dotfile maps to
 mise dotfiles apply         # (re)create symlinks / copies
-mise run system:vscode-extensions # install/update VS Code extensions
 mise run system:dotfiles-unmanaged # what mise doesn't manage (symlink-each dirs + ~/.config)
-mise bootstrap packages ls  # show package install status
+mise bootstrap packages ls  # show package install status (formulae, casks, extensions)
+mise bootstrap plugins status # show package-manager plugin status
 ```
 
 > Note: `mise.toml` uses [`[dotfiles]`](https://mise.jdx.dev/dotfiles.html) and

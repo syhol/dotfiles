@@ -41,8 +41,8 @@ printf '%s' "$status" \
 echo
 echo "── Top-level ~/.config (no dotfile entry) ──"
 # All managed targets, expanded to absolute paths (an entry counts as managed
-# if a target equals it or is nested under it, e.g. ~/.config/vscode is covered
-# by the ~/.config/vscode/extensions.txt entry).
+# if a target equals it or is nested under it, e.g. ~/.config/mise is covered
+# by the ~/.config/mise entry).
 targets=$(printf '%s' "$status" | jq -r '.files[].target' | sed "s#^~#$HOME#")
 found=0
 while IFS= read -r entry; do
