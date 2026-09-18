@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
-#MISE description="Install casks, VS Code extensions, plugins, and shell completions"
+#MISE description="Install VS Code extensions, plugins, and shell completions"
 #
 # Runs at the end of `mise bootstrap` (step 8), with tools on PATH. Covers
-# everything the declarative sections can't: Homebrew casks (via brew bundle),
-# VS Code extensions, helm/gh plugins, yazi packages, bat cache, shell plugins.
+# everything the declarative sections can't: VS Code extensions, helm/gh
+# plugins, yazi packages, bat cache, shell plugins. Homebrew formulae AND casks
+# are declarative now, in [bootstrap.packages].
 set -e
 
-# Homebrew is required for casks (mise's [bootstrap.packages] can't install
-# them). Install it if missing, then apply the Brewfile.
+# Homebrew backs [bootstrap.packages]; install it if missing (a fresh machine
+# that ran `mise bootstrap` will already have it from step 1).
 if ! command -v brew >/dev/null 2>&1; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 eval "$(/opt/homebrew/bin/brew shellenv)"
-brew bundle install --file ~/.config/brewfile/Brewfile
 
-# VS Code extensions (brew installed the `code` CLI via the visual-studio-code cask)
+# VS Code extensions (the visual-studio-code cask provides the `code` CLI)
 mise run system:vscode-extensions
 
 helm plugin install https://github.com/databus23/helm-diff || true
