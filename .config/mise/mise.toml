@@ -18,7 +18,7 @@ bun = "latest"
 aube = "latest"
 uv = "latest"
 go = "latest"
-usage = "latest"
+usage = "4"
 claude = "latest"
 codex = "latest"
 biome = "latest"
@@ -28,9 +28,10 @@ dprint = "latest"
 "github:janosmiko/lfk" = "latest"
 "github:schpet/linear-cli" = "1.10.0"
 "github:vercel-labs/agent-browser" = "latest"
-"http:acme.sh" = { version = "1.0.0", url = "https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh" }
+# "http:acme.sh" = { version = "1.0.0", url = "https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh" }
 "npm:@nubjs/nub" = "latest"
 "pipx:twg" = "latest"
+ruby = "3"
 
 [settings]
 experimental = true
@@ -159,11 +160,13 @@ login_shell = "/opt/homebrew/bin/fish"
 "brew:fd" = "latest"          # find alternative - search files by file name
 "brew:sd" = "latest"          # sed alternative - replace text
 "brew:choose-rust" = "latest" # cut alternative - extract text
+"brew:ugrep" = "latest"       # grep alternative - search files by contents (same API as gnu/bsd grep)
 "brew:ripgrep" = "latest"     # grep alternative - search files by contents
 "brew:dust" = "latest"        # du alternative - show directory disk usage
 "brew:btop" = "latest"        # top alternative - show processes using the most resources
 "brew:viddy" = "latest"       # watch alternative - rerun a command every n seconds
 "brew:sevenzip" = "latest"    # tar/zip alternative - compress and decompress archives
+"brew:ouch" = "latest"        # tar/zip alternative - compress and decompress archives
 "brew:tealdeer" = "latest"    # man alternative - help pages
 "brew:glow" = "latest"        # markdown viewer
 "brew:yazi" = "latest"        # filesystem explorer
@@ -226,3 +229,8 @@ login_shell = "/opt/homebrew/bin/fish"
 "brew:dbus" = "latest"
 "brew:openssl@3" = "latest"
 "brew:pango" = "latest"
+"brew-cask:silverstein/tap/minutes" = "latest"
+
+[bootstrap.brew.taps]
+"silverstein/tap" = "https://github.com/silverstein/homebrew-tap.git"
+
