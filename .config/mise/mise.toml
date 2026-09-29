@@ -32,6 +32,7 @@ dprint = "latest"
 "npm:@nubjs/nub" = "latest"
 "pipx:twg" = "latest"
 ruby = "3"
+tmux = "latest"
 
 [settings]
 experimental = true
@@ -93,6 +94,7 @@ package_manager = "aube"
 "~/.config/nvim" = {}
 "~/.config/shell" = {}
 "~/.config/themes" = {}
+"~/.config/tmux" = {}
 "~/.config/wezterm" = {}
 "~/.config/yazi" = {}
 "~/.config/zsh" = {}
@@ -124,6 +126,8 @@ login_shell = "/opt/homebrew/bin/fish"
 [bootstrap.repos]
 "~/Code/syhol/knowledge" = { url = "git@github.com:syhol/knowledge.git" }
 "~/Code/syhol/dotfiles" = { url = "git@github.com:syhol/dotfiles.git" }
+# tmux plugin manager; plugins it installs go alongside it (see .config/tmux/tmux.conf).
+"~/.local/share/tmux/plugins/tpm" = { url = "https://github.com/tmux-plugins/tpm.git" }
 
 # --- Bootstrap: package-manager plugins ---------------------------------------
 # Installed in bootstrap's plugin phase, before the packages they manage.
