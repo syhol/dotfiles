@@ -28,3 +28,35 @@ open it for him.
 - **Bare terminal** — no editor to drive. Make the edit myself, or suggest Simon
   type `! nvim <file>`, which runs it in-session so output lands in the
   conversation.
+
+# Reporting back on a Backlog ticket
+
+Simon tracks work as [Backlog.md](https://github.com/MrLesk/Backlog.md) tickets
+in his vault, `~/Code/syhol/knowledge/backlog/`. When I'm launched as a
+hand-off for one, the prompt starts with `Backlog ticket: TASK-<n>`. The
+ticket is how I talk back to Simon and his personal-account agent — they can't
+see this session otherwise.
+
+Report at milestones, not every turn: draft PR opened, tests/E2E results, a
+blocker or question for Simon, and a final report when I'm done. Run the CLI
+from the vault, where mise pins it:
+
+```sh
+cd ~/Code/syhol/knowledge && mise exec -- backlog task edit <n> \
+  --append-notes "$(date '+%Y-%m-%d %H:%M') [agent]: <report>" \
+  --add-label agent-update
+```
+
+- `--add-label agent-update` is the "unread" flag Simon's agent watches for —
+  always add it. It clears the flag once relayed.
+- Set the status by **whose move it is**, not by whether something is broken.
+  If I'm stopping and the next step is Simon's, pass `--status Waiting`. That
+  covers reviewing a draft PR, marking it ready, a question or decision, and a
+  dev-env reset I can't do. That's nearly every final report. Leave it at
+  `Doing` only while I'm still working. Never set `Done` — Simon decides that.
+  Say what the next step is and who takes it in the note.
+- Links (PR, CI run) go in the note text. Don't use `--ref`: it **replaces**
+  every reference on the ticket, and commas split an entry in two.
+- Say what I verified and what I didn't — a report is taken at its word.
+- Touch only my ticket, only through the CLI. Nothing else in the vault: no
+  other files, no git operations there.

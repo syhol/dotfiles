@@ -1,6 +1,8 @@
 {
   "permissions": {
-    "allow": ["mcp__claude_ai_Linear__get_issue"]
+    "allow": [
+      "mcp__claude_ai_Linear__get_issue"
+    ]
   },
   "model": "opus[1m]",
   "enabledPlugins": {
@@ -10,8 +12,9 @@
     "sentry@claude-plugins-official": true
   },
   "effortLevel": "high",
-  "tui": "default",
+  "tui": "fullscreen",
   "theme": "dark",
+  "agentPushNotifEnabled": true,
   "autoMode": {
     "allow": [
       "$defaults",
@@ -43,6 +46,5 @@
       "**Org-specific CLIs**: None configured",
       "routine under this repo's working tree (journal/, planning/, 1-projects/ through 4-archive/, templates/) is expected editing activity"
     ]
-  },
-  "agentPushNotifEnabled": true
+  }
 }

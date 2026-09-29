@@ -342,3 +342,7 @@ vscode = "https://github.com/syhol/mise-plugin-vscode.git"
 [bootstrap.brew.taps]
 "silverstein/tap" = "https://github.com/silverstein/homebrew-tap.git"
 
+[shell_alias]
+# Backlog board + channel-wired Claude in tmux; runs from anywhere.
+overseer = "mise -C ~/Code/syhol/knowledge run overseer"
+
