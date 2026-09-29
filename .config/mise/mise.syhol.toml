@@ -1,0 +1,6 @@
+# Personal projects use the personal Claude account. Claude Code reads its
+# login and state from CLAUDE_CONFIG_DIR, so everything under ~/Code/syhol gets
+# a separate config dir; its versioned files are symlinked from
+# .config/claude/personal by the [dotfiles] entries in .config/mise/mise.toml.
+[env]
+CLAUDE_CONFIG_DIR = "{{env.HOME}}/.local/share/claude-personal"

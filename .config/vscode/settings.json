@@ -50,5 +50,6 @@
 		"https://plugins.dprint.dev": true
 	},
 	"terminal.integrated.enableKittyKeyboardProtocol": false,
-	"aikido.coreUrl": "https://ide.aikido.dev"
+	"aikido.coreUrl": "https://ide.aikido.dev",
+	"claudeCode.hideOnboarding": true
 }
