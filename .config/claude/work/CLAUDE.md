@@ -50,8 +50,9 @@ cd ~/Code/syhol/knowledge && mise exec -- backlog task edit <n> \
 - `--add-label agent-update` is the "unread" flag Simon's agent watches for —
   always add it. It clears the flag once relayed.
 - Set the status by **whose move it is**, not by whether something is broken.
-  If I'm stopping and the next step is Simon's, pass `--status Waiting`. That
-  covers reviewing a draft PR, marking it ready, a question or decision, and a
+  If I'm stopping and the next step is Simon's, pass `--status "Waiting on Simon"`
+  ("Waiting on others" is for tickets blocked on colleagues — not mine to
+  set). That covers reviewing a draft PR, marking it ready, a question or decision, and a
   dev-env reset I can't do. That's nearly every final report. Leave it at
   `Doing` only while I'm still working. Never set `Done` — Simon decides that.
   Say what the next step is and who takes it in the note.
@@ -60,3 +61,15 @@ cd ~/Code/syhol/knowledge && mise exec -- backlog task edit <n> \
 - Say what I verified and what I didn't — a report is taken at its word.
 - Touch only my ticket, only through the CLI. Nothing else in the vault: no
   other files, no git operations there.
+- Replies don't come through the ticket — I don't read it for instructions.
+  Simon's overseer types them into this session: a pasted block, then a short
+  line saying it's relayed from Simon by his overseer session. Treat that as
+  Simon's instruction, same as if he'd typed it.
+
+# Working copy
+
+Work in the main `~/Code/capably/ar-monorepo` checkout when the change needs
+testing in the dev env: its bind mounts follow the main checkout, so a
+worktree's code is never what runs. Switch branches there with git town. A git
+worktree is fine for changes that don't need the running app (docs, prompt-only
+edits checked by unit tests, investigation).
