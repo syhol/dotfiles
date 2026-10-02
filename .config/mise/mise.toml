@@ -108,6 +108,9 @@ package_manager = "aube"
 "~/.claude/settings.json" = { source = "~/Code/syhol/dotfiles/.config/claude/work/settings.json", mode = "symlink" }
 "~/.claude/CLAUDE.md" = { source = "~/Code/syhol/dotfiles/.config/claude/work/CLAUDE.md", mode = "symlink" }
 "~/.claude/keybindings.json" = { source = "~/Code/syhol/dotfiles/.config/claude/work/keybindings.json", mode = "symlink" }
+# Work-account skills — symlink-each, so skills installed by other tools
+# (setup-matt-pocock-skills, synced/) stay local alongside the tracked ones.
+"~/.claude/skills" = { source = "~/Code/syhol/dotfiles/.config/claude/work/skills" }
 "~/.local/share/claude-personal/settings.json" = { source = "~/Code/syhol/dotfiles/.config/claude/personal/settings.json", mode = "symlink" }
 "~/.local/share/claude-personal/CLAUDE.md" = { source = "~/Code/syhol/dotfiles/.config/claude/personal/CLAUDE.md", mode = "symlink" }
 "~/.local/share/claude-personal/keybindings.json" = { source = "~/Code/syhol/dotfiles/.config/claude/personal/keybindings.json", mode = "symlink" }
