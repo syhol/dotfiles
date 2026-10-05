@@ -71,8 +71,9 @@ package_manager = "aube"
 # resolve the file tasks from anywhere.
 "~/.config/mise" = {}
 
-# Personal scripts on PATH (mx, themeset, vid-smol). symlink-each so the
-# runtime mise binary and other installed executables in ~/.local/bin coexist.
+# Personal scripts on PATH (mx, themeset, tmux-scrollback, vid-smol).
+# symlink-each so the runtime mise binary and other installed executables in
+# ~/.local/bin coexist.
 "~/.local/bin" = {}
 
 # Config dirs — symlink-each (the default): tracked files become symlinks while
@@ -341,6 +342,7 @@ vscode = "https://github.com/syhol/mise-plugin-vscode.git"
 "vscode:ryu1kn.partial-diff" = "latest"
 "vscode:anthropic.claude-code" = "latest"
 "brew-cask:caffeine" = "latest"
+"brew:television" = "latest"
 
 [bootstrap.brew.taps]
 "silverstein/tap" = "https://github.com/silverstein/homebrew-tap.git"
