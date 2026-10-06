@@ -2,12 +2,25 @@
 # Open a tmux pane's scrollback in a read-only nvim popup, for searching and
 # copying. q closes it. Bound to prefix + v in tmux.conf.
 #
+# A full-screen program (Claude Code's fullscreen TUI, for one) runs on the
+# alternate screen, which has no scrollback. If the pane is a Claude session,
+# show the whole session as Markdown instead (claude-session-md), including
+# history from before any compaction.
+#
 # -J joins soft-wrapped lines so long lines and URLs search and yank whole;
 # -S - takes the whole history, not just the visible screen.
 set -euo pipefail
 
 pane=${1:-$(tmux display-message -p '#{pane_id}')}
+alt=$(tmux display-message -p -t "$pane" '#{alternate_on}')
+title=" scrollback "
+ft=""
 f=$(mktemp -t scrollback)
-tmux capture-pane -p -J -S - -t "$pane" | perl -0pe 's/\s+\z/\n/' >"$f"
-tmux display-popup -E -w 95% -h 95% -T " scrollback " \
-  "nvim -R +'setl nomodifiable bufhidden=wipe' +'nnoremap <buffer> q <cmd>qa!<cr>' + '$f'; rm -f '$f'"
+if [[ $alt == 1 ]] && ~/.local/bin/claude-session-md --pane "$pane" >"$f" 2>/dev/null; then
+  title=" claude session "
+  ft="setl filetype=markdown"
+else
+  tmux capture-pane -p -J -S - -t "$pane" | perl -0pe 's/\s+\z/\n/' >"$f"
+fi
+tmux display-popup -E -w 95% -h 95% -T "$title" \
+  "nvim -R +'setl nomodifiable bufhidden=wipe' ${ft:++'$ft'} +'nnoremap <buffer> q <cmd>qa!<cr>' + '$f'; rm -f '$f'"

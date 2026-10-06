@@ -1,0 +1,119 @@
+#!/usr/bin/env python3
+"""Render a Claude Code session as Markdown, for reading in an editor.
+
+    claude-session-md --pane %18        # the Claude session running in that tmux pane
+    claude-session-md path/to/<id>.jsonl
+
+Finds the session for a pane from Claude Code's `sessions/<pid>.json` files,
+which record the tmux pane (`"tmux": "overseer:@13.%18"`), in every config dir
+(~/.claude and any CLAUDE_CONFIG_DIR). Exits 1 if the pane isn't running one.
+
+The whole session log is rendered, including history from before any
+compaction: your messages, Claude's replies, and each tool call with the first
+lines of its result. Thinking is skipped.
+"""
+import glob, json, os, re, sys
+
+CONFIG_DIRS = {os.path.expanduser("~/.claude"), os.path.expanduser("~/.local/share/claude-personal")}
+if os.environ.get("CLAUDE_CONFIG_DIR"):
+    CONFIG_DIRS.add(os.environ["CLAUDE_CONFIG_DIR"])
+RESULT_LINES = 8
+
+
+def alive(pid):
+    try:
+        os.kill(pid, 0)
+        return True
+    except (OSError, ValueError):
+        return False
+
+
+def log_for_pane(pane):
+    for d in CONFIG_DIRS:
+        for f in glob.glob(os.path.join(d, "sessions", "*.json")):
+            try:
+                s = json.load(open(f))
+            except (OSError, ValueError):
+                continue
+            if not str(s.get("tmux", "")).endswith("." + pane) or not alive(s.get("pid")):
+                continue
+            hits = glob.glob(os.path.join(d, "projects", "*", s["sessionId"] + ".jsonl"))
+            if hits:
+                return hits[0]
+    return None
+
+
+def strip_reminders(text):
+    return re.sub(r"<system-reminder>.*?</system-reminder>", "", text, flags=re.S).strip()
+
+
+def tool_call(part):
+    name, inp = part.get("name", "?"), part.get("input") or {}
+    arg = inp.get("command") or inp.get("file_path") or inp.get("pattern") or inp.get("url") or inp.get("description")
+    if arg is None:
+        arg = json.dumps(inp, ensure_ascii=False)
+    arg = " ".join(str(arg).split())
+    return f"⏺ {name}({arg[:200]}{'…' if len(arg) > 200 else ''})"
+
+
+def tool_result(part):
+    c = part.get("content")
+    if isinstance(c, list):
+        c = "\n".join(x.get("text", "") for x in c if isinstance(x, dict) and x.get("type") == "text")
+    lines = strip_reminders(str(c or "")).splitlines()
+    shown = "\n".join("  ⎿ " + l for l in lines[:RESULT_LINES])
+    more = f"\n  ⎿ … {len(lines) - RESULT_LINES} more lines" if len(lines) > RESULT_LINES else ""
+    return shown + more
+
+
+def render(path):
+    out = []
+    for line in open(path):
+        try:
+            e = json.loads(line)
+        except ValueError:
+            continue
+        kind, msg = e.get("type"), e.get("message") or {}
+        content = msg.get("content")
+        if e.get("isMeta"):  # injected skill instructions and the like
+            out.append("*(instructions loaded)*")
+            continue
+        if kind == "user" and isinstance(content, str):
+            m = re.search(r"<command-name>(.*?)</command-name>", content)
+            if m:
+                args = re.search(r"<command-args>(.*?)</command-args>", content, re.S)
+                content = m.group(1) + (" " + args.group(1).strip() if args and args.group(1).strip() else "")
+        if kind == "system" and "compact" in json.dumps(e):
+            out.append("\n---\n*(conversation compacted here)*\n---\n")
+        elif kind == "user" and isinstance(content, str):
+            text = strip_reminders(content)
+            if text:
+                out.append("\n## ❯ " + text.replace("\n", "\n   ") + "\n")
+        elif kind in ("user", "assistant") and isinstance(content, list):
+            for part in content:
+                t = part.get("type")
+                if t == "text":
+                    text = strip_reminders(part.get("text", ""))
+                    if text:
+                        out.append(("\n## ❯ " if kind == "user" else "\n") + text + "\n")
+                elif t == "tool_use":
+                    out.append(tool_call(part))
+                elif t == "tool_result":
+                    out.append(tool_result(part))
+    return "\n".join(out) + "\n"
+
+
+def main():
+    args = sys.argv[1:]
+    if len(args) == 2 and args[0] == "--pane":
+        path = log_for_pane(args[1])
+    elif len(args) == 1:
+        path = args[0]
+    else:
+        sys.exit(__doc__)
+    if not path:
+        sys.exit(1)
+    sys.stdout.write(render(path))
+
+
+main()
