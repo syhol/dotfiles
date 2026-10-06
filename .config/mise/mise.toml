@@ -65,13 +65,19 @@ package_manager = "aube"
 "~/.hushlogin" = { mode = "symlink" }
 "~/.ignore" = { mode = "symlink" }
 "~/.ssh/config" = { mode = "symlink" }
+# Karabiner rewrites karabiner.json when its app saves, replacing a symlinked
+# file; so link the whole directory instead. Its watcher doesn't see edits made
+# through the link, so after a hand edit reload it with:
+#   launchctl kickstart -k gui/$(id -u)/org.pqrs.service.agent.Karabiner-Console-User-Server
+"~/.config/karabiner" = { mode = "symlink" }
 "~/Library/Application Support/Code/User/settings.json" = { source = "~/Code/syhol/dotfiles/.config/vscode/settings.json", mode = "symlink" }
 # mise's own config dir: symlink-each links mise.toml, mise.lock, and tasks/*
 # into ~/.config/mise/ so the config loads globally and `mise run sync` etc.
 # resolve the file tasks from anywhere.
 "~/.config/mise" = {}
 
-# Personal scripts on PATH (mx, themeset, tmux-scrollback, vid-smol).
+# Personal scripts on PATH (mx, themeset, tmux-scrollback, claude-session-md,
+# vid-smol).
 # symlink-each so the runtime mise binary and other installed executables in
 # ~/.local/bin coexist.
 "~/.local/bin" = {}
@@ -343,6 +349,7 @@ vscode = "https://github.com/syhol/mise-plugin-vscode.git"
 "vscode:anthropic.claude-code" = "latest"
 "brew-cask:caffeine" = "latest"
 "brew:television" = "latest"
+"brew-cask:karabiner-elements" = "latest"
 
 [bootstrap.brew.taps]
 "silverstein/tap" = "https://github.com/silverstein/homebrew-tap.git"
