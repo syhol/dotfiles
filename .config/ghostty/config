@@ -29,7 +29,7 @@ command = /Users/simon/.local/share/mise/shims/tmux new-session -A -s main
 keybind = ctrl+tab=unbind
 keybind = ctrl+shift+tab=unbind
 keybind = super+t=text:\x01c
-# Closing asks first (tmux's & and x): a window may hold a worker.
+# Close window / pane at once (tmux's & and x, rebound without confirmation).
 keybind = super+w=text:\x01&
 keybind = super+shift+w=text:\x01x
 keybind = super+shift+left_bracket=text:\x01p
