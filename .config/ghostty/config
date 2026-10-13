@@ -17,3 +17,43 @@ macos-option-as-alt = left
 keybind = alt+left=unbind
 keybind = alt+right=unbind
 
+
+# --- tmux is home (2026-10-13) ----------------------------------------------
+# Every window opens straight into one tmux session ("main"); tmux windows
+# replace Ghostty tabs. The cmd keys below type the tmux prefix (C-a = \x01)
+# plus a key, so they assume tmux is running, which `command` guarantees.
+# cmd+q quits Ghostty and only detaches: the tmux server and its sessions
+# (overseer, workers) keep running.
+command = /Users/simon/.local/share/mise/shims/tmux new-session -A -s main
+# ctrl+tab / ctrl+shift+tab go through to tmux as extended keys (tmux.conf).
+keybind = ctrl+tab=unbind
+keybind = ctrl+shift+tab=unbind
+keybind = super+t=text:\x01c
+# Closing asks first (tmux's & and x): a window may hold a worker.
+keybind = super+w=text:\x01&
+keybind = super+shift+w=text:\x01x
+keybind = super+shift+left_bracket=text:\x01p
+keybind = super+shift+right_bracket=text:\x01n
+keybind = super+d=text:\x01%
+keybind = super+shift+d=text:\x01"
+keybind = super+shift+enter=text:\x01z
+# Session and window switcher (tmux's choose-tree, sessions with their windows).
+keybind = super+p=text:\x01w
+keybind = super+1=text:\x011
+keybind = super+digit_1=text:\x011
+keybind = super+2=text:\x012
+keybind = super+digit_2=text:\x012
+keybind = super+3=text:\x013
+keybind = super+digit_3=text:\x013
+keybind = super+4=text:\x014
+keybind = super+digit_4=text:\x014
+keybind = super+5=text:\x015
+keybind = super+digit_5=text:\x015
+keybind = super+6=text:\x016
+keybind = super+digit_6=text:\x016
+keybind = super+7=text:\x017
+keybind = super+digit_7=text:\x017
+keybind = super+8=text:\x018
+keybind = super+digit_8=text:\x018
+keybind = super+9=text:\x019
+keybind = super+digit_9=text:\x019
