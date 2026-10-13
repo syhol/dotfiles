@@ -32,6 +32,20 @@
                     }
                 ]
             },
+            "devices": [
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 50475,
+                        "vendor_id": 1133
+                    },
+                    "swap_grave_accent_and_non_us_backslash": true
+                },
+                {
+                    "identifiers": { "is_keyboard": true },
+                    "swap_grave_accent_and_non_us_backslash": true
+                }
+            ],
             "name": "Default profile",
             "selected": true,
             "virtual_hid_keyboard": { "keyboard_type_v2": "iso" }
