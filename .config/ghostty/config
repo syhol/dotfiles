@@ -33,6 +33,9 @@ keybind = super+t=text:\x01c
 # Close window / pane at once (tmux's & and x, rebound without confirmation).
 keybind = super+w=text:\x01&
 keybind = super+shift+w=text:\x01x
+# Paste goes through tmux's C-v, which sends Claude a ctrl+v when the clipboard
+# holds an image and pastes the text otherwise.
+keybind = super+v=text:\x01\x16
 keybind = super+d=text:\x01%
 keybind = super+shift+d=text:\x01"
 keybind = super+shift+enter=text:\x01z
