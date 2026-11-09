@@ -1,6 +1,10 @@
 {
   "permissions": {
     "allow": [
+      "Bash(tmux send-keys -t devenv:*)",
+      "Bash(tmux capture-pane:*)",
+      "Bash(tmux new-window -d -t devenv:*)",
+      "Bash(tmux list-windows:*)",
       "mcp__claude_ai_Linear__get_issue"
     ]
   },
@@ -46,5 +50,10 @@
       "**Org-specific CLIs**: None configured",
       "routine under this repo's working tree (journal/, planning/, 1-projects/ through 4-archive/, templates/) is expected editing activity"
     ]
+  },
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "autoCompactWindow": 400000
+    }
   }
 }

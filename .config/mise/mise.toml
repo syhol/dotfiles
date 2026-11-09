@@ -52,6 +52,10 @@ uvx = true
 [settings.npm]
 package_manager = "aube"
 
+[history.origin]
+url = "git@github.com:syhol/dotfiles.git"
+branch = "main"
+
 # --- Dotfiles -----------------------------------------------------------------
 # The repo root mirrors $HOME. With dotfiles.root set, an entry's source is
 # inferred from its home-relative target, so most entries are empty {}. Default
@@ -350,6 +354,7 @@ vscode = "https://github.com/syhol/mise-plugin-vscode.git"
 "brew-cask:caffeine" = "latest"
 "brew:television" = "latest"
 "brew-cask:karabiner-elements" = "latest"
+"brew:cmatrix" = "latest"
 
 [bootstrap.brew.taps]
 "silverstein/tap" = "https://github.com/silverstein/homebrew-tap.git"

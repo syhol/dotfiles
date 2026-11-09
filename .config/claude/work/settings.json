@@ -1,6 +1,10 @@
 {
   "permissions": {
     "allow": [
+      "Bash(tmux send-keys -t devenv:*)",
+      "Bash(tmux capture-pane:*)",
+      "Bash(tmux new-window -d -t devenv:*)",
+      "Bash(tmux list-windows:*)",
       "mcp__claude_ai_Linear__get_issue"
     ]
   },
