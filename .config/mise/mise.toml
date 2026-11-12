@@ -243,11 +243,14 @@ vscode = "https://github.com/syhol/mise-plugin-vscode.git"
 "brew:xh" = "latest"    # curl alternative - make http requests
 "brew:doggo" = "latest" # dig alternative - lookup dns records (since dog is dead)
 
+# Misc
+"brew:television" = "latest"
+"brew:cmatrix" = "latest"
+
 # Capably
 "brew:awscli" = "latest"
 "brew:watch" = "latest"
 "brew:cairo" = "latest"
-"brew:libolm" = "latest"
 "brew:automake" = "latest"
 "brew:libxmlsec1" = "latest"
 "brew:pkgconf" = "latest"
@@ -259,7 +262,6 @@ vscode = "https://github.com/syhol/mise-plugin-vscode.git"
 "brew:dbus" = "latest"
 "brew:openssl@3" = "latest"
 "brew:pango" = "latest"
-"brew-cask:silverstein/tap/minutes" = "latest"
 
 # --- Casks --------------------------------------------------------------------
 # Capably / productivity
@@ -288,42 +290,45 @@ vscode = "https://github.com/syhol/mise-plugin-vscode.git"
 "brew-cask:steam" = "latest"
 "brew-cask:discord" = "latest"
 "brew-cask:handy" = "latest"
+"brew-cask:caffeine" = "latest"
+"brew-cask:karabiner-elements" = "latest"
+"brew-cask:open-design" = "latest"
 
 # --- VS Code extensions (vscode plugin) ---------------------------------------
 # VS Code Languages
-"vscode:denoland.vscode-deno" = "latest" # js/ts - deno
-"vscode:oven.bun-vscode" = "latest" # js/ts - bun
-"vscode:tamasfe.even-better-toml" = "latest" # toml
-"vscode:redhat.vscode-yaml" = "latest" # yaml
-"vscode:yzhang.markdown-all-in-one" = "latest" # markdown
-"vscode:hashicorp.terraform" = "latest" # hcl
-"vscode:matheusq94.tfs" = "latest" # hcl
-"vscode:mechatroner.rainbow-csv" = "latest" # csv
-"vscode:ms-python.debugpy" = "latest" # python
-"vscode:ms-python.python" = "latest" # python
-"vscode:ms-python.vscode-pylance" = "latest" # python
+"vscode:denoland.vscode-deno" = "latest"                         # js/ts - deno
+"vscode:oven.bun-vscode" = "latest"                              # js/ts - bun
+"vscode:tamasfe.even-better-toml" = "latest"                     # toml
+"vscode:redhat.vscode-yaml" = "latest"                           # yaml
+"vscode:yzhang.markdown-all-in-one" = "latest"                   # markdown
+"vscode:hashicorp.terraform" = "latest"                          # hcl
+"vscode:matheusq94.tfs" = "latest"                               # hcl
+"vscode:mechatroner.rainbow-csv" = "latest"                      # csv
+"vscode:ms-python.debugpy" = "latest"                            # python
+"vscode:ms-python.python" = "latest"                             # python
+"vscode:ms-python.vscode-pylance" = "latest"                     # python
 "vscode:ms-python.vscode-python-envs" = "latest"
-"vscode:golang.go" = "latest" # go
-"vscode:rust-lang.rust-analyzer" = "latest" # rust
-"vscode:ms-vscode.makefile-tools" = "latest" # c/make
-"vscode:jakebecker.elixir-ls" = "latest" # elixir
+"vscode:golang.go" = "latest"                                    # go
+"vscode:rust-lang.rust-analyzer" = "latest"                      # rust
+"vscode:ms-vscode.makefile-tools" = "latest"                     # c/make
+"vscode:jakebecker.elixir-ls" = "latest"                         # elixir
 "vscode:thenuprojectcontributors.vscode-nushell-lang" = "latest" # nu
-"vscode:ms-azuretools.vscode-docker" = "latest" # docker (microsoft)
-"vscode:ms-azuretools.vscode-containers" = "latest" # docker (microsoft)
-"vscode:docker.docker" = "latest" # docker (docker inc)
+"vscode:ms-azuretools.vscode-docker" = "latest"                  # docker (microsoft)
+"vscode:ms-azuretools.vscode-containers" = "latest"              # docker (microsoft)
+"vscode:docker.docker" = "latest"                                # docker (docker inc)
 
 # VS Code Language Extras
-"vscode:biomejs.biome" = "latest" # js/ts
-"vscode:dprint.dprint" = "latest" # multi-language formatter
-"vscode:oxc.oxc-vscode" = "latest" # js/ts
-"vscode:charliermarsh.ruff" = "latest" # python
-"vscode:esbenp.prettier-vscode" = "latest" # js/html/css
-"vscode:dbaeumer.vscode-eslint" = "latest" # js
-"vscode:orta.vscode-jest" = "latest" # js
-"vscode:vitest.explorer" = "latest" # js
+"vscode:biomejs.biome" = "latest"             # js/ts
+"vscode:dprint.dprint" = "latest"             # multi-language formatter
+"vscode:oxc.oxc-vscode" = "latest"            # js/ts
+"vscode:charliermarsh.ruff" = "latest"        # python
+"vscode:esbenp.prettier-vscode" = "latest"    # js/html/css
+"vscode:dbaeumer.vscode-eslint" = "latest"    # js
+"vscode:orta.vscode-jest" = "latest"          # js
+"vscode:vitest.explorer" = "latest"           # js
 "vscode:bradlc.vscode-tailwindcss" = "latest" # js/css
-"vscode:mkhl.shfmt" = "latest" # bash/sh
-"vscode:timonwong.shellcheck" = "latest" # bash/sh
+"vscode:mkhl.shfmt" = "latest"                # bash/sh
+"vscode:timonwong.shellcheck" = "latest"      # bash/sh
 "vscode:editorconfig.editorconfig" = "latest" # all
 "vscode:johnnymorganz.stylua" = "latest"
 
@@ -337,9 +342,9 @@ vscode = "https://github.com/syhol/mise-plugin-vscode.git"
 "vscode:mvllow.rose-pine" = "latest"
 
 # VS Code Tools
-"vscode:aikidosecurity.aikido" = "latest" # security
-"vscode:mirone.milkdown" = "latest" # markdown editor
-"vscode:ms-playwright.playwright" = "latest" # e2e testing
+"vscode:aikidosecurity.aikido" = "latest"               # security
+"vscode:mirone.milkdown" = "latest"                     # markdown editor
+"vscode:ms-playwright.playwright" = "latest"            # e2e testing
 "vscode:aaron-bond.better-comments" = "latest"
 "vscode:connor4312.esbuild-problem-matchers" = "latest"
 "vscode:eamodio.gitlens" = "latest"
@@ -351,15 +356,7 @@ vscode = "https://github.com/syhol/mise-plugin-vscode.git"
 "vscode:pomdtr.excalidraw-editor" = "latest"
 "vscode:ryu1kn.partial-diff" = "latest"
 "vscode:anthropic.claude-code" = "latest"
-"brew-cask:caffeine" = "latest"
-"brew:television" = "latest"
-"brew-cask:karabiner-elements" = "latest"
-"brew:cmatrix" = "latest"
-
-[bootstrap.brew.taps]
-"silverstein/tap" = "https://github.com/silverstein/homebrew-tap.git"
 
 [shell_alias]
 # Backlog board + channel-wired Claude in tmux; runs from anywhere.
 overseer = "mise -C ~/Code/syhol/knowledge run overseer"
-
